@@ -20,7 +20,7 @@ use App\Http\Controllers\ContactController;
 */
 
 //pages principales
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index']);//->middleware('auth');
 Route::get('shop',[ShopController::class,'index']);
 Route::get('blogs',[BlogController::class,'index']);
 Route::get('contact',[ContactController::class,'index']);
@@ -31,7 +31,10 @@ Route::get('blog',[BlogController::class,'blog']);
 Route::get('login-register',[HomeController::class,'login']);
 
 
+//page de redirigé quand connection est établis
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[HomeController::class,'index'])->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
-})->name('dashboard');
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+     //return Inertia\Inertia::render('Dashboard');
+   Route::get('/',[HomeController::class,'index']);
+})->name('dashboard');*

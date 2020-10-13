@@ -46,9 +46,12 @@
 
 
 /*-- Google Font --*/
+
+
 /*#content{
   display:none;
 }*/
+
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Heebo:wght@300;400;500;600;700;800;900&family=Jost:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 /*-- Common Style --*/
@@ -4395,10 +4398,10 @@ textarea:focus {
 }
 
 .categori-search-wrap.categori-search-wrap-modify .search-wrap-3 form button:hover {
-
     font-weight: bold;
 }
-.categori-search-wrap.categori-search-wrap-modify .search-wrap-3 form button:hover i{
+
+.categori-search-wrap.categori-search-wrap-modify .search-wrap-3 form button:hover i {
     color: white;
     font-size: 30;
     font-weight: bold;
@@ -20845,4 +20848,23 @@ h3.cart-page-title {
 
 .order-tracking-content .order-tracking-form .order-track-btn a:hover {
     background-color: #ff2f2f;
+}
+
+.user_bulle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background-color: #bfe9fc;
+    border-radius: 30px;
+    color: rgb(52, 127, 189);
+    transition: 0.5s;
+}
+
+.user_bulle:hover {
+    font-weight: bold;
+    border: 1px solid rgb(52, 127, 189);
+    box-shadow: 0px, 0px, 5px, rgb(73, 73, 73);
 }

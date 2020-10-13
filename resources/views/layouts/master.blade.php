@@ -168,7 +168,13 @@
                             <div class="col-xl-3 col-lg-3">
                                 <div class="header-action header-action-flex">
                                     <div class="same-style-2 same-style-2-font-inc">
-                                        <a href="login-register"><i class="icon-user"></i></a>
+                                    @if ($user != null)
+                                    <a href="/user/profile" > <div class="user_bulle">{{substr($user->name,0,2)}}</div></a>
+                                    @else
+                                        <a href="/login"><i class="icon-user"></i></a>
+                                    @endif
+                                    
+                                    
                                     </div>
                                     <div class="same-style-2 same-style-2-font-inc">
                                         <a href="wishlist.html"><i class="icon-heart"></i><span class="pro-count purple">03</span></a>
