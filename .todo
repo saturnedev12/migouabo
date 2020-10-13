@@ -9,4 +9,10 @@
     <note priority="medium" time="1602463122">
         faire un programme qui utilise les deux première lettre du nom de l'utilisateur pour faire limage de profile quand on est connexté
     </note>
+    <note priority="medium" time="1602550175">
+        faire en sorte de recuperer les images du user
+    </note>
+    <note priority="medium" time="1602550202">
+        apprendre vueJS pour modifier la page de user
+    </note>
 </todo>
