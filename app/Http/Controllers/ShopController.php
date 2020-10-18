@@ -1,17 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
     public function index()
     {
-        return view('pages/shop');
+        $user = Auth::user();
+        $categories = DB::select('SELECT * FROM categories ORDER BY RAND()', [1]);
+        $products = DB::select('SELECT * FROM products ORDER BY RAND() LIMIT 0, 8', [1]);
+
+        return view('pages/shop',compact(
+            'user',
+            'categories',
+            'products'
+        ));
     }
     public function product()
     {
-        return view('pages/product-detail');
+        $user = Auth::user();
+        $categories = DB::select('SELECT * FROM categories ORDER BY RAND()', [1]);
+        $products = DB::select('SELECT * FROM products ORDER BY RAND() LIMIT 0, 8', [1]);
+
+        return view('pages/product-detail',compact(
+            'user',
+            'categories',
+            'products'
+        ));
     }
 }

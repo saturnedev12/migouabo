@@ -158,6 +158,8 @@
           </div>
       </div>
       <div class="product-slider-active-3 nav-style-3">
+        @foreach ($products as $product)
+          <!-- produit -->
           <div class="product-plr-1">
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
@@ -175,7 +177,7 @@
                       <div class="product-content-categories">
                           <a class="purple" href="shop.html">baby</a>
                       </div>
-                      <h3><a class="purple" href="product-details.html">Advantage Baby Milk</a></h3>
+                      <h3><a class="purple" href="product-details.html"> {{$product->name_products}} </a></h3>
                       <div class="product-rating-wrap-2">
                           <div class="product-rating-4">
                               <i class="icon_star"></i>
@@ -216,6 +218,8 @@
                   </div>
               </div>
           </div>
+          <!-- fin produit -->
+        @endforeach
           <div class="product-plr-1">
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
@@ -520,90 +524,22 @@
           </div>
       </div>
       <div class="product-categories-slider-1 nav-style-3">
+          @foreach ($categories as $categorie)  
+          <!--categorie-->
           <div class="product-plr-1">
               <div class="single-product-wrap">
                   <div class="product-img product-img-border mb-20">
                       <a href="shop.html">
                           <img src="assets/images/product/product-50.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">Fashion</a></h5>
-                  </div>
-              </div>
-          </div>
-          <div class="product-plr-1">
-              <div class="single-product-wrap">
-                  <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
-                          <img src="assets/images/product/product-51.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">Electronic</a></h5>
-                  </div>
-              </div>
-          </div>
-          <div class="product-plr-1">
-              <div class="single-product-wrap">
-                  <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
-                          <img src="assets/images/product/product-52.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">computer</a></h5>
-                  </div>
-              </div>
-          </div>
-          <div class="product-plr-1">
-              <div class="single-product-wrap">
-                  <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
-                          <img src="assets/images/product/product-53.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">beauty</a></h5>
-                  </div>
-              </div>
-          </div>
-          <div class="product-plr-1">
-              <div class="single-product-wrap">
-                  <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
-                          <img src="assets/images/product/product-54.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">sport</a></h5>
-                  </div>
-              </div>
-          </div>
-          <div class="product-plr-1">
-              <div class="single-product-wrap">
-                  <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
-                          <img src="assets/images/product/product-55.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">baby</a></h5>
-                  </div>
-              </div>
-          </div>
-          <div class="product-plr-1">
-              <div class="single-product-wrap">
-                  <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
-                          <img src="assets/images/product/product-52.png" alt="">
-                      </a>
-                  </div>
-                  <div class="product-content-categories-2 text-center">
-                      <h5><a href="shop.html">computer</a></h5>
-                  </div>
-              </div>
-          </div>
+                        </a>
+                    </div>
+                    <div class="product-content-categories-2 text-center">
+                        <h5><a href="shop.html"> {{$categorie->name_categorys}}  </a></h5>
+                    </div>
+                </div>
+            </div>
+            <!--fin-->
+        @endforeach
       </div>
   </div>
 </div>
@@ -640,1332 +576,129 @@
           </div>
       </div>
   </div>
-</div>http://localhost:8000/
-<div class="product-area pb-85">
-  <div class="container">
-      <div class="section-title-5 section-title-5-bg-1 mb-10">
-          <i class="red icon-screen-desktop"></i>
-          <h5 class="red">Consumer electric</h5>
-      </div>
-      <div class="row flex-row-reverse">
-          <div class="col-lg-9">
-              <div class="tab-style-7 tab-hm6-categories nav">
-                  <a class="active" href="#product-9" data-toggle="tab">Popular </a>
-                  <a href="#product-10" data-toggle="tab"> Best Seller </a>
-                  <a href="#product-11" data-toggle="tab">Sale </a>
-              </div>
-              <div class="tab-content tab-hm6-categories-slider tab-content-mrg-top jump">
-                  <div id="product-9" class="tab-pane active">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-46.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-47.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-48.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Phone 6s 64GB</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Phone 6s 64GB</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-49.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Phone A38</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Phone A38</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-47.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="product-10" class="tab-pane">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-49.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Phone A38</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Phone A38</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-48.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Phone 6s 64GB</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Phone 6s 64GB</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-47.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-46.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-48.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="product-11" class="tab-pane">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-47.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Coolpix Camera</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-46.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-49.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Phone A38</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Phone A38</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-48.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Norda Phone 6s 64GB</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Norda Phone 6s 64GB</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-46.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Mini Protector</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="padding-10-row-col">
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                          <div class="banner-wrap banner-border-1 mt-40 mb-30">
-                              <div class="banner-img banner-img-zoom">
-                                  <a href="product-details.html"><img src="assets/images/banner/banner-16.jpg" alt=""></a>
-                              </div>
-                              <div class="banner-content-15">
-                                  <div class="banner-content-15-top">
-                                      <div class="banner-content-15-brand">
-                                          <span>JATA</span>
-                                      </div>
-                                      <p>super bass <br>tech 2.0</p>
-                                  </div>
-                                  <h2>Jata Speaker</h2>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                          <div class="banner-wrap banner-border-1 banner-mt-none-xs mt-40 mb-30">
-                              <div class="banner-img banner-img-zoom">
-                                  <a href="product-details.html"><img src="assets/images/banner/banner-17.jpg" alt=""></a>
-                              </div>
-                              <div class="banner-content-16">
-                                  <h2>Microsoft Surface Pro 7 - 12.3”</h2>
-                                  <div class="banner-price">
-                                      <span class="old-price">$502.50</span>
-                                      <span>$425.60</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-3">
-              <div class="product-list-style-wrap">
-                  <div class="product-list-style">
-                      <a class="active" href="shop.html">Televisions </a>
-                      <a href="shop.html"> Air Conditions </a>
-                      <a href="shop.html">Washing Machine </a>
-                      <a href="shop.html">Laptop </a>
-                      <a href="shop.html">Computer </a>
-                      <a href="shop.html">Microwaves </a>
-                      <a href="shop.html">Equipments </a>
-                      <a href="shop.html">Accessories </a>
-                  </div>
-                  <div class="btn-style-8">
-                      <a href="shop.html">View All </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
 </div>
+
+<!--zone produit-->
+@foreach ($categories as $categorie)
 <div class="product-area pb-85">
-  <div class="container">
-      <div class="section-title-5 section-title-5-bg-2 mb-10">
-          <i class="purple icon-screen-desktop"></i>
-          <h5 class="purple">apparel & clothing</h5>
-      </div>
-      <div class="row flex-row-reverse">
-          <div class="col-lg-9">
-              <div class="tab-style-7 tab-hm6-categories nav">
-                  <a class="active" href="#product-12" data-toggle="tab">Popular </a>
-                  <a href="#product-13" data-toggle="tab"> Best Seller </a>
-                  <a href="#product-14" data-toggle="tab">Sale </a>
-              </div>
-              <div class="tab-content tab-hm6-categories-slider tab-content-mrg-top jump">
-                  <div id="product-12" class="tab-pane active">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-81.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-82.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-83.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$70.50 </span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$70.50 </span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-84.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Grey Watches</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Grey Watches</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-82.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="product-13" class="tab-pane">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-84.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Grey Watches</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Grey Watches</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-83.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-82.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$80.50 </span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$80.50 </span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-81.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-83.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="product-14" class="tab-pane">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-82.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Das Sport Sneaker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-81.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-84.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Grey Watches</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$70.50 </span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Grey Watches</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$70.50 </span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-83.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Duffles</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-81.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Brown T-shirt</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="padding-10-row-col">
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                          <div class="banner-wrap banner-border-1 mt-40 mb-30">
-                              <div class="banner-img banner-img-zoom">
-                                  <a href="product-details.html"><img src="assets/images/banner/banner-23.jpg" alt=""></a>
-                              </div>
-                              <div class="banner-content-19">
-                                  <h2>set 3 soften <br>shorts</h2>
-                                  <span>discount</span>
-                                  <h4>25% OFF</h4>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                          <div class="banner-wrap banner-border-1 banner-mt-none-xs mt-40 mb-30">
-                              <div class="banner-img banner-img-zoom">
-                                  <a href="product-details.html"><img src="assets/images/banner/banner-24.jpg" alt=""></a>
-                              </div>
-                              <div class="banner-content-21">
-                                  <span>mega sale</span>
-                                  <h2><span>50% OFF</span> Basic <br> Tee Flavor</h2>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-3">
-              <div class="product-list-style-wrap">
-                  <div class="product-list-style">
-                      <a class="active" href="shop.html">Men </a>
-                      <a href="shop.html">Women </a>
-                      <a href="shop.html">Girls </a>
-                      <a href="shop.html">Boys </a>
-                      <a href="shop.html">Kids </a>
-                      <a href="shop.html">Shoes </a>
-                      <a href="shop.html">Bags </a>
-                      <a href="shop.html">Accessories </a>
-                  </div>
-                  <div class="btn-style-8">
-                      <a href="shop.html">View All </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<div class="product-area pb-85">
-  <div class="container">
-      <div class="section-title-5 section-title-5-bg-3 mb-10">
-          <i class="green icon-screen-desktop"></i>
-          <h5 class="green">home & furniture</h5>
-      </div>
-      <div class="row flex-row-reverse">
-          <div class="col-lg-9">
-              <div class="tab-style-7 tab-hm6-categories nav">
-                  <a class="active" href="#product-15" data-toggle="tab">Popular </a>
-                  <a href="#product-16" data-toggle="tab"> Best Seller </a>
-                  <a href="#product-17" data-toggle="tab">Sale </a>
-              </div>
-              <div class="tab-content tab-hm6-categories-slider tab-content-mrg-top jump">
-                  <div id="product-15" class="tab-pane active">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-85.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Rice Cooker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Rice Cooker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-86.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-87.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Pack 10 Utensils</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Pack 10 Utensils</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-88.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Super Plastic Chair</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Super Plastic Chair</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-86.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="product-16" class="tab-pane">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-88.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Super Plastic Chair</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Super Plastic Chair</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-87.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Pack 10 Utensils</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Pack 10 Utensils</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-86.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-85.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Rice Cooker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Rice Cooker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-86.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="product-17" class="tab-pane">
-                      <div class="product-slider-active-5">
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-86.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-85.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">White Rice Cooker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">White Rice Cooker</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$38.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-88.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Super Plastic Chair</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Super Plastic Chair</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$938.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-87.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Pack 10 Utensils</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Pack 10 Utensils</a></h3>
-                                      <div class="product-price-2">
-                                          <span class="new-price">$1,238.50 </span>
-                                          <span class="old-price">$1,542.85</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="product-plr-1">
-                              <div class="single-product-wrap">
-                                  <div class="product-img product-img-zoom mb-15">
-                                      <a href="product-details.html">
-                                          <img src="assets/images/product/product-86.jpg" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="product-content-wrap-2 text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                  </div>
-                                  <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                      <h3><a href="product-details.html">Set 24 Knifes</a></h3>
-                                      <div class="product-price-2">
-                                          <span>$485.50</span>
-                                      </div>
-                                      <div class="pro-add-to-cart">
-                                          <button title="Add to Cart">Add To Cart</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="padding-10-row-col">
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                          <div class="banner-wrap banner-border-1 mt-40 mb-30">
-                              <div class="banner-img banner-img-zoom">
-                                  <a href="product-details.html"><img src="assets/images/banner/banner-25.jpg" alt=""></a>
-                              </div>
-                              <div class="banner-content-19">
-                                  <h2 class="capitalize">Magic Bullet <br>NutriBullet Blender</h2>
-                                  <span>discount</span>
-                                  <h4>25% OFF</h4>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                          <div class="banner-wrap banner-border-1 banner-mt-none-xs mt-40 mb-30">
-                              <div class="banner-img banner-img-zoom">
-                                  <a href="product-details.html"><img src="assets/images/banner/banner-26.jpg" alt=""></a>
-                              </div>
-                              <div class="banner-content-22">
-                                  <span>IKEA</span>
-                                  <h2>pendant <br>lighting</h2>
-                                  <p>lorem ispum dolor</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-3">
-              <div class="product-list-style-wrap">
-                  <div class="product-list-style">
-                      <a class="active" href="shop.html">Home Decor </a>
-                      <a href="shop.html" data-toggle="tab"> Furniture </a>
-                      <a href="shop.html" data-toggle="tab">Kitchen & Dinning </a>
-                      <a href="shop.html" data-toggle="tab">Bedding & Bath </a>
-                      <a href="shop.html" data-toggle="tab">Appliances </a>
-                      <a href="shop.html" data-toggle="tab">Patio & Gardens </a>
-                      <a href="shop.html" data-toggle="tab">Markdowns </a>
-                      <a href="shop.html" data-toggle="tab">Equipments </a>
-                  </div>
-                  <div class="btn-style-8">
-                      <a href="shop.html">View All </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+    <div class="container">
+        <div class="section-title-5 section-title-5-bg-2 mb-10">
+            <i class="purple icon-screen-desktop"></i>
+            <h5 class="purple"> {{$categorie->name_categorys}} </h5>
+        </div>
+        @php $i = 0;  @endphp
+        <div class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="tab-style-7 tab-hm6-categories nav">
+                    <!--les encres vers les sections--->
+                    @foreach ($sub_categorys as $sub_category)
+                        @if ($sub_category->name_categorys == $categorie->name_categorys)
+                            <a @if($i == 0) class="active" @endif href="#product-{{ $sub_category->id}}" data-toggle="tab"> {{ $sub_category->name_sub_categorys}} </a>
+                            @php $i++; @endphp
+                        @endif
+                    @endforeach
+                    <!--<a class="active" href="#product-12" data-toggle="tab">Popular </a>
+                    <a href="#product-13" data-toggle="tab"> Best Seller </a>
+                    <a href="#product-14" data-toggle="tab">Sale </a>--->
+                </div>
+                @php $i = 0;  @endphp
+                <div class="tab-content tab-hm6-categories-slider tab-content-mrg-top jump">
+                    <!--zone prise par l'id affichage de section de sous categorie-->
+                    @foreach ($sub_categorys as $sub_category)
+                        @if ($sub_category->name_categorys == $categorie->name_categorys)
+                            <div id="product-{{ $sub_category->id}}" class="tab-pane @if($i == 0) {{"active"}} @endif">
+
+                                <div class="product-slider-active-5">
+                                    @foreach ($products_all as $product)
+                                    @if ($product->id_sub_category == $sub_category->id)
+                                        <div class="product-plr-1" style="background-color: red;">
+                                            <div class="single-product-wrap">
+                                                <div class="product-img product-img-zoom mb-15">
+                                                    <a href="product-details.html">
+                                                        <img src="assets/images/product/product-81.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content-wrap-2 text-center">
+                                                    <h3><a href="product-details.html"> {{$product->name_products}} </a></h3>
+                                                    <div class="product-price-2">
+                                                        <span>$38.50</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
+                                                    <h3><a href="product-details.html">Brown T-shirt</a></h3>
+                                                    <div class="product-price-2">
+                                                        <span>$38.50</span>
+                                                    </div>
+                                                    <div class="pro-add-to-cart">
+                                                        <button title="Add to Cart">Add To Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            @php $i++; @endphp          
+                        @endif
+                    @endforeach
+                    @php $i=0; @endphp
+                </div>
+
+                <div class="padding-10-row-col">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="banner-wrap banner-border-1 mt-40 mb-30">
+                                <div class="banner-img banner-img-zoom">
+                                    <a href="product-details.html"><img src="assets/images/banner/banner-23.jpg" alt=""></a>
+                                </div>
+                                <div class="banner-content-19">
+                                    <h2>set 3 soften <br>shorts</h2>
+                                    <span>discount</span>
+                                    <h4>25% OFF</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="banner-wrap banner-border-1 banner-mt-none-xs mt-40 mb-30">
+                                <div class="banner-img banner-img-zoom">
+                                    <a href="product-details.html"><img src="assets/images/banner/banner-24.jpg" alt=""></a>
+                                </div>
+                                <div class="banner-content-21">
+                                    <span>mega sale</span>
+                                    <h2><span>50% OFF</span> Basic <br> Tee Flavor</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="product-list-style-wrap">
+                    <div class="product-list-style">
+                       
+
+                        @foreach ($sub_categorys as $sub_category)
+                            @if ($sub_category->name_categorys == $categorie->name_categorys)
+                                <a href="shop.html"> {{ $sub_category->name_sub_categorys}} </a>
+                            @endif
+                        @endforeach
+                        
+
+                    </div>
+                    <div class="btn-style-8">
+                        <a href="shop.html">voir tout </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+@endforeach
+<!--fin zone produit-->
+
 <div class="about-us-area pb-115">
   <div class="container">
       <div class="about-us-content-2">

@@ -83,7 +83,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/logo/migouabo.png" alt="logo"></a>
+                                    <a href=""><img src="assets/images/logo/migouabo.png" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-7">
@@ -91,76 +91,23 @@
                                     <nav>
                                         <ul>
                                             <li><a href="/">HOME <span class="bg-red">HOT</span></a>
-                                                <ul class="sub-menu-style">
-                                                    <li><a href="index.html">Home version 1 </a></li>
-                                                    <li><a href="index-2.html">Home version 2</a></li>
-                                                    <li><a href="index-3.html">Home version 3</a></li>
-                                                    <li><a href="index-4.html">Home version 4</a></li>
-                                                    <li><a href="index-5.html">Home version 5</a></li>
-                                                    <li><a href="index-6.html">Home version 6</a></li>
-                                                    <li><a href="index-7.html">Home version 7</a></li>
-                                                    <li><a href="index-8.html">Home version 8</a></li>
-                                                    <li><a href="index-9.html">Home version 9</a></li>
-                                                    <li><a href="index-10.html">Home version 10</a></li>
-                                                </ul>
+                                                
                                             </li>
-                                            <li><a href="shop">SHOP </a>
-                                                <ul class="mega-menu-style mega-menu-mrg-1">
-                                                    <li>
-                                                        <ul>
-                                                            <li>
-                                                                <a class="dropdown-title" href="#">Shop Layout</a>
-                                                                <ul>
-                                                                    <li><a href="shop.html">standard style</a></li>
-                                                                    <li><a href="shop-list.html">shop list style</a></li>
-                                                                    <li><a href="shop-fullwide.html">shop fullwide</a></li>
-                                                                    <li><a href="shop-no-sidebar.html">grid no sidebar</a></li>
-                                                                    <li><a href="shop-list-no-sidebar.html">list no sidebar</a></li>
-                                                                    <li><a href="shop-right-sidebar.html">shop right sidebar</a></li>
-                                                                    <li><a href="store-location.html">store location</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-title" href="#">Products Layout</a>
-                                                                <ul>
-                                                                    <li><a href="product-details.html">tab style 1</a></li>
-                                                                    <li><a href="product-details-2.html">tab style 2</a></li>
-                                                                    <li><a href="product-details-sticky.html">sticky style</a></li>
-                                                                    <li><a href="product-details-gallery.html">gallery style </a></li>
-                                                                    <li><a href="product-details-affiliate.html">affiliate style</a></li>
-                                                                    <li><a href="product-details-group.html">group style</a></li>
-                                                                    <li><a href="product-details-fixed-img.html">fixed image style </a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <a href="shop.html"><img src="assets/images/banner/banner-12.png" alt=""></a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                            <li><a href=" {{route('shop')}}  ">SHOP </a>
+                                                
                                             </li>
-                                            <li><a href="#">PAGES </a>
+                                            <li><a href="{{route('blogs')}}">BLOG <span class="bg-green">NEW</span></a>
+                                            </li>
+                                            <li><a href="{{route('contact')}}">CONTACT </a></li>
+                                            <li><a href="#">A PROPOS </a>
                                                 <ul class="sub-menu-style">
                                                     <li><a href="about-us.html">about us </a></li>
-                                                    <li><a href="cart.html">cart page</a></li>
-                                                    <li><a href="checkout.html">checkout </a></li>
-                                                    <li><a href="my-account.html">my account</a></li>
                                                     <li><a href="wishlist.html">wishlist </a></li>
                                                     <li><a href="compare.html">compare </a></li>
-                                                    <li><a href="contact.html">contact us </a></li>
                                                     <li><a href="order-tracking.html">order tracking</a></li>
                                                     <li><a href="login-register.html">login / register </a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="blogs">BLOG <span class="bg-green">NEW</span></a>
-                                                <ul class="sub-menu-style">
-                                                    <li><a href="blog.html">blog standard </a></li>
-                                                    <li><a href="blog-no-sidebar.html">blog no sidebar </a></li>
-                                                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact">CONTACT </a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -168,11 +115,38 @@
                             <div class="col-xl-3 col-lg-3">
                                 <div class="header-action header-action-flex">
                                     <div class="same-style-2 same-style-2-font-inc">
-                                    @if ($user != null)
-                                    <a href="/user/profile" > <div class="user_bulle">{{substr($user->name,0,2)}}</div></a>
-                                    @else
-                                        <a href="/login"><i class="icon-user"></i></a>
-                                    @endif
+                                    @auth
+                                        <!--  <a href="/user/profile" > <div class="user_bulle"></div></a>
+                                        Example single danger button -->
+                                        <div class="dropdown user_bulle">
+                                            <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{substr($user->name,0,2)}}
+                                            </a>
+                                        
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="/user/profile">profile</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">se déconnecter</a>
+                                            
+                                            </div>
+                                        </div> 
+                                        @else
+                                            <!-- <a href="/login"><i class="icon-user"></i></a>
+                                            Example single danger button -->
+                                            <div class="dropdown user_bulle">
+                                                <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="icon-user"></i>
+                                                </a>
+                                            
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="login">se connecter</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="register">s'enrégistrer</a>
+                                                
+                                                </div>
+                                            </div>
+                                    @endauth  
+                            
                                     
                                     
                                     </div>
@@ -311,14 +285,11 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="cr-dropdown"><a href="shop.html">Baby Boy </a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">Accessories </a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">Shoes</a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">Shirt</a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">T-Shirt</a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">Coat</a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">Jeans</a></li>
-                                                <li class="cr-dropdown"><a href="shop.html">Collection </a></li>
+                                                <!--categorie-->
+                                                @foreach ($categories as $categorie)
+                                                    <li class="cr-dropdown"><a href="shop.html">{{$categorie->name_categorys}} </a></li>
+                                                @endforeach
+
                                             </ul>
                                         </nav>
                                     </div>
@@ -617,14 +588,10 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="shop.html">Baby Boy </a></li>
-                                    <li><a href="shop.html">Accessories </a></li>
-                                    <li><a href="shop.html">Shoes </a></li>
-                                    <li><a href="shop.html">Shirt </a></li>
-                                    <li><a href="shop.html">T-Shirt </a></li>
-                                    <li><a href="shop.html">Coat </a></li>
-                                    <li><a href="shop.html">Jeans </a></li>
-                                    <li><a href="shop.html">Collection </a></li>
+                                    <!--toutes les categories-->
+                                    @foreach ($categories as $categorie)
+                                        <li><a href="shop.html"> {{$categorie->name_categorys}} </a></li>
+                                    @endforeach
                                 </ul>
                             </nav>
                         </div>
@@ -940,9 +907,6 @@
     </div>
   <!--fin corpd de page-->
 
-  <div class="bar spinner-grow text-success" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
     <!-- All JS is here
 ============================================ -->
 
@@ -969,14 +933,7 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="jquery.js"></script>
-    <!--<script type="text/javascript">
-      $(document).ready(function(){
-        $(".bar").fadeOut(3000,function(){
-          $('#content').show();
-          $('#content').style.display = 'block';
-        });
-      });
-    </script>-->
+ 
 
 </body>
 

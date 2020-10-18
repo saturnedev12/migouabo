@@ -20,15 +20,15 @@ use App\Http\Controllers\ContactController;
 */
 
 //pages principales
-Route::get('/',[HomeController::class,'index']);//->middleware('auth');
-Route::get('shop',[ShopController::class,'index']);
-Route::get('blogs',[BlogController::class,'index']);
-Route::get('contact',[ContactController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('index');//->middleware('auth');
+Route::get('shop',[ShopController::class,'index'])->name('shop');
+Route::get('blogs',[BlogController::class,'index'])->name('blogs');
+Route::get('contact',[ContactController::class,'index'])->name('contact');
 
 //sous pages
-Route::get('product',[ShopController::class,'product']);
-Route::get('blog',[BlogController::class,'blog']);
-Route::get('login-register',[HomeController::class,'login']);
+Route::get('product',[ShopController::class,'product'])->name('product');
+Route::get('blog',[BlogController::class,'blog'])->name('blog');
+Route::get('login-register',[HomeController::class,'login'])->name('login-register');
 
 
 //page de redirigé quand connection est établis

@@ -1,18 +1,9 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1602462853">
-        faire l'affichage quand on est connecté
+    <note priority="medium" time="1603064477">
+        régler les modales pour chaques produits
     </note>
-    <note priority="medium" time="1602462927">
-        faire un system pour rediriger vers la page ou on gère le profil de l'utilisateur
-    </note>
-    <note priority="medium" time="1602463122">
-        faire un programme qui utilise les deux première lettre du nom de l'utilisateur pour faire limage de profile quand on est connexté
-    </note>
-    <note priority="medium" time="1602550175">
-        faire en sorte de recuperer les images du user
-    </note>
-    <note priority="medium" time="1602550202">
-        apprendre vueJS pour modifier la page de user
+    <note priority="medium" time="1603064521">
+        rendre la page shop et ses chemins fonctionels
     </note>
 </todo>
