@@ -22,9 +22,9 @@ use App\Http\Controllers\ContactController;
 //pages principales
 Route::get('/',[HomeController::class,'index'])->name('index');//->middleware('auth');
 Route::get('shop',[ShopController::class,'index'])->name('shop');
+Route::get('shop_sub',[ShopController::class,'shop_sub'])->name('shop_sub');
 Route::get('blogs',[BlogController::class,'index'])->name('blogs');
 Route::get('contact',[ContactController::class,'index'])->name('contact');
-
 //sous pages
 Route::get('product',[ShopController::class,'product'])->name('product');
 Route::get('blog',[BlogController::class,'blog'])->name('blog');

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1603064477">
-        régler les modales pour chaques produits
+    <note priority="medium" time="1603379499">
+        rendre la page produit détaille conctionnel
     </note>
-    <note priority="medium" time="1603064521">
-        rendre la page shop et ses chemins fonctionels
+    <note priority="medium" time="1603379535">
+        commencer a organiser les produits de la base de donnée sur papier
     </note>
 </todo>

@@ -169,7 +169,7 @@
                       <span class="pro-badge left bg-red">-40%</span>
                       <div class="product-action-2 tooltip-style-2">
                           <button title="Wishlist"><i class="icon-heart"></i></button>
-                          <button title="Quick View" data-toggle="modal" data-target="#exampleModal"><i class="icon-size-fullscreen icons"></i></button>
+                          <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                           <button title="Compare"><i class="icon-refresh"></i></button>
                       </div>
                   </div>
@@ -524,17 +524,17 @@
           </div>
       </div>
       <div class="product-categories-slider-1 nav-style-3">
-          @foreach ($categories as $categorie)  
+          @foreach ($categories as $categorie)
           <!--categorie-->
           <div class="product-plr-1">
               <div class="single-product-wrap">
                   <div class="product-img product-img-border mb-20">
-                      <a href="shop.html">
+                      <a href="{{route('shop',['id_category'=>$categorie->id])}}">
                           <img src="assets/images/product/product-50.png" alt="">
                         </a>
                     </div>
                     <div class="product-content-categories-2 text-center">
-                        <h5><a href="shop.html"> {{$categorie->name_categorys}}  </a></h5>
+                        <h5><a href="{{route('shop',['id_category'=>$categorie->name_categorys])}}"> {{$categorie->name_categorys}}  </a></h5>
                     </div>
                 </div>
             </div>
@@ -597,15 +597,13 @@
                             @php $i++; @endphp
                         @endif
                     @endforeach
-                    <!--<a class="active" href="#product-12" data-toggle="tab">Popular </a>
-                    <a href="#product-13" data-toggle="tab"> Best Seller </a>
-                    <a href="#product-14" data-toggle="tab">Sale </a>--->
+                    
                 </div>
                 @php $i = 0;  @endphp
                 <div class="tab-content tab-hm6-categories-slider tab-content-mrg-top jump">
-                    <!--zone prise par l'id affichage de section de sous categorie-->
+                    <!--zone prise par l'id affichage de section de sous categorie et 4 exemple de produits qu'il contient-->
                     @foreach ($sub_categorys as $sub_category)
-                        @if ($sub_category->name_categorys == $categorie->name_categorys)
+                        @if ($sub_category->id_category == $categorie->id)
                             <div id="product-{{ $sub_category->id}}" class="tab-pane @if($i == 0) {{"active"}} @endif">
 
                                 <div class="product-slider-active-5">
@@ -640,7 +638,7 @@
 
                                 </div>
                             </div>
-                            @php $i++; @endphp          
+                            @php $i++; @endphp
                         @endif
                     @endforeach
                     @php $i=0; @endphp
@@ -677,14 +675,14 @@
             <div class="col-lg-3">
                 <div class="product-list-style-wrap">
                     <div class="product-list-style">
-                       
+
 
                         @foreach ($sub_categorys as $sub_category)
                             @if ($sub_category->name_categorys == $categorie->name_categorys)
-                                <a href="shop.html"> {{ $sub_category->name_sub_categorys}} </a>
+                                <a href="{{route('shop_sub',['sub_category'=>$sub_category->name_sub_categorys])}}"> {{ $sub_category->name_sub_categorys}} </a>
                             @endif
                         @endforeach
-                        
+
 
                     </div>
                     <div class="btn-style-8">
@@ -695,7 +693,7 @@
         </div>
     </div>
     </div>
-    
+
 @endforeach
 <!--fin zone produit-->
 
@@ -715,5 +713,5 @@
       </div>
   </div>
 </div>
-    
+
 @endsection

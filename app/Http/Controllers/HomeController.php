@@ -15,6 +15,12 @@ class HomeController extends Controller
             Auth::user(); recuperer l'auth courant
           */    
         
+        /*
+            capture de l'auth et de certains elements dans la base de donnée,
+            prise de tout produit et des informations sur leur categorie ou leurs
+            sous categorie par jointure de tables
+
+        */
         $user = Auth::user();
         $categories = DB::select('SELECT * FROM categories ORDER BY RAND()', [1]);
         $products = DB::select('SELECT * FROM products ORDER BY RAND() LIMIT 0, 8', [1]);
