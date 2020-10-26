@@ -704,7 +704,7 @@
                               <div class="col-lg-5 col-md-6 col-12 col-sm-12">
                                   <div class="tab-content quickview-big-img">
                                       <div id="pro-1" class="tab-pane fade show active">
-                                          <img src="assets/images/product/product-1.jpg" alt="">
+                                          <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                                       </div>
                                       <div id="pro-2" class="tab-pane fade">
                                           <img src="assets/images/product/product-3.jpg" alt="">

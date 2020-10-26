@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1603379499">
-        rendre la page produit détaille conctionnel
-    </note>
     <note priority="medium" time="1603379535">
         commencer a organiser les produits de la base de donnée sur papier
+    </note>
+    <note priority="medium" time="1603452566">
+        telecharger les images de chaques produits
+    </note>
+    <note priority="medium" time="1603452586">
+        remplire de manière optimal le site
     </note>
 </todo>

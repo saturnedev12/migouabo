@@ -96,8 +96,8 @@
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
-                                                            <a href="product-details.html">
-                                                                <img src="assets/images/product/product-13.jpg" alt="">
+                                                            <a href="{{route('product',['id_product'=>$product->id])}}">
+                                                            <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -116,7 +116,7 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                            <h3><a href="product-details.html">Basic Joggin Shorts</a></h3>
+                                                        <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
                                                             <div class="product-price-2">
                                                                 <span>$20.50</span>
                                                             </div>
@@ -151,8 +151,8 @@
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
-                                                                <a href="product-details.html">
-                                                                    <img src="assets/images/product/product-13.jpg" alt="">
+                                                                <a href="{{route('product',['id_product'=>$product->id])}}">
+                                                                    <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -171,7 +171,7 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                                <h3><a href="product-details.html">Basic Joggin Shorts</a></h3>
+                                                            <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
                                                                 <div class="product-price-2">
                                                                     <span>$20.50</span>
                                                                 </div>

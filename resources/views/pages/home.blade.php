@@ -163,7 +163,7 @@
           <div class="product-plr-1">
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
-                      <a href="product-details.html">
+                      <a href="{{route('product',['id_product'=>$product->id])}}">
                           <img src="assets/images/product/product-41.jpg" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-40%</span>
@@ -177,7 +177,7 @@
                       <div class="product-content-categories">
                           <a class="purple" href="shop.html">baby</a>
                       </div>
-                      <h3><a class="purple" href="product-details.html"> {{$product->name_products}} </a></h3>
+                      <h3><a class="purple" href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name_products}} </a></h3>
                       <div class="product-rating-wrap-2">
                           <div class="product-rating-4">
                               <i class="icon_star"></i>
@@ -197,7 +197,7 @@
                       <div class="product-content-categories">
                           <a class="purple" href="shop.html">baby</a>
                       </div>
-                      <h3><a class="purple" href="product-details.html">Advantage Baby Milk</a></h3>
+                      <h3><a class="purple" href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name_products}} </a></h3>
                       <div class="product-rating-wrap-2">
                           <div class="product-rating-4">
                               <i class="icon_star"></i>

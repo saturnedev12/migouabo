@@ -83,15 +83,36 @@ class ShopController extends Controller
             'products'
         ));
     }
-    public function product()
+    public function product(Request $request)
     {
         $user = Auth::user();
         $categories = DB::select('SELECT * FROM categories ORDER BY RAND()', [1]);
         $products = DB::select('SELECT * FROM products ORDER BY RAND() LIMIT 0, 8', [1]);
-
+        $sub_categorys = DB::table('categories')
+            ->join('sub_categories','categories.id','=','sub_categories.id_category')
+            ->select('categories.name_categorys','sub_categories.*')
+            ->get();
+        $products_all= DB::table('categories')
+            ->join('sub_categories','categories.id','=','sub_categories.id_category')
+            ->join('products','sub_categories.id','=','products.id_sub_category')
+            ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
+            ->get();
+        $id_product = $request->get('id_product');   
+        //$product_selected = DB::table('products')->find($id_product); //DB::select("SELECT * FROM products WHERE products.ID = ?", [$id_product]);
+        
+        $product_selected = DB::table('categories')
+            ->join('sub_categories','categories.id','=','sub_categories.id_category')
+            ->join('products','sub_categories.id','=','products.id_sub_category')
+            ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
+            ->where('products.id',$id_product)
+            ->get();
         return view('pages/product-detail',compact(
             'user',
             'categories',
+            'sub_categorys',
+            'products_all',
+            'id_product',
+            'product_selected',
             'products'
         ));
     }
