@@ -12,17 +12,18 @@
                           <div class="row">
                               <div class="col-lg-6 col-md-6 col-sm-6">
                                   <div class="hero-slider-content-1 slider-animated-1 hero-slider-content-1-padding1">
-                                      <h4 class="animated font-dec">New Arrivals</h4>
-                                      <h1 class="animated font-dec">Leather Simple <br>Backpacks</h1>
-                                      <p class="animated width-inc">Discover our collection with leather simple backpacks. Less is more never out trend.</p>
+                                      <h4 class="animated font-dec">Bienvenue sur Migouabo</h4>
+                                      <h1 class="animated font-dec">Nous donnons la possibilité aux personnes occupée de faire leurs courses de façons simple et rapide.</h1>
+                                      <p class="animated width-inc">imaginez le temps que vous gagnerez en faisant vos courses ici</p>
+                                      <br>
                                       <div class="btn-style-1">
-                                          <a class="animated btn-1-padding-1 btn-1-bg-purple" href="product-details.html">Explore Now</a>
+                                      <a class="animated btn-1-padding-1 btn-1-bg-purple" href="{{route('shop')}}">explorer maintenant</a>
                                       </div>
                                   </div>
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-6">
                                   <div class="hm6-hero-slider-img slider-animated-1">
-                                      <img class="animated" src="assets/images/slider/hm-1-slider-1.png" alt="">
+                                      <img class="animated" src="assets/images/menu/photo_2020-10-29_21-48-16.jpg" alt="">
                                   </div>
                               </div>
                           </div>
@@ -164,7 +165,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="{{route('product',['id_product'=>$product->id])}}">
-                          <img src="assets/images/product/product-41.jpg" alt="">
+                          <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-40%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -530,7 +531,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-border mb-20">
                       <a href="{{route('shop',['id_category'=>$categorie->id])}}">
-                          <img src="assets/images/product/product-50.png" alt="">
+                      <img src="assets/images/categorie_image/{{$categorie->photo}}" alt="">
                         </a>
                     </div>
                     <div class="product-content-categories-2 text-center">
@@ -609,21 +610,21 @@
                                 <div class="product-slider-active-5">
                                     @foreach ($products_all as $product)
                                     @if ($product->id_sub_category == $sub_category->id)
-                                        <div class="product-plr-1" style="background-color: red;">
+                                        <div class="product-plr-1" {{-- comment  style="background-color: red;"--}}>
                                             <div class="single-product-wrap">
                                                 <div class="product-img product-img-zoom mb-15">
-                                                    <a href="product-details.html">
-                                                        <img src="assets/images/product/product-81.jpg" alt="">
+                                                    <a href="{{route('product',['id_product'=>$product->id])}}">
+                                                        <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-content-wrap-2 text-center">
-                                                    <h3><a href="product-details.html"> {{$product->name_products}} </a></h3>
+                                                    <h3><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name_products}} </a></h3>
                                                     <div class="product-price-2">
                                                         <span>$38.50</span>
                                                     </div>
                                                 </div>
                                                 <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                                    <h3><a href="product-details.html">Brown T-shirt</a></h3>
+                                                    <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
                                                     <div class="product-price-2">
                                                         <span>$38.50</span>
                                                     </div>

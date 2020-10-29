@@ -37,4 +37,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[HomeControlle
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
      //return Inertia\Inertia::render('Dashboard');
    Route::get('/',[HomeController::class,'index']);
-})->name('dashboard');*
+})->name('dashboard');*/

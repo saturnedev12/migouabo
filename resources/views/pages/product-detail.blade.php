@@ -65,60 +65,60 @@
                             <div class="pro-dec-big-img-slider">
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-1.jpg">
-                                            <img src="assets/images/product-details/large-1.jpg" alt="">
+                                        <a href="assets/images/products_images/{{$product->photo1}}">
+                                            <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/product-details/b-large-1.jpg"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo1}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-2.jpg">
-                                            <img src="assets/images/product-details/large-2.jpg" alt="">
+                                        <a href="assets/images/products_images/{{$product->photo2}}">
+                                            <img src="assets/images/products_images/{{$product->photo2}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/product-details/b-large-2.jpg"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-3.jpg">
-                                            <img src="assets/images/product-details/large-3.jpg" alt="">
+                                        <a href="assets/images/products_images/{{$product->photo3}}">
+                                            <img src="assets/images/products_images/{{$product->photo3}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/product-details/b-large-3.jpg"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo3}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-4.jpg">
-                                            <img src="assets/images/product-details/large-4.jpg" alt="">
+                                        <a href="assets/images/products_images/{{$product->photo4}}">
+                                            <img src="assets/images/products_images/{{$product->photo4}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/product-details/b-large-4.jpg"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo4}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/product-details/b-large-2.jpg">
-                                            <img src="assets/images/product-details/large-2.jpg" alt="">
+                                        <a href="assets/images/products_images/{{$product->photo2}}">
+                                            <img src="assets/images/products_images/{{$product->photo2}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/product-details/b-large-2.jpg"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                             </div>
                             <div class="product-dec-slider-small product-dec-small-style1">
                                 <div class="product-dec-small active">
-                                    <img src="assets/images/product-details/small-1.jpg" alt="">
+                                    <img src="assets/images/products_images/{{$product->photo1}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-2.jpg" alt="">
+                                    <img src="assets/images/products_images/{{$product->photo2}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-3.jpg" alt="">
+                                    <img src="assets/images/products_images/{{$product->photo3}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-4.jpg" alt="">
+                                    <img src="assets/images/products_images/{{$product->photo4}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/product-details/small-2.jpg" alt="">
+                                    <img src="assets/images/products_images/{{$product->photo2}}" alt="">
                                 </div>
                             </div>
                         </div>

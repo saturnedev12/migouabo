@@ -177,7 +177,7 @@
                                             <ul>
                                                 {{-- categoories end sub categorie --}}
                                                 @foreach ($categories as $categorie)
-                                                <li class="cr-dropdown"><a href="#"> {{$categorie->name_categorys}} <span class="icon-arrow-right"></span></a>
+                                                <li class="cr-dropdown"><a href="{{route('shop',['id_category'=>$categorie->id])}}"> {{$categorie->name_categorys}} <span class="icon-arrow-right"></span></a>
                                                     <div class="category-menu-dropdown ct-menu-res-height-2">
                                                         @foreach ($sub_categorys as $sub_category)
                                                             @if ($sub_category->id_category == $categorie->id)
@@ -186,7 +186,7 @@
                                                                     <ul>
                                                                         @foreach ($products_all as $product)
                                                                             @if ($product->id_sub_category == $sub_category->id)
-                                                                                <li><a href="shop.html"> {{$product->name_products}} </a></li>
+                                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name_products}} </a></li>
                                                                             @endif
                                                                         @endforeach
                                                                     </ul>
