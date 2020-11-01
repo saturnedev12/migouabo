@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'contact'])
+@extends('users/layouts/master',['title'=>'contact'])
 
 @section('content')
             <!-- mini cart start -->
@@ -10,7 +10,7 @@
                       <ul>
                           <li class="single-product-cart">
                               <div class="cart-img">
-                                  <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                                  <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
                               </div>
                               <div class="cart-title">
                                   <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -22,7 +22,7 @@
                           </li>
                           <li class="single-product-cart">
                               <div class="cart-img">
-                                  <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                                  <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
                               </div>
                               <div class="cart-title">
                                   <h4><a href="#">Norda Backpack</a></h4>
@@ -87,7 +87,7 @@
                   <div class="get-in-touch-wrap">
                       <h3>Get In Touch</h3>
                       <div class="contact-from contact-shadow">
-                          <form id="contact-form" action="assets/mail-php/mail.php" method="post">
+                          <form id="contact-form" action="users/assets/mail-php/mail.php" method="post">
                               <div class="row">
                                   <div class="col-lg-6 col-md-6">
                                       <input name="name" type="text" placeholder="Name">

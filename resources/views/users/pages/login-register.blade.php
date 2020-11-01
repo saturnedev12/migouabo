@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'login'])
+@extends('users/layouts/master',['title'=>'login'])
 @section('content')
     
         <!-- mini cart start -->
@@ -10,7 +10,7 @@
                   <ul>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -22,7 +22,7 @@
                       </li>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Norda Backpack</a></h4>

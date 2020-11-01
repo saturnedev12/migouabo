@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'blogs'])
+@extends('users/layouts/master',['title'=>'blogs'])
 
 @section('content')
         <!-- Mobile menu start -->
@@ -137,7 +137,7 @@
                   <ul>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -149,7 +149,7 @@
                       </li>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Norda Backpack</a></h4>
@@ -190,7 +190,7 @@
                           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
                               <div class="blog-wrap mb-40">
                                   <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="assets/images/blog/blog-1.jpg" alt="blog-img"></a>
+                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-1.jpg" alt="blog-img"></a>
                                   </div>
                                   <div class="blog-content">
                                       <div class="blog-meta">
@@ -206,7 +206,7 @@
                           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
                               <div class="blog-wrap mb-40">
                                   <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="assets/images/blog/blog-2.jpg" alt="blog-img"></a>
+                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-2.jpg" alt="blog-img"></a>
                                   </div>
                                   <div class="blog-content">
                                       <div class="blog-meta">
@@ -222,7 +222,7 @@
                           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
                               <div class="blog-wrap mb-40">
                                   <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="assets/images/blog/blog-3.jpg" alt="blog-img"></a>
+                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-3.jpg" alt="blog-img"></a>
                                   </div>
                                   <div class="blog-content">
                                       <div class="blog-meta">
@@ -238,7 +238,7 @@
                           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
                               <div class="blog-wrap mb-40">
                                   <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="assets/images/blog/blog-6.jpg" alt="blog-img"></a>
+                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-6.jpg" alt="blog-img"></a>
                                   </div>
                                   <div class="blog-content">
                                       <div class="blog-meta">
@@ -254,7 +254,7 @@
                           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
                               <div class="blog-wrap mb-40">
                                   <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="assets/images/blog/blog-7.jpg" alt="blog-img"></a>
+                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-7.jpg" alt="blog-img"></a>
                                   </div>
                                   <div class="blog-content">
                                       <div class="blog-meta">
@@ -270,7 +270,7 @@
                           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
                               <div class="blog-wrap mb-40">
                                   <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="assets/images/blog/blog-8.jpg" alt="blog-img"></a>
+                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-8.jpg" alt="blog-img"></a>
                                   </div>
                                   <div class="blog-content">
                                       <div class="blog-meta">
@@ -324,7 +324,7 @@
                               <div class="recent-post">
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Basic colord mixed</a></h5>
@@ -333,7 +333,7 @@
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="assets/images/blog/blog-5.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-5.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Five things you only</a></h5>
@@ -342,7 +342,7 @@
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Basic colord mixed</a></h5>

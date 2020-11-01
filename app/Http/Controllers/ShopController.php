@@ -35,7 +35,7 @@ class ShopController extends Controller
         //capture des parametre GET[] de des routes    
         $id_category = $request->get('id_category');
         //dd($products);
-        return view('pages/shop',compact(
+        return view('users/pages/shop',compact(
             'user',
             'categories',
             'id_category',
@@ -74,7 +74,7 @@ class ShopController extends Controller
         $name_sub_category = $request->get('sub_category');
         //dd($name_sub_category);
         //dd($products);
-        return view('pages/shop_sub',compact(
+        return view('users/pages/shop_sub',compact(
             'user',
             'categories',
             'name_sub_category',
@@ -106,7 +106,7 @@ class ShopController extends Controller
             ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
             ->where('products.id',$id_product)
             ->get();
-        return view('pages/product-detail',compact(
+        return view('users/pages/product-detail',compact(
             'user',
             'categories',
             'sub_categorys',

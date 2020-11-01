@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'produit-detail'])
+@extends('users/layouts/master',['title'=>'produit-detail'])
 
 @section('content')
    
@@ -11,7 +11,7 @@
                   <ul>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -23,7 +23,7 @@
                       </li>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Norda Backpack</a></h4>
@@ -65,60 +65,60 @@
                             <div class="pro-dec-big-img-slider">
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/products_images/{{$product->photo1}}">
-                                            <img src="assets/images/products_images/{{$product->photo1}}" alt="">
+                                        <a href="users/assets/images/products_images/{{$product->photo1}}">
+                                            <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo1}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo1}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/products_images/{{$product->photo2}}">
-                                            <img src="assets/images/products_images/{{$product->photo2}}" alt="">
+                                        <a href="users/assets/images/products_images/{{$product->photo2}}">
+                                            <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/products_images/{{$product->photo3}}">
-                                            <img src="assets/images/products_images/{{$product->photo3}}" alt="">
+                                        <a href="users/assets/images/products_images/{{$product->photo3}}">
+                                            <img src="users/assets/images/products_images/{{$product->photo3}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo3}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo3}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/products_images/{{$product->photo4}}">
-                                            <img src="assets/images/products_images/{{$product->photo4}}" alt="">
+                                        <a href="users/assets/images/products_images/{{$product->photo4}}">
+                                            <img src="users/assets/images/products_images/{{$product->photo4}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo4}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo4}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="assets/images/products_images/{{$product->photo2}}">
-                                            <img src="assets/images/products_images/{{$product->photo2}}" alt="">
+                                        <a href="users/assets/images/products_images/{{$product->photo2}}">
+                                            <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
                             </div>
                             <div class="product-dec-slider-small product-dec-small-style1">
                                 <div class="product-dec-small active">
-                                    <img src="assets/images/products_images/{{$product->photo1}}" alt="">
+                                    <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/products_images/{{$product->photo2}}" alt="">
+                                    <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/products_images/{{$product->photo3}}" alt="">
+                                    <img src="users/assets/images/products_images/{{$product->photo3}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/products_images/{{$product->photo4}}" alt="">
+                                    <img src="users/assets/images/products_images/{{$product->photo4}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
-                                    <img src="assets/images/products_images/{{$product->photo2}}" alt="">
+                                    <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -286,7 +286,7 @@
                                   <h2>1 review for Sleeve Button Cowl Neck</h2>
                                   <div class="single-review">
                                       <div class="review-img">
-                                          <img src="assets/images/product-details/client-1.png" alt="">
+                                          <img src="users/assets/images/product-details/client-1.png" alt="">
                                       </div>
                                       <div class="review-content">
                                           <div class="review-top-wrap">
@@ -383,7 +383,7 @@
                       <div class="single-product-wrap">
                           <div class="product-img product-img-zoom mb-15">
                               <a href="product-details.html">
-                                  <img src="assets/images/product/product-13.jpg" alt="">
+                                  <img src="users/assets/images/product/product-13.jpg" alt="">
                               </a>
                               <div class="product-action-2 tooltip-style-2">
                                   <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -432,7 +432,7 @@
                       <div class="single-product-wrap">
                           <div class="product-img product-img-zoom mb-15">
                               <a href="product-details.html">
-                                  <img src="assets/images/product/product-14.jpg" alt="">
+                                  <img src="users/assets/images/product/product-14.jpg" alt="">
                               </a>
                               <span class="pro-badge left bg-red">-20%</span>
                               <div class="product-action-2 tooltip-style-2">
@@ -484,7 +484,7 @@
                       <div class="single-product-wrap">
                           <div class="product-img product-img-zoom mb-15">
                               <a href="product-details.html">
-                                  <img src="assets/images/product/product-15.jpg" alt="">
+                                  <img src="users/assets/images/product/product-15.jpg" alt="">
                               </a>
                               <div class="product-action-2 tooltip-style-2">
                                   <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -533,7 +533,7 @@
                       <div class="single-product-wrap">
                           <div class="product-img product-img-zoom mb-15">
                               <a href="product-details.html">
-                                  <img src="assets/images/product/product-18.jpg" alt="">
+                                  <img src="users/assets/images/product/product-18.jpg" alt="">
                               </a>
                               <div class="product-action-2 tooltip-style-2">
                                   <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -582,7 +582,7 @@
                       <div class="single-product-wrap">
                           <div class="product-img product-img-zoom mb-15">
                               <a href="product-details.html">
-                                  <img src="assets/images/product/product-19.jpg" alt="">
+                                  <img src="users/assets/images/product/product-19.jpg" alt="">
                               </a>
                               <div class="product-action-2 tooltip-style-2">
                                   <button title="Wishlist"><i class="icon-heart"></i></button>

@@ -21,7 +21,7 @@ class BlogController extends Controller
             ->join('products','sub_categories.id','=','products.id_sub_category')
             ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
             ->get();
-        return view('pages/blog',compact(
+        return view('users/pages/blog',compact(
             'user',
             'categories',
             'sub_categorys',
@@ -43,7 +43,7 @@ class BlogController extends Controller
             ->join('products','sub_categories.id','=','products.id_sub_category')
             ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
             ->get();
-        return view('pages/blog-detail',compact(
+        return view('users/pages/blog-detail',compact(
             'user',
             'categories',
             'sub_categorys',

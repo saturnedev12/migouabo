@@ -38,7 +38,7 @@ class HomeController extends Controller
 
         //dd($products);
         //dd($user);
-        return view('pages/home',compact(
+        return view('users/pages/home',compact(
             'user',
             'categories',
             'products',
@@ -48,6 +48,6 @@ class HomeController extends Controller
     }
     public function login()
     {
-        return view('pages/login-register');
+        return view('users/pages/login-register');
     }
 }

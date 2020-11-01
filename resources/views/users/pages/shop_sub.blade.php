@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'shop'])
+@extends('users/layouts/master',['title'=>'shop_sub'])
 @section('content')
             <!-- mini cart start -->
             <div class="sidebar-cart-active">
@@ -9,7 +9,7 @@
                       <ul>
                           <li class="single-product-cart">
                               <div class="cart-img">
-                                  <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                                  <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
                               </div>
                               <div class="cart-title">
                                   <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -21,7 +21,7 @@
                           </li>
                           <li class="single-product-cart">
                               <div class="cart-img">
-                                  <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                                  <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
                               </div>
                               <div class="cart-title">
                                   <h4><a href="#">Norda Backpack</a></h4>
@@ -89,15 +89,15 @@
                               <div class="tab-content jump">
 
                                   <div id="shop-1" class="tab-pane active">
-                                      <div class="row">
+                                    <div class="row">
                                         <!--zone d'affichage des produits-->
-                                        @if ($id_category==null)
+                                        @if ($name_sub_category==null)
                                             @foreach ($products as $product)
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
-                                                            <a href="{{route('product',['id_product'=>$product->id])}}">
-                                                            <img src="assets/images/products_images/{{$product->photo1}}" alt="">
+                                                            <a href="product-details.html">
+                                                                <img src="users/assets/images/product/product-13.jpg" alt="">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -116,7 +116,7 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                        <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
+                                                            <h3><a href="product-details.html">Basic Joggin Shorts</a></h3>
                                                             <div class="product-price-2">
                                                                 <span>$20.50</span>
                                                             </div>
@@ -147,12 +147,12 @@
                                       
                                         @else
                                             @foreach ($products as $product)
-                                                @if ($product->id_category == $id_category)
+                                                @if ($product->name_sub_categorys == $name_sub_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
-                                                                <a href="{{route('product',['id_product'=>$product->id])}}">
-                                                                    <img src="assets/images/products_images/{{$product->photo1}}" alt="">
+                                                                <a href="product-details.html">
+                                                                    <img src="users/assets/images/product/product-13.jpg" alt="">
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -171,7 +171,7 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                            <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
+                                                            <h3><a href="product-details.html">{{$product->name_products}}</a></h3>
                                                                 <div class="product-price-2">
                                                                     <span>$20.50</span>
                                                                 </div>
@@ -211,7 +211,7 @@
                                               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
                                                   <div class="product-list-img">
                                                       <a href="product-details.html">
-                                                          <img src="assets/images/product/product-13.jpg" alt="Product Style">
+                                                          <img src="users/assets/images/product/product-13.jpg" alt="Product Style">
                                                       </a>
                                                       <div class="product-list-quickview">
                                                           <button title="Quick View" data-toggle="modal" data-target="#exampleModal"><i class="icon-size-fullscreen icons"></i></button>
@@ -250,7 +250,7 @@
                                               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
                                                   <div class="product-list-img">
                                                       <a href="product-details.html">
-                                                          <img src="assets/images/product/product-14.jpg" alt="Product Style">
+                                                          <img src="users/assets/images/product/product-14.jpg" alt="Product Style">
                                                       </a>
                                                       <div class="product-list-quickview">
                                                           <button title="Quick View" data-toggle="modal" data-target="#exampleModal"><i class="icon-size-fullscreen icons"></i></button>
@@ -289,10 +289,9 @@
                                               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
                                                   <div class="product-list-img">
                                                       <a href="product-details.html">
-                                                          <img src="assets/images/product/product-15.jpg" alt="Product Style">
+                                                          <img src="users/assets/images/product/product-15.jpg" alt="Product Style">
                                                       </a>
                                                       <div class="product-list-quickview">
-                                                          <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                       </div>
                                                   </div>
                                               </div>
@@ -328,7 +327,7 @@
                                               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
                                                   <div class="product-list-img">
                                                       <a href="product-details.html">
-                                                          <img src="assets/images/product/product-16.jpg" alt="Product Style">
+                                                          <img src="users/assets/images/product/product-16.jpg" alt="Product Style">
                                                       </a>
                                                       <div class="product-list-quickview">
                                                           <button title="Quick View" data-toggle="modal" data-target="#exampleModal"><i class="icon-size-fullscreen icons"></i></button>
@@ -367,7 +366,7 @@
                                               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
                                                   <div class="product-list-img">
                                                       <a href="product-details.html">
-                                                          <img src="assets/images/product/product-17.jpg" alt="Product Style">
+                                                          <img src="users/assets/images/product/product-17.jpg" alt="Product Style">
                                                       </a>
                                                       <div class="product-list-quickview">
                                                           <button title="Quick View" data-toggle="modal" data-target="#exampleModal"><i class="icon-size-fullscreen icons"></i></button>
@@ -427,15 +426,32 @@
                                   </div>
                               </div>
                               <div class="sidebar-widget shop-sidebar-border mb-35 pt-40">
-                                  <h4 class="sidebar-widget-title">Categories </h4>
+                                  <h4 class="sidebar-widget-title">
+                                      {{-- affichier la categorie a laquelle la sous categorie appartient et la garder dans une variable --}}
+                                    @php
+                                        $categorie='';
+                                    @endphp
+                                     @foreach ($sub_categorys as $sub_category)
+                                     @if ($sub_category->name_sub_categorys == $name_sub_category)
+                                         {{$sub_category->name_categorys}}
+                                         @php
+                                             $categorie = $sub_category->name_categorys;                                   
+                                         @endphp
+                                        
+                                     @endif
+                                    @endforeach
+                                    
+                                  </h4>
                                   <div class="shop-catigory">
                                       <ul>
-                                          {{-- listes les categorries --}}
+                                          {{-- listes les sous_categorries --}}
                                           
-                                          @foreach ($categories as $categorie)
-                                            <li><a @if ($categorie->id == $id_category) class="activer" @endif  href="{{route('shop',['id_category'=>$categorie->id])}}">
-                                                 {{$categorie->name_categorys}}
-                                             </a></li>
+                                          @foreach ($sub_categorys as $sub_category)
+                                            @if ($sub_category->name_categorys == $categorie)
+                                                <li><a @if ($sub_category->name_sub_categorys == $name_sub_category) class="activer" @endif  href="{{route('shop_sub',['sub_category'=>$sub_category->name_sub_categorys])}}">
+                                                    {{$sub_category->name_sub_categorys}}
+                                                </a></li>
+                                            @endif
                                           @endforeach
 
                                       </ul>

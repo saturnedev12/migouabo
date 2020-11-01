@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1603379535">
-        commencer a organiser les produits de la base de donnée sur papier
+    <note priority="medium" time="1604012379">
+        ajouter les icone de chaque categorie
     </note>
-    <note priority="medium" time="1603452566">
-        telecharger les images de chaques produits
+    <note priority="medium" time="1604012655">
+        inclure la page blog tetail
     </note>
-    <note priority="medium" time="1603452586">
-        remplire de manière optimal le site
+    <note priority="medium" time="1604018899">
+        voir l'affichage mobile
+    </note>
+    <note priority="medium" time="1604179740">
+        inclure les page dans a propos
     </note>
 </todo>

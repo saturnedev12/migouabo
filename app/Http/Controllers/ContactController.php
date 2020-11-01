@@ -21,7 +21,7 @@ class ContactController extends Controller
             ->join('products','sub_categories.id','=','products.id_sub_category')
             ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
             ->get();
-        return view('pages/contact',compact(
+        return view('users/pages/contact',compact(
             'user',
             'categories',
             'sub_categorys',

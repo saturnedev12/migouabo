@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'home'])
+@extends('users/layouts/master',['title'=>'home'])
 
 @section('content')
 
@@ -6,15 +6,16 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-8">
-              <div class="slider-area bg-gray mb-30">
+              <div class="slider-area bg-rose mb-30">
                   <div class="hero-slider-active-3 dot-style-2 dot-style-2-position-4 dot-style-2-active-purple">
                       <div class="single-hero-slider single-animation-wrap">
                           <div class="row">
                               <div class="col-lg-6 col-md-6 col-sm-6">
                                   <div class="hero-slider-content-1 slider-animated-1 hero-slider-content-1-padding1">
                                       <h4 class="animated font-dec">Bienvenue sur Migouabo</h4>
-                                      <h1 class="animated font-dec">Nous donnons la possibilité aux personnes occupée de faire leurs courses de façons simple et rapide.</h1>
-                                      <p class="animated width-inc">imaginez le temps que vous gagnerez en faisant vos courses ici</p>
+                                      <h1 class="animated font-dec">imaginez le temps que vous gagnerez en faisant vos courses ici</h1>
+                                      <p class="animated width-inc"></p> {{--Nous donnons la possibilité aux personnes occupée de faire leurs courses de façons simple et rapide.  --}}
+                                      
                                       <br>
                                       <div class="btn-style-1">
                                       <a class="animated btn-1-padding-1 btn-1-bg-purple" href="{{route('shop')}}">explorer maintenant</a>
@@ -23,7 +24,7 @@
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-6">
                                   <div class="hm6-hero-slider-img slider-animated-1">
-                                      <img class="animated" src="assets/images/menu/photo_2020-10-29_21-48-16.jpg" alt="">
+                                      <img class="animated" src="users/assets/images/menu/mi-guabo Comande 1.png" alt="">
                                   </div>
                               </div>
                           </div>
@@ -42,7 +43,7 @@
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-6">
                                   <div class="hm6-hero-slider-img slider-animated-1">
-                                      <img class="animated" src="assets/images/slider/hm-1-slider-1.png" alt="">
+                                      <img class="animated" src="users/assets/images/slider/hm-1-slider-1.png" alt="">
                                   </div>
                               </div>
                           </div>
@@ -55,7 +56,7 @@
                   <div class="col-lg-12 col-md-6">
                       <div class="banner-wrap mb-30">
                           <div class="banner-img banner-img-zoom">
-                              <a href="product-details.html"><img src="assets/images/banner/banner-14.jpg" alt=""></a>
+                              <a href="product-details.html"><img src="users/assets/images/banner/banner-14.jpg" alt=""></a>
                           </div>
                           <div class="banner-content-13">
                               <span>20x absorbs</span>
@@ -76,7 +77,7 @@
                   <div class="col-lg-12 col-md-6">
                       <div class="banner-wrap mb-30">
                           <div class="banner-img banner-img-zoom">
-                              <a href="product-details.html"><img src="assets/images/banner/banner-15.jpg" alt=""></a>
+                              <a href="product-details.html"><img src="users/assets/images/banner/banner-15.jpg" alt=""></a>
                           </div>
                           <div class="banner-content-14">
                               <span>ZHnio</span>
@@ -165,7 +166,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="{{route('product',['id_product'=>$product->id])}}">
-                          <img src="assets/images/products_images/{{$product->photo1}}" alt="">
+                          <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-40%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -225,7 +226,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="product-details.html">
-                          <img src="assets/images/product/product-42.jpg" alt="">
+                          <img src="users/assets/images/product/product-42.jpg" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-20%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -283,7 +284,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="product-details.html">
-                          <img src="assets/images/product/product-43.jpg" alt="">
+                          <img src="users/assets/images/product/product-43.jpg" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-15%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -341,7 +342,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="product-details.html">
-                          <img src="assets/images/product/product-44.jpg" alt="">
+                          <img src="users/assets/images/product/product-44.jpg" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-10%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -399,7 +400,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="product-details.html">
-                          <img src="assets/images/product/product-45.jpg" alt="">
+                          <img src="users/assets/images/product/product-45.jpg" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-35%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -457,7 +458,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
                       <a href="product-details.html">
-                          <img src="assets/images/product/product-42.jpg" alt="">
+                          <img src="users/assets/images/product/product-42.jpg" alt="">
                       </a>
                       <span class="pro-badge left bg-red">-20%</span>
                       <div class="product-action-2 tooltip-style-2">
@@ -531,7 +532,7 @@
               <div class="single-product-wrap">
                   <div class="product-img product-img-border mb-20">
                       <a href="{{route('shop',['id_category'=>$categorie->id])}}">
-                      <img src="assets/images/categorie_image/{{$categorie->photo}}" alt="">
+                      <img src="users/assets/images/categorie_image/{{$categorie->photo}}" alt="">
                         </a>
                     </div>
                     <div class="product-content-categories-2 text-center">
@@ -550,7 +551,7 @@
           <div class="col-lg-6 col-md-6">
               <div class="banner-wrap mb-30">
                   <div class="banner-img banner-img-zoom">
-                      <a href="product-details.html"><img src="assets/images/banner/banner-10.jpg" alt=""></a>
+                      <a href="product-details.html"><img src="users/assets/images/banner/banner-10.jpg" alt=""></a>
                   </div>
                   <div class="banner-content-11 banner-content-11-modify">
                       <h2><span>Zara</span> Pattern Boxed <br>Underwear</h2>
@@ -564,7 +565,7 @@
           <div class="col-lg-6 col-md-6">
               <div class="banner-wrap mb-30">
                   <div class="banner-img banner-img-zoom">
-                      <a href="product-details.html"><img src="assets/images/banner/banner-11.jpg" alt=""></a>
+                      <a href="product-details.html"><img src="users/assets/images/banner/banner-11.jpg" alt=""></a>
                   </div>
                   <div class="banner-content-11 banner-content-11-modify">
                       <h2><span>Basic</span> Color<br>Caps</h2>
@@ -584,7 +585,8 @@
 <div class="product-area pb-85">
     <div class="container">
         <div class="section-title-5 section-title-5-bg-2 mb-10">
-            <i class="purple icon-screen-desktop"></i>
+        <i class='{{$categorie->icon}}'></i>
+        <i class='fas fa-carrot'></i>
             <h5 class="purple"> {{$categorie->name_categorys}} </h5>
         </div>
         @php $i = 0;  @endphp
@@ -614,7 +616,7 @@
                                             <div class="single-product-wrap">
                                                 <div class="product-img product-img-zoom mb-15">
                                                     <a href="{{route('product',['id_product'=>$product->id])}}">
-                                                        <img src="assets/images/products_images/{{$product->photo1}}" alt="">
+                                                        <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-content-wrap-2 text-center">
@@ -650,7 +652,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="banner-wrap banner-border-1 mt-40 mb-30">
                                 <div class="banner-img banner-img-zoom">
-                                    <a href="product-details.html"><img src="assets/images/banner/banner-23.jpg" alt=""></a>
+                                    <a href="product-details.html"><img src="users/assets/images/banner/banner-23.jpg" alt=""></a>
                                 </div>
                                 <div class="banner-content-19">
                                     <h2>set 3 soften <br>shorts</h2>
@@ -662,7 +664,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="banner-wrap banner-border-1 banner-mt-none-xs mt-40 mb-30">
                                 <div class="banner-img banner-img-zoom">
-                                    <a href="product-details.html"><img src="assets/images/banner/banner-24.jpg" alt=""></a>
+                                    <a href="product-details.html"><img src="users/assets/images/banner/banner-24.jpg" alt=""></a>
                                 </div>
                                 <div class="banner-content-21">
                                     <span>mega sale</span>

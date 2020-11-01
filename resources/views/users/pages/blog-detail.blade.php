@@ -1,4 +1,4 @@
-@extends('layouts/master',['title'=>'blog-detail'])
+@extends('users/layouts/master',['title'=>'blog-detail'])
 @section('content')
         <!-- mini cart start -->
         <div class="sidebar-cart-active">
@@ -9,7 +9,7 @@
                   <ul>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -21,7 +21,7 @@
                       </li>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Norda Backpack</a></h4>
@@ -61,7 +61,7 @@
                       <div class="blog-details-wrapper">
                           <div class="blog-details-top">
                               <div class="blog-details-img">
-                                  <img alt="" src="assets/images/blog/blog-details.jpg">
+                                  <img alt="" src="users/assets/images/blog/blog-details.jpg">
                               </div>
                               <div class="blog-details-content">
                                   <div class="blog-meta-2">
@@ -80,12 +80,12 @@
                               <div class="row">
                                   <div class="col-md-6 col-sm-6 col-12">
                                       <div class="dec-img mb-50">
-                                          <img alt="" src="assets/images/blog/blog-details-2.jpg">
+                                          <img alt="" src="users/assets/images/blog/blog-details-2.jpg">
                                       </div>
                                   </div>
                                   <div class="col-md-6 col-sm-6 col-12">
                                       <div class="dec-img mb-50">
-                                          <img alt="" src="assets/images/blog/blog-details-3.jpg">
+                                          <img alt="" src="users/assets/images/blog/blog-details-3.jpg">
                                       </div>
                                   </div>
                               </div>
@@ -130,7 +130,7 @@
                               <h4 class="blog-dec-title">comments : 02</h4>
                               <div class="single-comment-wrapper mt-35">
                                   <div class="blog-comment-img">
-                                      <img src="assets/images/blog/comment-1.jpg" alt="">
+                                      <img src="users/assets/images/blog/comment-1.jpg" alt="">
                                   </div>
                                   <div class="blog-comment-content">
                                       <h4>Anthony Stephens</h4>
@@ -143,7 +143,7 @@
                               </div>
                               <div class="single-comment-wrapper mt-50 ml-120">
                                   <div class="blog-comment-img">
-                                      <img src="assets/images/blog/comment-2.jpg" alt="">
+                                      <img src="users/assets/images/blog/comment-2.jpg" alt="">
                                   </div>
                                   <div class="blog-comment-content">
                                       <h4>DX Joxova</h4>
@@ -211,7 +211,7 @@
                               <div class="recent-post">
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Basic colord mixed</a></h5>
@@ -220,7 +220,7 @@
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="assets/images/blog/blog-5.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-5.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Five things you only</a></h5>
@@ -229,7 +229,7 @@
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Basic colord mixed</a></h5>
