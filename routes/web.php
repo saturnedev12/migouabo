@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ContactController;
-
-
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\SousCategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,21 @@ Route::get('product',[ShopController::class,'product'])->name('product');
 Route::get('blog',[BlogController::class,'blog'])->name('blog');
 Route::get('login-register',[HomeController::class,'login'])->name('login-register');
 
+
+// Admin Routes
+
+Route::resources([
+  'categories' => CategorieController::class,
+  'souscategories' => SousCategorieController::class,
+  'produits' => ProduitController::class,
+]);
+
+
+Route::get('/dash', [AdminController::class, 'home'])->name('dash');
+
+// Route::get('/dash', function () {
+//     return view('admin.dashboard');
+// });
 
 //page de redirigé quand connection est établis
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[HomeController::class,'index'])->name('dashboard');
