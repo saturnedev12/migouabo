@@ -19,19 +19,19 @@
                 </a>
             </li>
             <li class="nav-item nav-category">Features</li>
-            <li class="nav-item {{ active_class(['features/categories']) }}">
+            <li class="nav-item {{ active_class(['categories/index']) }}">
                 <a href="{{ route('categories.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="list"></i>
                     <span class="link-title">Catégories</span>
                 </a>
             </li>
-            <li class="nav-item {{ active_class(['features/souscategories']) }}">
+            <li class="nav-item {{ active_class(['souscategories/index']) }}">
                 <a href="{{ route('souscategories.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="list"></i>
                     <span class="link-title">Sous catégories</span>
                 </a>
             </li>
-            <li class="nav-item {{ active_class(['features/produits']) }}">
+            <li class="nav-item {{ active_class(['produits/index']) }}">
                 <a href="{{ route('produits.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="smartphone"></i>
                     <span class="link-title">Produits</span>

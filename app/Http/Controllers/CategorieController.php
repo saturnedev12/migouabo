@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -13,7 +14,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categorie::all();
+        return view('admin.components.categories.index', compact('categories'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.components.categories.create');
     }
 
     /**
@@ -34,7 +36,22 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        // dd($request);
+
+        Categorie::create([
+            'name' => $request->name,
+            'photo' => 'conserver-viande-main-12348878.jpg',
+            'icon' => 'fas fa-drumstick-bite',
+            'description' => $request->description,
+            'user_id' => 9
+        ]);
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -45,7 +62,10 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        //
+        $categorie = Categorie::findOrFail($id);
+        // dd($categorie);
+        return view('admin.components.categories.show', compact('categorie'));
+
     }
 
     /**
@@ -56,7 +76,9 @@ class CategorieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categorie = Categorie::findOrFail($id);
+        // dd($categorie);
+        return view('admin.components.categories.edit', compact('categorie'));
     }
 
     /**
@@ -68,7 +90,20 @@ class CategorieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        $categorie = Categorie::findOrFail($id);
+        $categorie->update([
+            'name' => $request->name,
+            'photo' => 'conserver-viande-main-12348878.jpg',
+            'icon' => 'fas fa-drumstick-bite',
+            'description' => $request->description,
+            'user_id' => 3
+        ]);
+        return redirect()->route('categories.show', $id);
     }
 
     /**

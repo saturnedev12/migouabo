@@ -35,23 +35,29 @@ Route::get('login-register',[HomeController::class,'login'])->name('login-regist
 
 // Admin Routes
 
+Route::get('/dash', [AdminController::class, 'home'])->name('dash');
+// Route::group(['middleware' => 'auth'], function() {
+//     Route::resources([
+//         'categories' => CategorieController::class,
+//         'souscategories' => SousCategorieController::class,
+//         'produits' => ProduitController::class,
+//     ]);
+// });
+
 Route::resources([
   'categories' => CategorieController::class,
   'souscategories' => SousCategorieController::class,
   'produits' => ProduitController::class,
 ]);
 
-
-Route::get('/dash', [AdminController::class, 'home'])->name('dash');
-
 // Route::get('/dash', function () {
 //     return view('admin.dashboard');
 // });
 
 //page de redirigé quand connection est établis
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[HomeController::class,'index'])->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[HomeController::class,'index'])->name('dashboard');
 
-/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-     //return Inertia\Inertia::render('Dashboard');
-   Route::get('/',[HomeController::class,'index']);
-})->name('dashboard');*/
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia\Inertia::render('Dashboard');
+//     Route::get('/',[HomeController::class,'index']);
+// })->name('dashboard');
