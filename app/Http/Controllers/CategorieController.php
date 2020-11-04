@@ -114,6 +114,7 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Categorie::destroy($id);
+        return redirect()->route('categories.index');
     }
 }

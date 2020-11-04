@@ -5,7 +5,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('dash') }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Catégories</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Nouvelle Catégories</li>
+        <li class="breadcrumb-item active" aria-current="page">Nouvelle Catégorie</li>
     </ol>
 </nav>
 
@@ -50,7 +50,7 @@
                     </div> --}}
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" placeholder="Description du produit" rows="5">{{ old('description') }}</textarea>
+                        <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" placeholder="Description de la catégorie" rows="5">{{ old('description') }}</textarea>
                     </div>
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>

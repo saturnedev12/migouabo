@@ -7,7 +7,7 @@
 @section('content')
 <nav class="page-breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dash') }}">Dashboard</a></li>
         <li class="breadcrumb-item active" aria-current="page">Catégories</li>
     </ol>
 </nav>
@@ -41,7 +41,35 @@
                                 <td>
                                     <a href="{{ route('categories.show', $categorie->id) }}" class="btn btn-primary"><i data-feather="eye"></i></a>
                                     <a href="{{ route('categories.edit', $categorie->id) }}" class="btn btn-secondary"><i data-feather="pen-tool"></i></a>
-                                    <a href="#" class="btn btn-danger"><i data-feather="trash"></i></a>
+                                    {{-- <a href="#" class="btn btn-danger"><i data-feather="trash"></i></a> --}}
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal{{ $categorie->id }}">
+                                        <i data-feather="trash"></i>
+                                    </button>
+                                    <form action="{{ route('categories.destroy', $categorie->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="Modal{{ $categorie->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle{{ $categorie->id }}" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="ModalCenterTitle{{ $categorie->id }}">Supprimer la Catégorie  {{ strtoupper($categorie->name) }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Vous êtes sur le point de supprimer cet élément. <br><br>
+                                                        Êtes vous sûr de vouloir le faire ? 
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><h4>Close</h4></button>
+                                                        <button type="submit" class="btn btn-primary"><i data-feather="trash"></i> Supprimer</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

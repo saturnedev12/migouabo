@@ -19,7 +19,7 @@ class CreateSousCategoriesTable extends Migration
             $table->string('photo');
             $table->string('icon');
             $table->text('description');
-            $table->foreignId('categories_id')->cascadeOnDelete();
+            $table->foreignId('categorie_id')->cascadeOnDelete();
             $table->foreignId('user_id')->cascadeOnDelete();
             $table->timestamps();
         });

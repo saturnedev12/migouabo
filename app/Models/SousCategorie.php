@@ -9,7 +9,7 @@ class SousCategorie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'photo', 'icon', 'description', 'categories_id', 'user_id'];
+    protected $fillable = ['name', 'photo', 'icon', 'description', 'categorie_id', 'user_id'];
 
     public function user() {
         return $this->belongsTo(User::class);
