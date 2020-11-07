@@ -80,8 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 offset-md-3">
         <a href="{{ route('categories.create') }}" class="btn btn-primary btn-block btn-lg"><i data-feather="plus"></i> Ajouter une nouvelle Catégorie</a>
     </div>
 </div>

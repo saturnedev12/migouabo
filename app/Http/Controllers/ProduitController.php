@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+use App\Models\Produit;
+use App\Models\SousCategorie;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -13,7 +16,8 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        $produits = Produit::all();
+        return view('admin.components.produits.index', compact('produits'));
     }
 
     /**
@@ -23,7 +27,8 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+        $souscategories = SousCategorie::all();
+        return view('admin.components.produits.create', compact('souscategories'));
     }
 
     /**
@@ -34,7 +39,32 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|integer',
+            'souscategorie_id' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('users/assets/images/product'), $imageName);
+
+        $produit = Produit::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'souscategorie_id' => $request->souscategorie_id,
+            'user_id' => 9,
+        ]);
+
+        Image::create([
+            'name' => $imageName,
+            'produit_id' => $produit->id,
+            'user_id' => 10,
+        ]);
+
+        return redirect()->route('produits.index');
     }
 
     /**
@@ -45,7 +75,9 @@ class ProduitController extends Controller
      */
     public function show($id)
     {
-        //
+        $produit = Produit::findOrFail($id);
+        $images = Image::where('produit_id', $id)->get();
+        return view('admin.components.produits.show', compact('produit', 'images'));
     }
 
     /**
@@ -56,7 +88,9 @@ class ProduitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produit = Produit::findOrFail($id);
+        $souscategories = SousCategorie::all();
+        return view('admin.components.produits.edit', compact('produit', 'souscategories'));
     }
 
     /**
@@ -68,7 +102,23 @@ class ProduitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|integer',
+            'souscategorie_id' => 'required|integer',
+        ]);
+
+        $produit = Produit::findOrFail($id);
+        $produit->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'souscategorie_id' => $request->souscategorie_id,
+            'user_id' => 9,
+        ]);
+
+        return redirect()->route('produits.show', $id);
     }
 
     /**
@@ -79,6 +129,7 @@ class ProduitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produit::destroy($id);
+        return redirect()->route('produits.index');
     }
 }

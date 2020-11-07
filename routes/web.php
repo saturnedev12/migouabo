@@ -7,6 +7,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\SousCategorieController;
 
@@ -48,6 +49,7 @@ Route::resources([
   'categories' => CategorieController::class,
   'souscategories' => SousCategorieController::class,
   'produits' => ProduitController::class,
+  'images' => ImageController::class,
 ]);
 
 // Route::get('/dash', function () {
