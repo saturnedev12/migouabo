@@ -92,16 +92,22 @@
                                     <div class="row">
                                         <!--zone d'affichage des produits-->
                                         @if ($name_sub_category==null)
-                                            @foreach ($products as $product)
+                                            @foreach ($products as $produit)
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
                                                             <a href="product-details.html">
-                                                                <img src="users/assets/images/product/product-13.jpg" alt="">
+                                                                <!--image du produit-->
+                                                                @foreach ($images as $image)
+                                                                    @if ($produit->id == $image->produit_id)
+                                                                        <img src="users/assets/images/products_images/{{$image->name}}" alt="">
+                                                                        @break
+                                                                    @endif
+                                                                @endforeach
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                 <button title="Compare"><i class="icon-refresh"></i></button>
                                                             </div>
                                                         </div>
@@ -146,17 +152,23 @@
 
                                       
                                         @else
-                                            @foreach ($products as $product)
-                                                @if ($product->name_sub_categorys == $name_sub_category)
+                                            @foreach ($products as $produit)
+                                                @if ($produit->souscategorie->name == $name_sub_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
                                                                 <a href="product-details.html">
-                                                                    <img src="users/assets/images/product/product-13.jpg" alt="">
+                                                                <!--image du produit-->
+                                                                @foreach ($images as $image)
+                                                                    @if ($produit->id == $image->produit_id)
+                                                                        <img src="users/assets/images/products_images/{{$image->name}}" alt="">
+                                                                        @break
+                                                                    @endif
+                                                                @endforeach
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                     <button title="Compare"><i class="icon-refresh"></i></button>
                                                                 </div>
                                                             </div>
@@ -171,7 +183,7 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                            <h3><a href="product-details.html">{{$product->name_products}}</a></h3>
+                                                            <h3><a href="product-details.html">{{$produit->name}}</a></h3>
                                                                 <div class="product-price-2">
                                                                     <span>$20.50</span>
                                                                 </div>
@@ -432,8 +444,8 @@
                                         $categorie='';
                                     @endphp
                                      @foreach ($sub_categorys as $sub_category)
-                                     @if ($sub_category->name_sub_categorys == $name_sub_category)
-                                         {{$sub_category->name_categorys}}
+                                     @if ($sub_category->name == $name_sub_category)
+                                         {{$sub_category->name}}
                                          @php
                                              $categorie = $sub_category->name_categorys;                                   
                                          @endphp
@@ -448,8 +460,8 @@
                                           
                                           @foreach ($sub_categorys as $sub_category)
                                             @if ($sub_category->name_categorys == $categorie)
-                                                <li><a @if ($sub_category->name_sub_categorys == $name_sub_category) class="activer" @endif  href="{{route('shop_sub',['sub_category'=>$sub_category->name_sub_categorys])}}">
-                                                    {{$sub_category->name_sub_categorys}}
+                                                <li><a @if ($sub_category->name == $name_sub_category) class="activer" @endif  href="{{route('shop_sub',['sub_category'=>$sub_category->name])}}">
+                                                    {{$sub_category->name}}
                                                 </a></li>
                                             @endif
                                           @endforeach

@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\SousCategorie;
+use App\Models\Produit;
+
+
 
 class HomeController extends Controller
 {
@@ -22,28 +26,22 @@ class HomeController extends Controller
 
         */
         $user = Auth::user();
+        
         $categories = DB::select('SELECT * FROM categories ORDER BY RAND()', [1]);
-        $products = DB::select('SELECT * FROM products ORDER BY RAND() LIMIT 0, 8', [1]);
+        $products = DB::select('SELECT * FROM produits ORDER BY RAND() LIMIT 0, 8', [1]);
+        $products_all= Produit::all();
+        $images = DB::table('images')->get(); 
+        $sub_categorys = SousCategorie::all();
 
-        $products_all= DB::table('categories')
-            ->join('sub_categories','categories.id','=','sub_categories.id_category')
-            ->join('products','sub_categories.id','=','products.id_sub_category')
-            ->select('categories.name_categorys','sub_categories.name_sub_categorys','products.*')
-            ->get();
-
-        $sub_categorys = DB::table('categories')
-            ->join('sub_categories','categories.id','=','sub_categories.id_category')
-            ->select('categories.name_categorys','sub_categories.*')
-            ->get();
-
-        //dd($products);
+        //dd($products_all);
         //dd($user);
         return view('users/pages/home',compact(
             'user',
             'categories',
             'products',
             'sub_categorys',
-            'products_all'
+            'products_all',
+            'images'
         ));
     }
     public function login()

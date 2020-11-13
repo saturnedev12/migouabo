@@ -163,16 +163,16 @@
                                             <ul>
                                                 {{-- categoories end sub categorie --}}
                                                 @foreach ($categories as $categorie)
-                                                <li class="cr-dropdown"><a href="{{route('shop',['id_category'=>$categorie->id])}}"> {{$categorie->name_categorys}} <span class="icon-arrow-right"></span></a>
+                                                <li class="cr-dropdown"><a href="{{route('shop',['id_category'=>$categorie->id])}}"> {{$categorie->name}} <span class="icon-arrow-right"></span></a>
                                                     <div class="category-menu-dropdown ct-menu-res-height-2">
                                                         @foreach ($sub_categorys as $sub_category)
-                                                            @if ($sub_category->id_category == $categorie->id)
+                                                            @if ($sub_category->categorie_id == $categorie->id)
                                                                 <div class="single-category-menu ct-menu-mrg-bottom">
-                                                                    <h4> {{$sub_category->name_sub_categorys}} </h4>
+                                                                    <h4> {{$sub_category->name}} </h4>
                                                                     <ul>
                                                                         @foreach ($products_all as $product)
-                                                                            @if ($product->id_sub_category == $sub_category->id)
-                                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name_products}} </a></li>
+                                                                            @if ($product->souscategorie_id == $sub_category->id)
+                                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name}} </a></li>
                                                                             @endif
                                                                         @endforeach
                                                                     </ul>
@@ -337,15 +337,15 @@
 
                                     <!--toutes les categories-->
                                     @foreach ($categories as $categorie)
-                                        <li class="menu-item-has-children "><a href="#">{{$categorie->name_categorys}} </a>
+                                        <li class="menu-item-has-children "><a href="#">{{$categorie->name}} </a>
                                             <ul class="dropdown">
                                                 @foreach ($sub_categorys as $sub_category)
-                                                    @if ($sub_category->name_categorys == $categorie->name_categorys)
-                                                    <li class="menu-item-has-children"><a href="#">{{$sub_category->name_sub_categorys}}</a>
+                                                    @if ($sub_category->categorie->name == $categorie->name)
+                                                    <li class="menu-item-has-children"><a href="#">{{$sub_category->name}}</a>
                                                         <ul class="dropdown">
                                                             @foreach ($products_all as $product)
-                                                            @if ($product->name_sub_categorys == $sub_category->name_sub_categorys)
-                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></li>
+                                                            @if ($product->souscategorie->name == $sub_category->name)
+                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name}}</a></li>
                                                             @endif
                                                             @endforeach
                                                         </ul>
@@ -549,7 +549,7 @@
 
         @foreach ($products as $product)
           <!-- Modal -->
-          <div class="modal fade" id="{{substr($product->name_products,0,2)}}" tabindex="-1" role="dialog">
+          <div class="modal fade" id="{{substr($product->name,0,2)}}" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
@@ -560,7 +560,12 @@
                               <div class="col-lg-5 col-md-6 col-12 col-sm-12">
                                   <div class="tab-content quickview-big-img">
                                       <div id="pro-1" class="tab-pane fade show active">
-                                          <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
+                                          {{-- les images --}}
+                                        @foreach ($images as $image)
+                                            @if ($product->id == $image->produit_id)
+                                                <img src="users/assets/images/products_images/{{$image->name}}" alt="">
+                                            @endif
+                                        @endforeach
                                       </div>
                                       <div id="pro-2" class="tab-pane fade">
                                           <img src="users/assets/images/product/product-3.jpg" alt="">
@@ -576,7 +581,7 @@
                               </div>
                               <div class="col-lg-7 col-md-6 col-12 col-sm-12">
                                   <div class="product-details-content quickview-content">
-                                      <h2>{{$product->name_products}}</h2>
+                                      <h2>{{$product->name}}</h2>
                                       <div class="product-ratting-review-wrap">
                                           <div class="product-ratting-digit-wrap">
                                               <div class="product-ratting">

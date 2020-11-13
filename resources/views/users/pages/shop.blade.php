@@ -1,5 +1,8 @@
 @extends('users/layouts/master',['title'=>'shop'])
 @section('content')
+            @foreach ($products as $produit)
+                {{$produit->name}}
+            @endforeach
             <!-- mini cart start -->
             <div class="sidebar-cart-active">
               <div class="sidebar-cart-all">
@@ -92,16 +95,23 @@
                                       <div class="row">
                                         <!--zone d'affichage des produits-->
                                         @if ($id_category==null)
-                                            @foreach ($products as $product)
+                                            @foreach ($products as $produit)
+                                            cuicui
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
-                                                            <a href="{{route('product',['id_product'=>$product->id])}}">
-                                                            <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
+                                                            <a href="{{route('product',['id_product'=>$produit->id])}}">
+                                                                <!--image du produit-->
+                                                                @foreach ($images as $image)
+                                                                    @if ($produit->id == $image->produit_id)
+                                                                        <img src="users/assets/images/products_images/{{$image->name}}" alt="">
+                                                                        @break
+                                                                    @endif
+                                                                @endforeach
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                 <button title="Compare"><i class="icon-refresh"></i></button>
                                                             </div>
                                                         </div>
@@ -116,7 +126,7 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                        <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
+                                                        <h3><a href="{{route('product',['id_product'=>$produit->id])}}">{{$produit->name}}</a></h3>
                                                             <div class="product-price-2">
                                                                 <span>$20.50</span>
                                                             </div>
@@ -143,20 +153,26 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-
-                                      
+                                        
                                         @else
-                                            @foreach ($products as $product)
-                                                @if ($product->id_category == $id_category)
+                                        loulou
+                                           @foreach ($products as $produit)
+                                                @if ($produit->souscategorie->categorie->id == $id_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
-                                                                <a href="{{route('product',['id_product'=>$product->id])}}">
-                                                                    <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
+                                                                <a href="{{route('product',['id_product'=>$produit->id])}}">
+                                                                      <!--image du produit-->
+                                                                        @foreach ($images as $image)
+                                                                            @if ($produit->id == $image->produit_id)
+                                                                                <img src="users/assets/images/products_images/{{$image->name}}" alt="">
+                                                                                @break
+                                                                            @endif
+                                                                        @endforeach
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                     <button title="Compare"><i class="icon-refresh"></i></button>
                                                                 </div>
                                                             </div>
@@ -171,7 +187,7 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                            <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name_products}}</a></h3>
+                                                            <h3><a href="{{route('product',['id_product'=>$produit->id])}}">{{$produit->name}}</a></h3>
                                                                 <div class="product-price-2">
                                                                     <span>$20.50</span>
                                                                 </div>
@@ -200,8 +216,6 @@
                                                 @endif
                                             @endforeach
                                         @endif
-
-
                                       </div>
                                   </div>
 
@@ -292,7 +306,7 @@
                                                           <img src="dusers/assets/images/product/product-15.jpg" alt="Product Style">
                                                       </a>
                                                       <div class="product-list-quickview">
-                                                          <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name_products,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                          <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                       </div>
                                                   </div>
                                               </div>
@@ -434,7 +448,7 @@
                                           
                                           @foreach ($categories as $categorie)
                                             <li><a @if ($categorie->id == $id_category) class="activer" @endif  href="{{route('shop',['id_category'=>$categorie->id])}}">
-                                                 {{$categorie->name_categorys}}
+                                                 {{$categorie->name}}
                                              </a></li>
                                           @endforeach
 
