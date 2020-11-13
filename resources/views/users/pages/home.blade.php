@@ -14,7 +14,7 @@
                                   <div class="hero-slider-content-1 slider-animated-1 hero-slider-content-1-padding1">
                                       <h4 class="animated font-dec">Bienvenue sur Migouabo</h4>
                                       <h1 class="animated font-dec">imaginez le temps que vous gagnerez en faisant vos courses ici</h1>
-                                      <p class="animated width-inc">decouvrez tout nos produits et offres a des prix aborde</p>
+                                      <p class="animated width-inc">decouvrez tout nos produits et offres a des prix abordable</p>
                                       
                                       <br>
                                       <div class="btn-style-1">
