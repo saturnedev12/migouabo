@@ -18,7 +18,7 @@
                                       
                                       <br>
                                       <div class="btn-style-1">
-                                      <a class="animated btn-1-padding-1 btn-1-bg-purple" href="{{route('shop')}}">explorer maintenant</a>
+                                      <a class="animated btn-1-padding-1 btn-1-bg-purple" href="{{route('shop')}}">commandez maintenant</a>
                                       </div>
                                   </div>
                               </div>
@@ -42,7 +42,7 @@
                                       <h1 class="animated font-dec"> ressentez le bonheur d’être satisfait.</h1>
                                       <p class="animated width-inc">faite vous livrer vos aliments tout frais rapidement et facilement.</p>
                                       <div class="btn-style-1">
-                                        <a class="animated btn-1-padding-1 btn-1-bg-purple" href="{{route('shop')}}">explorer maintenant</a>
+                                        <a class="animated btn-1-padding-1 btn-1-bg-purple" href="{{route('shop')}}">commandez maintenant</a>
                                       </div>
                                   </div>
                               </div>
