@@ -1,6 +1,6 @@
 @extends('users/layouts/master',['title'=>'shop'])
 @section('content')
-            @foreach ($products as $produit)
+            @foreach ($products_all as $produit)
                 {{$produit->name}}
             @endforeach
             <!-- mini cart start -->
@@ -95,19 +95,14 @@
                                       <div class="row">
                                         <!--zone d'affichage des produits-->
                                         @if ($id_category==null)
-                                            @foreach ($products as $produit)
+                                            @foreach ($products_all as $produit)
                                             cuicui
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
                                                             <a href="{{route('product',['id_product'=>$produit->id])}}">
                                                                 <!--image du produit-->
-                                                                @foreach ($images as $image)
-                                                                    @if ($produit->id == $image->produit_id)
-                                                                        <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                                                                        @break
-                                                                    @endif
-                                                                @endforeach
+                                                                <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -156,19 +151,14 @@
                                         
                                         @else
                                         loulou
-                                           @foreach ($products as $produit)
+                                           @foreach ($products_all as $produit)
                                                 @if ($produit->souscategorie->categorie->id == $id_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
                                                                 <a href="{{route('product',['id_product'=>$produit->id])}}">
                                                                       <!--image du produit-->
-                                                                        @foreach ($images as $image)
-                                                                            @if ($produit->id == $image->produit_id)
-                                                                                <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                                                                                @break
-                                                                            @endif
-                                                                        @endforeach
+                                                                      <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>

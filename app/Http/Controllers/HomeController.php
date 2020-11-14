@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Categorie;
 use App\Models\SousCategorie;
 use App\Models\Produit;
 
@@ -27,10 +28,8 @@ class HomeController extends Controller
         */
         $user = Auth::user();
         
-        $categories = DB::select('SELECT * FROM categories ORDER BY RAND()', [1]);
-        $products = DB::select('SELECT * FROM produits ORDER BY RAND() LIMIT 0, 8', [1]);
+        $categories = Categorie::all();;
         $products_all= Produit::all();
-        $images = DB::table('images')->get(); 
         $sub_categorys = SousCategorie::all();
 
         //dd($products_all);
@@ -38,10 +37,10 @@ class HomeController extends Controller
         return view('users/pages/home',compact(
             'user',
             'categories',
-            'products',
             'sub_categorys',
             'products_all',
-            'images'
+            
+            
         ));
     }
     public function login()

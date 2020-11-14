@@ -546,7 +546,7 @@
         </footer>
         <!--fin footer-->
 
-        @foreach ($products as $product)
+        @foreach ($products_all as $product)
           <!-- Modal -->
           <div class="modal fade" id="{{substr($product->name,0,2)}}" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
@@ -560,11 +560,7 @@
                                   <div class="tab-content quickview-big-img">
                                       <div id="pro-1" class="tab-pane fade show active">
                                           {{-- les images --}}
-                                        @foreach ($images as $image)
-                                            @if ($product->id == $image->produit_id)
-                                                <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                                            @endif
-                                        @endforeach
+                                          <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
                                       </div>
                                       <div id="pro-2" class="tab-pane fade">
                                           <img src="users/assets/images/product/product-3.jpg" alt="">

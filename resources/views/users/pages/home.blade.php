@@ -161,7 +161,7 @@
           </div>
       </div>
       <div class="product-slider-active-3 nav-style-3">
-        @foreach ($products as $product)
+        @foreach ($products_all as $product)
           <!-- produit -->
           <div class="product-plr-1">
               <div class="single-product-wrap">
@@ -178,12 +178,7 @@
                     @endforeach
                      --}}
                      {{$product->id}}
-                    @foreach ($images as $image)
-                        @if ($product->id == $image->produit_id)
-                            <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                            @break
-                        @endif
-                    @endforeach
+                     <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
                      
                       </a>
                       <span class="pro-badge left bg-red">-40%</span>
@@ -638,11 +633,7 @@
                                                 <div class="product-img product-img-zoom mb-15">
                                                     <a href="{{route('product',['id_product'=>$product->id])}}">
                                                     {{-- image produit --}}
-                                                    @foreach ($images as $image)
-                                                        @if ($product->id == $image->produit_id)
-                                                            <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                                                        @endif
-                                                    @endforeach    
+                                                    <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
                                                     </a>
                                                 </div>
                                                 <div class="product-content-wrap-2 text-center">

@@ -92,18 +92,13 @@
                                     <div class="row">
                                         <!--zone d'affichage des produits-->
                                         @if ($name_sub_category==null)
-                                            @foreach ($products as $produit)
+                                            @foreach ($products_all as $produit)
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
                                                             <a href="product-details.html">
                                                                 <!--image du produit-->
-                                                                @foreach ($images as $image)
-                                                                    @if ($produit->id == $image->produit_id)
-                                                                        <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                                                                        @break
-                                                                    @endif
-                                                                @endforeach
+                                                                <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
@@ -152,19 +147,14 @@
 
                                       
                                         @else
-                                            @foreach ($products as $produit)
+                                            @foreach ($products_all as $produit)
                                                 @if ($produit->souscategorie->name == $name_sub_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
                                                                 <a href="product-details.html">
                                                                 <!--image du produit-->
-                                                                @foreach ($images as $image)
-                                                                    @if ($produit->id == $image->produit_id)
-                                                                        <img src="users/assets/images/products_images/{{$image->name}}" alt="">
-                                                                        @break
-                                                                    @endif
-                                                                @endforeach
+                                                                <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
