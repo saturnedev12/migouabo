@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categorie;
+use App\Models\articles;
 use Illuminate\Http\Request;
 
-class CategorieController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories = Categorie::all();
-        return view('admin.components.categories.index', compact('categories'));
+        $articles = articles::all();
+        return view('admin.components.articles.index', compact('articles'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        return view('admin.components.categories.create');
+        return view('admin.components.articles.create');
     }
 
     /**
@@ -37,23 +37,22 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'description' => 'required',
+            'titre' => 'required|max:255',
+            'tinymce' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('users/assets/images/souscategorie_image'), $imageName);
+        $request->image->move(public_path('users/assets/images/article_image'), $imageName);
 
-        Categorie::create([
-            'name' => $request->name,
-            'photo' => $imageName,
-            'icon' => 'fas fa-drumstick-bite',
-            'description' => $request->description,
-            'user_id' => 9
+        articles::create([
+            'titre' => $request->titre,
+            'contenu' => $request->tinymce,
+            'image' => $imageName,
+            'user_id' => 5,
         ]);
 
-        return redirect()->route('categories.index');
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -64,10 +63,8 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        $categorie = Categorie::findOrFail($id);
-        // dd($categorie);
-        return view('admin.components.categories.show', compact('categorie'));
-
+        $article = articles::findOrFail($id);
+        return view('admin.components.articles.show', compact('article'));
     }
 
     /**
@@ -78,9 +75,8 @@ class CategorieController extends Controller
      */
     public function edit($id)
     {
-        $categorie = Categorie::findOrFail($id);
-        // dd($categorie);
-        return view('admin.components.categories.edit', compact('categorie'));
+        $article = articles::findOrFail($id);
+        return view('admin.components.articles.edit', compact('article'));
     }
 
     /**
@@ -93,19 +89,18 @@ class CategorieController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'description' => 'required',
+            'titre' => 'required|max:255',
+            'tinymce' => 'required',
         ]);
 
-        $categorie = Categorie::findOrFail($id);
-        $categorie->update([
-            'name' => $request->name,
-            'photo' => 'conserver-viande-main-12348878.jpg',
-            'icon' => 'fas fa-drumstick-bite',
-            'description' => $request->description,
-            'user_id' => 3
+        $article = articles::findOrFail($id);
+        $article->update([
+            'titre' => $request->titre,
+            'contenu' => $request->tinymce,
+            'user_id' => 5,
         ]);
-        return redirect()->route('categories.show', $id);
+
+        return redirect()->route('articles.show', $id);
     }
 
     /**
@@ -116,7 +111,7 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        Categorie::destroy($id);
-        return redirect()->route('categories.index');
+        articles::destroy($id);
+        return redirect()->route('articles.index');
     }
 }

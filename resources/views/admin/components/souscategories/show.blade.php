@@ -21,7 +21,7 @@
             <div class="example">
                 <div class="card-group">
                     <div class="card">
-                    <img src="{{ url('admin/assets/images/placeholder.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ url('users/assets/images/souscategorie_image/'.$souscategorie->photo ) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title">Sous catégorie : {{ $souscategorie->name }}</h3>
                             <h5 class="card-title">catégorie : {{ $souscategorie->categorie->name }}</h5>

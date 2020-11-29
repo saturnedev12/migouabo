@@ -11,19 +11,19 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/fave.png">
     <!-- All CSS is here
         ============================================ -->
-        <link rel="stylesheet" href="users/assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="users/assets/css/vendor/signericafat.css">
-        <link rel="stylesheet" href="users/assets/css/vendor/cerebrisans.css">
-        <link rel="stylesheet" href="users/assets/css/vendor/simple-line-icons.css">
-        <link rel="stylesheet" href="users/assets/css/vendor/elegant.css">
-        <link rel="stylesheet" href="users/assets/css/vendor/linear-icon.css">
-        <link rel="stylesheet" href="users/assets/css/plugins/nice-select.css">
-        <link rel="stylesheet" href="users/assets/css/plugins/easyzoom.css">
-        <link rel="stylesheet" href="users/assets/css/plugins/slick.css">
-        <link rel="stylesheet" href="users/assets/css/plugins/animate.css">
-        <link rel="stylesheet" href="users/assets/css/plugins/magnific-popup.css">
-        <link rel="stylesheet" href="users/assets/css/plugins/jquery-ui.css">
-        <link rel="stylesheet" href="users/assets/css/style.css">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/vendor/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/vendor/signericafat.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/vendor/cerebrisans.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/vendor/simple-line-icons.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/vendor/elegant.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/vendor/linear-icon.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/plugins/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/plugins/easyzoom.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/plugins/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/plugins/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/plugins/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/plugins/jquery-ui.css') }}">
+        <link rel="stylesheet" href="{{ asset('users/assets/css/style.css') }}">
 </head>
 <body>
 
@@ -77,7 +77,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href=""><img src="users/assets/images/logo/migouabo.png" alt="logo"></a>
+                                    <a href=""><img src="{{ asset('users/assets/images/logo/migouabo.png') }}" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-7">
@@ -90,7 +90,7 @@
                                             <li><a href=" {{route('shop')}}  ">SHOP </a>
 
                                             </li>
-                                            <li><a href="{{route('blogs')}}">BLOG <span class="bg-green">NEW</span></a>
+                                            <li><a href="{{ route('blogs') }}">BLOG <span class="bg-green">NEW</span></a>
                                             </li>
                                             <li><a href="{{route('contact')}}">CONTACT </a></li>
                                             <li><a href="#">A PROPOS </a></li>
@@ -320,7 +320,7 @@
                                 </li>
                                 <li class="menu-item-has-children"><a href="#">A propos</a>
                                 </li>
-                                <li class="menu-item-has-children "><a href="{{route('blog')}}">Blog</a>
+                                <li class="menu-item-has-children "><a href="{{ url('/blog/articles') }}">Blog</a>
                                 </li>
                                 <li><a href="{{route('contact')}}">Contact us</a></li>
                             </ul>
@@ -669,29 +669,29 @@
     <!-- All JS is here
 ============================================ -->
 
-    <script src="users/users/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="users/assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="users/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="users/assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="users/assets/js/plugins/slick.js"></script>
-    <script src="users/assets/js/plugins/jquery.syotimer.min.js"></script>
-    <script src="users/assets/js/plugins/jquery.instagramfeed.min.js"></script>
-    <script src="users/assets/js/plugins/jquery.nice-select.min.js"></script>
-    <script src="users/assets/js/plugins/wow.js"></script>
-    <script src="users/assets/js/plugins/jquery-ui-touch-punch.js"></script>
-    <script src="users/assets/js/plugins/jquery-ui.js"></script>
-    <script src="users/assets/js/plugins/magnific-popup.js"></script>
-    <script src="users/assets/js/plugins/sticky-sidebar.js"></script>
-    <script src="users/assets/js/plugins/easyzoom.js"></script>
-    <script src="users/assets/js/plugins/scrollup.js"></script>
-    <script src="users/assets/js/plugins/ajax-mail.js"></script>
+    <script src="{{ asset('users/users/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('users/assets/js/vendor/jquery-3.5.1.min.j') }}s"></script>
+    <script src="{{ asset('users/assets/js/vendor/jquery-migrate-3.3.0.min.js') }}"></script>
+    <script src="{{ asset('users/assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/slick.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/jquery.syotimer.min.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/jquery.instagramfeed.min.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/wow.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/jquery-ui-touch-punch.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/jquery-ui.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/magnific-popup.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/sticky-sidebar.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/easyzoom.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/scrollup.js') }}"></script>
+    <script src="{{ asset('users/assets/js/plugins/ajax-mail.js') }}"></script>
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above
 <script src="users/assets/js/vendor/vendor.min.js"></script>
 <script src="users/assets/js/plugins/plugins.min.js"></script>  -->
     <!-- Main JS -->
-    <script src="users/assets/js/main.js"></script>
-    <script src="jquery.js"></script>
+    <script src="{{ asset('users/assets/js/main.js') }}"></script>
+    <script src="{{ asset('jquery.js') }}"></script>
 
 
 </body>

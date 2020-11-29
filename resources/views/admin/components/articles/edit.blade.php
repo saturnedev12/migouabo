@@ -9,15 +9,16 @@
   <link href="{{ asset('admin/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('admin/assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('admin/assets/plugins/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
-@endpush
+  <link href="{{ asset('admin/assets/plugins/simplemde/simplemde.min.css') }}" rel="stylesheet" />
 
+@endpush
 
 @section('content')
 <nav class="page-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('dash') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('souscategories.index') }}">Sous catégories</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Nouvelle sous catégorie</li>
+        <li class="breadcrumb-item"><a href="{{ route('articles.index') }}">Articles</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Nouveau article</li>
     </ol>
 </nav>
 
@@ -25,51 +26,34 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h6 class="card-title">Créer une nouvelle Catégories</h6>
-                <form method="POST" action="{{ route('souscategories.store') }}" enctype="multipart/form-data">
+                <h6 class="card-title">Modifier l'article</h6>
+                <form method="POST" action="{{ route('articles.update', $article->id) }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
-                        <label for="name">Nom</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Nom de sous catégorie">
+                        <label for="name">Titre</label>
+                        <input type="text" class="form-control @error('titre') is-invalid @enderror" id="titre" name="titre" value="{{ old('titre') ?? $article->titre }}" placeholder="Titre du produit">
                     </div>
-                    @error('name')
+                    @error('titre')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <div class="form-group">
-                        <label for="categorie_id">Catégorie</label>
-                        <select class="form-control @error('categorie_id') is-invalid @enderror" id="categorie_id" name="categorie_id">
-                        <option selected disabled>Choisir la catégorie</option>
-                        @foreach ($categories as $categorie)
-                        <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
-                        @endforeach
-                        </select>
-                    </div>
-                    @error('categorie_id')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" placeholder="Description de la sous catégorie" rows="5">{{ old('description') }}</textarea>
-                    </div>
-                    @error('description')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <div class="col-md-12 stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h6 class="card-title">Image</h6>
-                            <input type="file" id="myDropify" class="border @error('image') is-invalid @enderror" name="image"/>
-                          </div>
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Contenu</h4>
+                                    <textarea class="form-control @error('contenu') is-invalid @enderror" name="tinymce" id="tinymceExample" rows="10">{{ old('contenu') ?? $article->contenu }}</textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    @error('image')
+
+                    @error('tinymce')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <button class="btn btn-primary" type="submit">Créer</button>
+                    <button class="btn btn-primary" type="submit">Valider</button>
                 </form>
             </div>
         </div>
@@ -90,6 +74,10 @@
   <script src="{{ asset('admin/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
   <script src="{{ asset('admin/assets/plugins/moment/moment.min.js') }}"></script>
   <script src="{{ asset('admin/assets/plugins/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js') }}"></script>
+  <script src="{{ asset('admin/assets/plugins/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/plugins/simplemde/simplemde.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/plugins/ace-builds/ace.js') }}"></script>
+  <script src="{{ asset('admin/assets/plugins/ace-builds/theme-chaos.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
@@ -104,4 +92,7 @@
   <script src="{{ asset('admin/assets/js/bootstrap-colorpicker.js') }}"></script>
   <script src="{{ asset('admin/assets/js/datepicker.js') }}"></script>
   <script src="{{ asset('admin/assets/js/timepicker.js') }}"></script>
+  <script src="{{ asset('admin/assets/js/tinymce.js') }}"></script>
+  <script src="{{ asset('admin/assets/js/simplemde.js') }}"></script>
+  <script src="{{ asset('admin/assets/js/ace.js') }}"></script>
 @endpush

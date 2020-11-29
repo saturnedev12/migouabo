@@ -17,6 +17,7 @@ class ProduitController extends Controller
     public function index()
     {
         $produits = Produit::all();
+        // dd($produits[0]->images->first()->name);
         return view('admin.components.produits.index', compact('produits'));
     }
 
@@ -76,8 +77,7 @@ class ProduitController extends Controller
     public function show($id)
     {
         $produit = Produit::findOrFail($id);
-        $images = Image::where('produit_id', $id)->get();
-        return view('admin.components.produits.show', compact('produit', 'images'));
+        return view('admin.components.produits.show', compact('produit'));
     }
 
     /**

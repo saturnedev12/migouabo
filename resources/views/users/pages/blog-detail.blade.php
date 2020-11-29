@@ -9,7 +9,7 @@
                   <ul>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
+                              <a href="#"><img src="{{ asset('users/assets/images/cart/cart-1.jpg') }}" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Simple Black T-Shirt</a></h4>
@@ -21,7 +21,7 @@
                       </li>
                       <li class="single-product-cart">
                           <div class="cart-img">
-                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
+                              <a href="#"><img src="{{ asset('users/assets/images/cart/cart-2.jpg') }}" alt=""></a>
                           </div>
                           <div class="cart-title">
                               <h4><a href="#">Norda Backpack</a></h4>
@@ -61,31 +61,31 @@
                       <div class="blog-details-wrapper">
                           <div class="blog-details-top">
                               <div class="blog-details-img">
-                                  <img alt="" src="users/assets/images/blog/blog-details.jpg">
+                                  <img alt="" src="{{ url('users/assets/images/article_image/'. $article->image) }}">
                               </div>
                               <div class="blog-details-content">
                                   <div class="blog-meta-2">
                                       <ul>
-                                          <li>News</li>
-                                          <li>May 25, 2020</li>
+                                          {{-- <li>News</li> --}}
+                                          <li>{{ $article->created_at->format('d/m/Y') }}</li>
                                       </ul>
                                   </div>
-                                  <h1>Five things you only know if you’re at Chanel's Hamburg Show</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprhendit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qei officia deser mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
-                                  <blockquote>Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt labo dolor magna aliqua. Ut enim ad minim veniam quis nostrud.</blockquote>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehendrit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                  <h1>{{ $article->titre }}</h1>
+                                  <p>{!! $article->contenu !!} </p>
+                                  {{-- <blockquote>Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt labo dolor magna aliqua. Ut enim ad minim veniam quis nostrud.</blockquote>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehendrit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> --}}
                               </div>
                           </div>
                           <div class="dec-img-wrapper">
                               <div class="row">
                                   <div class="col-md-6 col-sm-6 col-12">
                                       <div class="dec-img mb-50">
-                                          <img alt="" src="users/assets/images/blog/blog-details-2.jpg">
+                                          <img alt="" src="{{ asset('users/assets/images/blog/blog-details-2.jpg') }}">
                                       </div>
                                   </div>
                                   <div class="col-md-6 col-sm-6 col-12">
                                       <div class="dec-img mb-50">
-                                          <img alt="" src="users/assets/images/blog/blog-details-3.jpg">
+                                          <img alt="" src="{{ asset('users/assets/images/blog/blog-details-3.jpg') }}">
                                       </div>
                                   </div>
                               </div>
@@ -130,7 +130,7 @@
                               <h4 class="blog-dec-title">comments : 02</h4>
                               <div class="single-comment-wrapper mt-35">
                                   <div class="blog-comment-img">
-                                      <img src="users/assets/images/blog/comment-1.jpg" alt="">
+                                      <img src="{{ asset('users/assets/images/blog/comment-1.jpg') }}" alt="">
                                   </div>
                                   <div class="blog-comment-content">
                                       <h4>Anthony Stephens</h4>
@@ -143,7 +143,7 @@
                               </div>
                               <div class="single-comment-wrapper mt-50 ml-120">
                                   <div class="blog-comment-img">
-                                      <img src="users/assets/images/blog/comment-2.jpg" alt="">
+                                      <img src="{{ asset('users/assets/images/blog/comment-2.jpg') }}" alt="">
                                   </div>
                                   <div class="blog-comment-content">
                                       <h4>DX Joxova</h4>
@@ -211,7 +211,7 @@
                               <div class="recent-post">
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="{{ asset('users/assets/images/blog/blog-4.jpg') }}" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Basic colord mixed</a></h5>
@@ -220,7 +220,7 @@
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-5.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="{{ asset('users/assets/images/blog/blog-5.jpg') }}" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Five things you only</a></h5>
@@ -229,7 +229,7 @@
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="blog-details.html"><img src="{{ asset('users/assets/images/blog/blog-4.jpg') }}" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
                                           <h5><a href="blog-details.html">Basic colord mixed</a></h5>

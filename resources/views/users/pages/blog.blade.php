@@ -77,7 +77,7 @@
                                       <li><a href="blog.html">blog standard </a></li>
                                       <li><a href="blog-no-sidebar.html">blog no sidebar </a></li>
                                       <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                      <li><a href="blog-details.html">blog details</a></li>
+                                      <li><a href="{{ url('/blog/articles') }}">blog details</a></li>
                                   </ul>
                               </li>
                               <li><a href="contact.html">Contact us</a></li>
@@ -186,111 +186,35 @@
           <div class="container">
               <div class="row flex-row-reverse">
                   <div class="col-lg-9">
-                      <div class="row">
-                          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                              <div class="blog-wrap mb-40">
-                                  <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-1.jpg" alt="blog-img"></a>
-                                  </div>
-                                  <div class="blog-content">
-                                      <div class="blog-meta">
-                                          <ul>
-                                              <li><a href="#">News </a></li>
-                                              <li>May 25, 2020</li>
-                                          </ul>
-                                      </div>
-                                      <h1><a href="blog-details.html">Five things you only know if you’re at Chanel's Hamburg Show</a></h1>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                              <div class="blog-wrap mb-40">
-                                  <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-2.jpg" alt="blog-img"></a>
-                                  </div>
-                                  <div class="blog-content">
-                                      <div class="blog-meta">
-                                          <ul>
-                                              <li><a href="#">Inspiration </a></li>
-                                              <li>May 25, 2020</li>
-                                          </ul>
-                                      </div>
-                                      <h1><a href="blog-details.html">Designers matched perfectly to you on Envato Studio</a></h1>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                              <div class="blog-wrap mb-40">
-                                  <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-3.jpg" alt="blog-img"></a>
-                                  </div>
-                                  <div class="blog-content">
-                                      <div class="blog-meta">
-                                          <ul>
-                                              <li><a href="#">Lookbook </a></li>
-                                              <li>May 25, 2020</li>
-                                          </ul>
-                                      </div>
-                                      <h1><a href="blog-details.html">Calvin Klein Shoes Collection 2020, Activites Summer</a></h1>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                              <div class="blog-wrap mb-40">
-                                  <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-6.jpg" alt="blog-img"></a>
-                                  </div>
-                                  <div class="blog-content">
-                                      <div class="blog-meta">
-                                          <ul>
-                                              <li><a href="#">News </a></li>
-                                              <li>May 25, 2020</li>
-                                          </ul>
-                                      </div>
-                                      <h1><a href="blog-details.html">Five things you only know if you’re at Chanel's Hamburg Show</a></h1>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                              <div class="blog-wrap mb-40">
-                                  <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-7.jpg" alt="blog-img"></a>
-                                  </div>
-                                  <div class="blog-content">
-                                      <div class="blog-meta">
-                                          <ul>
-                                              <li><a href="#">Inspiration </a></li>
-                                              <li>May 25, 2020</li>
-                                          </ul>
-                                      </div>
-                                      <h1><a href="blog-details.html">Designers matched perfectly to you on Envato Studio</a></h1>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                              <div class="blog-wrap mb-40">
-                                  <div class="blog-img mb-20">
-                                      <a href="blog-details.html"><img src="users/assets/images/blog/blog-8.jpg" alt="blog-img"></a>
-                                  </div>
-                                  <div class="blog-content">
-                                      <div class="blog-meta">
-                                          <ul>
-                                              <li><a href="#">Lookbook </a></li>
-                                              <li>May 25, 2020</li>
-                                          </ul>
-                                      </div>
-                                      <h1><a href="blog-details.html">Calvin Klein Shoes Collection 2020, Activites Summer</a></h1>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="row">
+                            @foreach ($articles as $article)
+                            <div class="col-lg-6 col-md-6 col-12 col-sm-6">
+                                <div class="blog-wrap mb-40">
+                                    <div class="blog-img mb-20">
+                                        <a href="{{ route('article', ['article_id' => $article->id]) }}"><img src="{{ url('users/assets/images/article_image/'. $article->image) }}" alt="blog-img"></a>
+                                        {{-- <a href="{{ route('articles.show', $article->id) }}"><img src="{{ url('users/assets/images/article_image/'. $article->image) }}" alt="blog-img"></a> --}}
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-meta">
+                                            <ul>
+                                                {{-- <li><a href="#">News </a></li> --}}
+                                                <li>{{ $article->created_at->format('d/m/Y') }}</li>
+                                            </ul>
+                                        </div>
+                                        <h1><a href="{{ route('articles.show', $article->id) }}">{{ $article->titre }}</a></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                       <div class="pro-pagination-style text-center mt-10">
-                          <ul>
+                          {{ $articles->links() }}
+                          {{-- <ul>
                               <li><a class="prev" href="#"><i class="icon-arrow-left"></i></a></li>
                               <li><a class="active" href="#">1</a></li>
                               <li><a href="#">2</a></li>
                               <li><a class="next" href="#"><i class="icon-arrow-right"></i></a></li>
-                          </ul>
+                          </ul> --}}
                       </div>
                   </div>
                   <div class="col-lg-3">
@@ -324,28 +248,28 @@
                               <div class="recent-post">
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="{{ url('/blog/articles') }}"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
-                                          <h5><a href="blog-details.html">Basic colord mixed</a></h5>
+                                          <h5><a href="{{ url('/blog/articles') }}">Basic colord mixed</a></h5>
                                           <span>Sep 5th, 2020</span>
                                       </div>
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-5.jpg" alt=""></a>
+                                          <a href="{{ url('/blog/articles') }}"><img src="users/assets/images/blog/blog-5.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
-                                          <h5><a href="blog-details.html">Five things you only</a></h5>
+                                          <h5><a href="{{ url('/blog/articles') }}">Five things you only</a></h5>
                                           <span>Sep 15th, 2020</span>
                                       </div>
                                   </div>
                                   <div class="single-sidebar-blog">
                                       <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
+                                          <a href="{{ url('/blog/articles') }}"><img src="users/assets/images/blog/blog-4.jpg" alt=""></a>
                                       </div>
                                       <div class="sidebar-blog-content">
-                                          <h5><a href="blog-details.html">Basic colord mixed</a></h5>
+                                          <h5><a href="{{ url('/blog/articles') }}">Basic colord mixed</a></h5>
                                           <span>Sep 5th, 2020</span>
                                       </div>
                                   </div>
@@ -404,6 +328,4 @@
               </div>
           </div>
       </div>
-      
-    
 @endsection

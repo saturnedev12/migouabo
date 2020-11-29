@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
@@ -26,11 +27,15 @@ use App\Http\Controllers\SousCategorieController;
 Route::get('/',[HomeController::class,'index'])->name('index');//->middleware('auth');
 Route::get('shop',[ShopController::class,'index'])->name('shop');
 Route::get('shop_sub',[ShopController::class,'shop_sub'])->name('shop_sub');
-Route::get('blogs',[BlogController::class,'index'])->name('blogs');
 Route::get('contact',[ContactController::class,'index'])->name('contact');
 //sous pages
 Route::get('product',[ShopController::class,'product'])->name('product');
-Route::get('blog',[BlogController::class,'blog'])->name('blog');
+
+Route::group(['prefix' => 'blogs'], function () {
+  Route::get('index',[BlogController::class,'index'])->name('blogs');
+  Route::get('article/{article_id}',[BlogController::class,'article'])->name('article');
+});
+
 Route::get('login-register',[HomeController::class,'login'])->name('login-register');
 
 
@@ -50,7 +55,8 @@ Route::resources([
   'souscategories' => SousCategorieController::class,
   'produits' => ProduitController::class,
   'images' => ImageController::class,
-]);
+  'articles' => ArticleController::class,
+  ]);
 
 // Route::get('/dash', function () {
 //     return view('admin.dashboard');

@@ -42,13 +42,15 @@ class SousCategorieController extends Controller
             'name' => 'required|max:255',
             'categorie_id' => 'required|integer',
             'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
-        // dd($request);
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('users/assets/images/souscategorie_image'), $imageName);
 
         SousCategorie::create([
             'name' => $request->name,
-            'photo' => 'conserver-viande-main-12348878.jpg',
+            'photo' => $imageName,
             'icon' => 'fas fa-drumstick-bite',
             'description' => $request->description,
             'categorie_id' => $request->categorie_id,

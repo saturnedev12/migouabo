@@ -21,7 +21,8 @@
             <div class="example">
                 <div class="card-group">
                     <div class="card">
-                    <img src="{{ url('users/assets/images/product/'. $produit->images->first()->name) }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/users/assets/images/products_images/'. $produit->images->first()->name) }}" class="card-img-top" alt="...">
+                    {{-- <img src="{{ url('users/assets/images/products_images/'. $produit->images->first()->name) }}" class="card-img-top" alt="..."> --}}
                         <div class="card-body">
                             <h3 class="card-title">Nom du produit : {{ $produit->name }}</h3>
                             <h5 class="card-title">Sous catégorie : {{ $produit->souscategorie->name }}</h5>
@@ -41,10 +42,10 @@
 </div>
 <hr>
 <div class="row">
-    @foreach ($images as $image)
+    @foreach ($produit->images as $image)
     <div class="col-md-3">
         <div class="card">
-            <img src="{{ url('users/assets/images/product/'. $image->name) }}" class="card-img-top" alt="...">
+            <img src="{{ asset('/users/assets/images/product/'. $image->name) }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <button type="button" class="btn btn-danger btn-block mt-3 btn-lg" data-toggle="modal" data-target="#Modal{{ $image->id }}">
                     <i data-feather="trash"></i> Supprimer

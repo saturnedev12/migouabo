@@ -37,6 +37,13 @@
                     <span class="link-title">Produits</span>
                 </a>
             </li>
+            <li class="nav-item nav-category">Supplément</li>
+            <li class="nav-item {{ active_class(['produits/index']) }}">
+                <a href="{{ route('articles.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title">Articles</span>
+                </a>
+            </li>
             {{-- <li class="nav-item nav-category">Components</li>
             <li class="nav-item {{ active_class(['ui-components/*']) }}">
                 <a class="nav-link" data-toggle="collapse" href="#uiComponents" role="button" aria-expanded="{{ is_active_route(['ui-components/*']) }}" aria-controls="uiComponents">
