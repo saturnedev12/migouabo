@@ -1,8 +1,5 @@
 @extends('users/layouts/master',['title'=>'shop'])
 @section('content')
-            @foreach ($products_all as $produit)
-                {{$produit->name}}
-            @endforeach
             <!-- mini cart start -->
             <div class="sidebar-cart-active">
               <div class="sidebar-cart-all">
@@ -96,17 +93,16 @@
                                         <!--zone d'affichage des produits-->
                                         @if ($id_category==null)
                                             @foreach ($products_all as $produit)
-                                            cuicui
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
-                                                            <a href="{{route('product',['id_product'=>$produit->id])}}">
+                                                            <a href="{{route('product',  ['produit_id' => $produit->id])}}">
                                                                 <!--image du produit-->
                                                                 <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                 <button title="Compare"><i class="icon-refresh"></i></button>
                                                             </div>
                                                         </div>
@@ -156,13 +152,13 @@
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
-                                                                <a href="{{route('product',['id_product'=>$produit->id])}}">
+                                                                <a href="{{route('product',['produit_id'=>$produit->id])}}">
                                                                       <!--image du produit-->
                                                                       <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                     <button title="Compare"><i class="icon-refresh"></i></button>
                                                                 </div>
                                                             </div>

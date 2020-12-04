@@ -193,49 +193,28 @@
                                   </form>
                               </div>
                           </div>
-                          <div class="sidebar-widget shop-sidebar-border mb-35 pt-40">
-                              <h4 class="sidebar-widget-title">Categories </h4>
-                              <div class="shop-catigory">
-                                  <ul>
-                                      <li><a href="shop.html">T-Shirt</a></li>
-                                      <li><a href="shop.html">Shoes</a></li>
-                                      <li><a href="shop.html">Clothing </a></li>
-                                      <li><a href="shop.html">Women </a></li>
-                                      <li><a href="shop.html">Baby Boy </a></li>
-                                      <li><a href="shop.html">Accessories </a></li>
-                                  </ul>
-                              </div>
-                          </div>
                           <div class="sidebar-widget shop-sidebar-border mb-40 pt-40">
-                              <h4 class="sidebar-widget-title">Recent Posts </h4>
+                              <h4 class="sidebar-widget-title">Articles récents</h4>
                               <div class="recent-post">
-                                  <div class="single-sidebar-blog">
-                                      <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="{{ asset('users/assets/images/blog/blog-4.jpg') }}" alt=""></a>
-                                      </div>
-                                      <div class="sidebar-blog-content">
-                                          <h5><a href="blog-details.html">Basic colord mixed</a></h5>
-                                          <span>Sep 5th, 2020</span>
-                                      </div>
-                                  </div>
-                                  <div class="single-sidebar-blog">
-                                      <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="{{ asset('users/assets/images/blog/blog-5.jpg') }}" alt=""></a>
-                                      </div>
-                                      <div class="sidebar-blog-content">
-                                          <h5><a href="blog-details.html">Five things you only</a></h5>
-                                          <span>Sep 15th, 2020</span>
-                                      </div>
-                                  </div>
-                                  <div class="single-sidebar-blog">
-                                      <div class="sidebar-blog-img">
-                                          <a href="blog-details.html"><img src="{{ asset('users/assets/images/blog/blog-4.jpg') }}" alt=""></a>
-                                      </div>
-                                      <div class="sidebar-blog-content">
-                                          <h5><a href="blog-details.html">Basic colord mixed</a></h5>
-                                          <span>Sep 5th, 2020</span>
-                                      </div>
-                                  </div>
+                            @php
+                                $post_rct_i = 0;
+                            @endphp  
+                            @foreach ($articles as $article)
+                                @if ($post_rct_i < 3)
+                                    <div class="single-sidebar-blog">
+                                        <div class="sidebar-blog-img">
+                                            <a href="{{ route('article', ['article_id' => $article->id]) }}"><img src="{{ url('users/assets/images/article_image/'. $article->image) }}" alt="blog-img"></a>
+                                        </div>
+                                        <div class="sidebar-blog-content">
+                                            <h5><a href="{{ route('article', ['article_id' => $article->id]) }}">{{ $article->titre }}</a></h5>
+                                            <span>{{ $article->created_at->format('d/m/Y') }}</span>
+                                        </div>
+                                    </div>
+                            @php
+                                $post_rct_i++;
+                            @endphp
+                                @endif
+                            @endforeach
                               </div>
                           </div>
                           <div class="sidebar-widget shop-sidebar-border mb-40 pt-40">

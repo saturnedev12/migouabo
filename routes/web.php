@@ -22,7 +22,6 @@ use App\Http\Controllers\SousCategorieController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //pages principales
 Route::get('/',[HomeController::class,'index'])->name('index');//->middleware('auth');
 Route::get('shop',[ShopController::class,'index'])->name('shop');

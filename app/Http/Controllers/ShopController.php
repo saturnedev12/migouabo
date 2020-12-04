@@ -57,19 +57,19 @@ class ShopController extends Controller
     }
     public function product(Request $request)
     {
+       
         $user = Auth::user();
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
-
-            $id_product = $request->get('id_product');   
+        $produit = Produit::findOrFail($request->get('produit_id'));
+        //dd($produit);
         return view('users/pages/product-detail',compact(
             'user',
             'categories',
             'sub_categorys',
             'products_all',
-            'id_product',
-            'product_selected',
+            'produit',
         ));
     }
 }

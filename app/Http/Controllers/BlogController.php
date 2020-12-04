@@ -28,13 +28,14 @@ class BlogController extends Controller
             'articles',
         ));
     }
+
     public function article($id)
     {
         $user = Auth::user();
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
-
+        $articles = articles::paginate(6);
         $article = articles::findOrFail($id);
 
         return view('users/pages/blog-detail',compact(
@@ -42,6 +43,7 @@ class BlogController extends Controller
             'categories',
             'sub_categorys',
             'products_all',
+            'articles',
             'article',
         ));
     }

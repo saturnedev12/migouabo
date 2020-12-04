@@ -102,7 +102,7 @@
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                 <button title="Compare"><i class="icon-refresh"></i></button>
                                                             </div>
                                                         </div>
@@ -158,7 +158,7 @@
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,2)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                     <button title="Compare"><i class="icon-refresh"></i></button>
                                                                 </div>
                                                             </div>

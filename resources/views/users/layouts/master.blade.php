@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon and font awesome -->
+    <!-- Favicon and font awesome --> 
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/fave.png">
     <!-- All CSS is here
         ============================================ -->
@@ -548,7 +548,7 @@
 
         @foreach ($products_all as $product)
           <!-- Modal -->
-          <div class="modal fade" id="{{substr($product->name,0,2)}}" tabindex="-1" role="dialog">
+          <div class="modal fade" id="{{substr($product->name,0,4)}}" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
@@ -576,7 +576,7 @@
                               </div>
                               <div class="col-lg-7 col-md-6 col-12 col-sm-12">
                                   <div class="product-details-content quickview-content">
-                                      <h2>{{$product->name}}</h2>
+                                      <h2>{{$product->name}}</h2>{{substr($product->name,0,4)}}
                                       <div class="product-ratting-review-wrap">
                                           <div class="product-ratting-digit-wrap">
                                               <div class="product-ratting">

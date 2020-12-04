@@ -58,57 +58,32 @@
       </div>
       <div class="product-details-area pt-120 pb-115">
           <div class="container">
-              @foreach ($product_selected as $product)
+        
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-tab">
                             <div class="pro-dec-big-img-slider">
+                                {{-- image product --}}
+                                
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="users/assets/images/products_images/{{$product->photo1}}">
-                                            <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
+                                        <a href="users/assets/images/products_images/{{$produit->images->first()->name}}">
+                                            <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo1}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$produit->images->first()->name}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="users/assets/images/products_images/{{$product->photo2}}">
-                                            <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="users/assets/images/products_images/{{$product->photo3}}">
-                                            <img src="users/assets/images/products_images/{{$product->photo3}}" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo3}}"><i class="icon-size-fullscreen"></i></a>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="users/assets/images/products_images/{{$product->photo4}}">
-                                            <img src="users/assets/images/products_images/{{$product->photo4}}" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo4}}"><i class="icon-size-fullscreen"></i></a>
-                                </div>
-                                <div class="easyzoom-style">
-                                    <div class="easyzoom easyzoom--overlay">
-                                        <a href="users/assets/images/products_images/{{$product->photo2}}">
-                                            <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$product->photo2}}"><i class="icon-size-fullscreen"></i></a>
-                                </div>
+
                             </div>
                             <div class="product-dec-slider-small product-dec-small-style1">
+                                {{-- image produit --}}
+                                
                                 <div class="product-dec-small active">
-                                    <img src="users/assets/images/products_images/{{$product->photo1}}" alt="">
+                                    <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                 </div>
-                                <div class="product-dec-small">
+
+                                {{-- 
+                                    <div class="product-dec-small">
                                     <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
                                 </div>
                                 <div class="product-dec-small">
@@ -120,12 +95,16 @@
                                 <div class="product-dec-small">
                                     <img src="users/assets/images/products_images/{{$product->photo2}}" alt="">
                                 </div>
+                                    
+                                    --}}
+                                
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content pro-details-content-mrg">
-                            <h2>{{$product->name_products}}</h2>
+                            <h2>{{$produit->name}}</h2>
                             <div class="product-ratting-review-wrap">
                                 <div class="product-ratting-digit-wrap">
                                     <div class="product-ratting">
@@ -205,7 +184,7 @@
                         </div>
                     </div>
                 </div>                  
-              @endforeach
+            
           </div>
       </div>
       <div class="description-review-wrapper pb-110">
