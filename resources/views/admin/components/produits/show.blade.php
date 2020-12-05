@@ -80,6 +80,66 @@
     </div>
     @endforeach
 </div>
+<div class="container row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+        <div class="card-body">
+            <button type="button" class="btn btn-primary btn-block mt-3 btn-lg" data-toggle="modal" data-target="#Modal1">
+                <i data-feather="plus"></i> Ajout d'images
+            </button>
+            <form action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <!-- Modal -->
+                <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalCenterTitle1">Ajout d'images</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Image 1</label>
+                                    <div class="input-group col-xs-12">
+                                      <input type="file" name="image1" class="form-control file-upload-info" placeholder="Charger l'Image">
+                                      <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image 2</label>
+                                    <div class="input-group col-xs-12">
+                                      <input type="file" name="image2" class="form-control file-upload-info" placeholder="Charger l'Image">
+                                      <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image 3</label>
+                                    <div class="input-group col-xs-12">
+                                      <input type="file" name="image3" class="form-control file-upload-info" placeholder="Charger l'Image">
+                                      <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                      </span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="produit_id" value="{{ $produit->id }}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><h4>Close</h4></button>
+                                <button type="submit" class="btn btn-primary"><i data-feather="save"></i> Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('plugin-scripts')
