@@ -64,23 +64,31 @@
                         <div class="product-details-tab">
                             <div class="pro-dec-big-img-slider">
                                 {{-- image product --}}
-                                
+                                @foreach ($produit->images as $image)
                                 <div class="easyzoom-style">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="users/assets/images/products_images/{{$produit->images->first()->name}}">
-                                            <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
+                                        <a href="users/assets/images/products_images/{{$image->name}}">
+                                            <img src="users/assets/images/products_images/{{$image->name}}">
                                         </a>
                                     </div>
-                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$produit->images->first()->name}}"><i class="icon-size-fullscreen"></i></a>
+                                    <a class="easyzoom-pop-up img-popup" href="users/assets/images/products_images/{{$image->name}}"><i class="icon-size-fullscreen"></i></a>
                                 </div>
-
+                                @endforeach
                             </div>
                             <div class="product-dec-slider-small product-dec-small-style1">
                                 {{-- image produit --}}
-                                
-                                <div class="product-dec-small active">
-                                    <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
-                                </div>
+                                @php
+                                    $i = 0;
+                                @endphp
+                                @foreach ($produit->images as $image)
+                                    <div class="product-dec-small @if($i==0){{"active"}}@endif">
+                                        <img src="users/assets/images/products_images/{{$image->name}}">
+                                    </div>
+                                    @php
+                                        $i =1;
+                                    @endphp
+                                @endforeach
+                               
 
                                 {{-- 
                                     <div class="product-dec-small">

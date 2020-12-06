@@ -20768,6 +20768,9 @@ h3.cart-page-title {
     .blog-reply-wrapper .blog-form .text-leave textarea {
         height: 120px;
     }
+    .product-details-tab{
+        margin-right: 0px;
+    }
 }
 
 .blog-reply-wrapper .blog-form .text-leave input {
@@ -20878,4 +20881,11 @@ h3.cart-page-title {
 
 .bg-girs{
     background-color: rgb(218, 208, 208);
+}
+.slick-list{
+    width: 580px;
+    height: 400px;
+}
+.product-details-tab{
+    margin-right: 100px;
 }
