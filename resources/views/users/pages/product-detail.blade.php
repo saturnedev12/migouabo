@@ -1,7 +1,6 @@
 @extends('users/layouts/master',['title'=>'produit-detail'])
 
 @section('content')
-   
         <!-- mini cart start -->
         <div class="sidebar-cart-active">
           <div class="sidebar-cart-all">
@@ -9,37 +8,33 @@
               <div class="cart-content">
                   <h3>Shopping Cart</h3>
                   <ul>
-                      <li class="single-product-cart">
-                          <div class="cart-img">
-                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
-                          </div>
-                          <div class="cart-title">
-                              <h4><a href="#">Simple Black T-Shirt</a></h4>
-                              <span> 1 × $49.00	</span>
-                          </div>
-                          <div class="cart-delete">
-                              <a href="#">×</a>
-                          </div>
-                      </li>
-                      <li class="single-product-cart">
-                          <div class="cart-img">
-                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
-                          </div>
-                          <div class="cart-title">
-                              <h4><a href="#">Norda Backpack</a></h4>
-                              <span> 1 × $49.00	</span>
-                          </div>
-                          <div class="cart-delete">
-                              <a href="#">×</a>
-                          </div>
-                      </li>
+                  @if (\Cart::getContent()->count() == 0)
+                      <p>Vous n'avez pas encore ajouter de produit dans votre panier</p>
+                  @else
+                      @foreach (\Cart::getContent() as $product)
+                    
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">{{$product->name}}</a></h4>
+                                <span> {{$product->quantity}} × {{$product->price}}	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="{{ route('cart.delete', ['id' => $product->id ]) }}">×</a>
+                            </div>
+                        </li>
+                    @endforeach
+                  @endif
+                    
                   </ul>
                   <div class="cart-total">
-                      <h4>Subtotal: <span>$170.00</span></h4>
+                      <h4>SOUS-TOTAL: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
                   </div>
                   <div class="cart-checkout-btn">
-                      <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
-                      <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                      <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre Panier</a>
+                      <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">Commander</a>
                   </div>
               </div>
           </div>
@@ -56,6 +51,11 @@
               </div>
           </div>
       </div>
+      @if (session('success'))
+       <div class="alert alert-success">
+           {{session('success')}}
+       </div>
+   @endif
       <div class="product-details-area pt-120 pb-115">
           <div class="container">
         
@@ -133,8 +133,8 @@
                             </div>
                             <p>Seamlessly predominate enterprise metrics without performance based process improvements.</p>
                             <div class="pro-details-price">
-                                <span class="new-price">$75.72</span>
-                                <span class="old-price">$95.72</span>
+                                <span class="new-price">{{$produit->price}}F CFA</span>
+                                <span class="old-price">{{($produit->price)*1.15}}F CFA</span>
                             </div>
                             <div class="pro-details-color-wrap">
                                 <span>Color:</span>
@@ -149,7 +149,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="pro-details-size">
+                            {{-- <div class="pro-details-size">
                                 <span>Size:</span>
                                 <div class="pro-details-size-content">
                                     <ul>
@@ -160,11 +160,14 @@
                                         <li><a href="#">XL</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
+                            <form action="{{ route('cart.store') }}" method="post">
+                                @csrf
                             <div class="pro-details-quality">
                                 <span>Quantity:</span>
                                 <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                    <input class="cart-plus-minus-box" type="text" name="qty" value="1">
+                                    <input type="hidden" name="id" value="{{ $produit->id }}">
                                 </div>
                             </div>
                             <div class="product-details-meta">
@@ -175,10 +178,17 @@
                             </div>
                             <div class="pro-details-action-wrap">
                                 <div class="pro-details-add-to-cart">
-                                    <a title="Add to Cart" href="#">Add To Cart </a>
+                                    {{-- <a title="Add to Cart" href="#">Add To Cart </a> --}}
+                                    <button type="submit">Ajouter au panier</button>
+                                    
                                 </div>
+                            </form>
                                 <div class="pro-details-action">
-                                    <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                    <a title="Ajouter à votre liste de souhaits" href="{{ route('addToWishlist') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('addWishlistForm').submit();">
+                                        <i class="icon-heart"></i>
+                                    </a>
                                     <a title="Add to Compare" href="#"><i class="icon-refresh"></i></a>
                                     <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     <div class="product-dec-social">
@@ -187,6 +197,10 @@
                                         <a class="instagram" title="Instagram" href="#"><i class="icon-social-instagram"></i></a>
                                         <a class="pinterest" title="Pinterest" href="#"><i class="icon-social-pinterest"></i></a>
                                     </div>
+                                    <form action="{{ route('addToWishlist') }}" method="post" id="addWishlistForm">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $produit->id }}">
+                                    </form>
                                 </div>
                             </div>
                         </div>

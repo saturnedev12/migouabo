@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-use Symfony\Component\Routing\Route;
-use App\Models\Categorie;
-use App\Models\SousCategorie;
 use App\Models\Produit;
+use App\Models\Wishlist;
+use App\Models\Categorie;
+use Darryldecode\Cart\Cart;
+use Illuminate\Http\Request;
+use App\Models\SousCategorie;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Routing\Route;
 
 
 class ShopController extends Controller
@@ -19,6 +21,8 @@ class ShopController extends Controller
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
+        // $wishlist_count = Wishlist::where('user_id', $user->id)->count();
+        // dd($wishlist_count);
 
         //capture des parametre GET[] de des routes    
         $id_category = $request->get('id_category');
@@ -59,10 +63,16 @@ class ShopController extends Controller
     {
        
         $user = Auth::user();
-        $categories = Categorie::all();;
+        $categories = Categorie::all();
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
         $produit = Produit::findOrFail($request->get('produit_id'));
+        $items = \Cart::getContent();
+        // foreach($items as $item){
+        //     var_dump($item->associatedModel);
+        // }
+        // dd($items);
+        
         //dd($produit);
         return view('users/pages/product-detail',compact(
             'user',

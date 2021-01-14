@@ -7,37 +7,31 @@
                   <div class="cart-content">
                       <h3>Shopping Cart</h3>
                       <ul>
-                          <li class="single-product-cart">
-                              <div class="cart-img">
-                                  <a href="#"><img src="dusers/assets/images/cart/cart-1.jpg" alt=""></a>
-                              </div>
-                              <div class="cart-title">
-                                  <h4><a href="#">Simple Black T-Shirt</a></h4>
-                                  <span> 1 × $49.00	</span>
-                              </div>
-                              <div class="cart-delete">
-                                  <a href="#">×</a>
-                              </div>
-                          </li>
-                          <li class="single-product-cart">
-                              <div class="cart-img">
-                                  <a href="#"><img src="dusers/assets/images/cart/cart-2.jpg" alt=""></a>
-                              </div>
-                              <div class="cart-title">
-                                  <h4><a href="#">Norda Backpack</a></h4>
-                                  <span> 1 × $49.00	</span>
-                              </div>
-                              <div class="cart-delete">
-                                  <a href="#">×</a>
-                              </div>
-                          </li>
+                          @if (\Cart::getContent()->count() != 0)
+                            @foreach (\Cart::getContent() as $product)
+                            <li class="single-product-cart">
+                                <div class="cart-img">
+                                    <a href="#"><img src="dusers/assets/images/cart/cart-1.jpg" alt=""></a>
+                                </div>
+                                <div class="cart-title">
+                                    <h4><a href="#">{{ $product->name }}</a></h4>
+                                    <span> {{$product->quantity}} × {{$product->price}}	</span>
+                                </div>
+                                <div class="cart-delete">
+                                    <a href="{{ route('cart.delete', ['id' => $product->id ]) }}">×</a>
+                                </div>
+                            </li>
+                            @endforeach
+                          @else
+                              <p>Vous n'avez rien ajouté au panier</p>
+                          @endif
                       </ul>
                       <div class="cart-total">
-                          <h4>Subtotal: <span>$170.00</span></h4>
+                          <h4>Sous-total: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
                       </div>
                       <div class="cart-checkout-btn">
-                          <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
-                          <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                          <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre panier</a>
+                          <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">Commander</a>
                       </div>
                   </div>
               </div>
@@ -101,7 +95,11 @@
                                                                 <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
-                                                                <button title="Wishlist"><i class="icon-heart"></i></button>
+                                                                <form action="{{ route('addToWishlist') }}" method="post">
+                                                                    @csrf
+                                                                    <input type="hidden" name="product_id" value="{{ $produit->id }}">
+                                                                    <button title="Liste des souhaits"><i class="icon-heart"></i></button>
+                                                                </form>
                                                                 <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                 <button title="Compare"><i class="icon-refresh"></i></button>
                                                             </div>
@@ -117,9 +115,9 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                        <h3><a href="{{route('product',['id_product'=>$produit->id])}}">{{$produit->name}}</a></h3>
+                                                        <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{$produit->name}}</a></h3>
                                                             <div class="product-price-2">
-                                                                <span>$20.50</span>
+                                                                <span>{{ $produit->price }} F CFA</span>
                                                             </div>
                                                         </div>
                                                         <div class="product-content-wrap-2 product-content-position text-center">
@@ -133,12 +131,17 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                            <h3><a href="product-details.html">Basic Joggin Shorts</a></h3>
+                                                            <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{ $produit->name }}</a></h3>
                                                             <div class="product-price-2">
-                                                                <span>$20.50</span>
+                                                                <span>{{ $produit->price }} F CFA</span>
                                                             </div>
                                                             <div class="pro-add-to-cart">
-                                                                <button title="Add to Cart">Add To Cart</button>
+                                                                <form action="{{ route('cart.store') }}" method="post">
+                                                                    @csrf
+                                                                    <input type="hidden" name="id" value="{{ $produit->id }}">
+                                                                    <input type="hidden" name="qty" value="1">
+                                                                    <button title="Ajouter au panier">Ajouter au panier</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -173,9 +176,9 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                            <h3><a href="{{route('product',['id_product'=>$produit->id])}}">{{$produit->name}}</a></h3>
+                                                            <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{$produit->name}}</a></h3>
                                                                 <div class="product-price-2">
-                                                                    <span>$20.50</span>
+                                                                    <span>{{ $produit->price }} F CFA</span>
                                                                 </div>
                                                             </div>
                                                             <div class="product-content-wrap-2 product-content-position text-center">
@@ -189,12 +192,17 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                                <h3><a href="product-details.html">Basic Joggin Shorts</a></h3>
+                                                                <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{ $produit->name }}</a></h3>
                                                                 <div class="product-price-2">
-                                                                    <span>$20.50</span>
+                                                                    <span>{{ $produit->price }} F CFA</span>
                                                                 </div>
                                                                 <div class="pro-add-to-cart">
-                                                                    <button title="Add to Cart">Add To Cart</button>
+                                                                    <form action="{{ route('cart.store') }}" method="post">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id" value="{{ $produit->id }}">
+                                                                        <input type="hidden" name="qty" value="1">
+                                                                        <button title="Ajouter au panier">Ajouter au panier</button>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -205,7 +213,7 @@
                                       </div>
                                   </div>
 
-                                  <div id="shop-2" class="tab-pane">
+                                  {{--  <div id="shop-2" class="tab-pane">
                                       <div class="shop-list-wrap mb-30">
                                           <div class="row">
                                               <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
@@ -401,7 +409,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                  </div>
+                                  </div>  --}}
                               </div>
                               <div class="pro-pagination-style text-center mt-10">
                                   <ul>
@@ -479,7 +487,7 @@
                                       </ul>
                                   </div>
                               </div>
-                              <div class="sidebar-widget shop-sidebar-border mb-40 pt-40">
+                              {{--  <div class="sidebar-widget shop-sidebar-border mb-40 pt-40">
                                   <h4 class="sidebar-widget-title">Size </h4>
                                   <div class="sidebar-widget-list">
                                       <ul>
@@ -540,7 +548,7 @@
                                           </li>
                                       </ul>
                                   </div>
-                              </div>
+                              </div>  --}}
                               <div class="sidebar-widget shop-sidebar-border pt-40">
                                   <h4 class="sidebar-widget-title">Popular Tags</h4>
                                   <div class="tag-wrap sidebar-widget-tag">

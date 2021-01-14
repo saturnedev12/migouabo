@@ -112,15 +112,8 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="/user/profile">profile</a>
                                             <div class="dropdown-divider"></div>
-                                            {{--  <a class="dropdown-item" href="{{ route('logout') }}">Se déconnecter</a>  --}}
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Se déconnecter') }}
-                                    </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item">
-                                                @csrf
-                                            </form>
+                                            <a class="dropdown-item" href="#">se déconnecter</a>
+
                                             </div>
                                         </div>
                                         @else
@@ -144,14 +137,7 @@
 
                                     </div>
                                     <div class="same-style-2 same-style-2-font-inc">
-                                        <a href="{{ route('wishlist') }}"><i class="icon-heart"></i>
-                                            <span class="pro-count purple">
-                                                @if ($user)
-                                                    {{ App\Models\Wishlist::where('user_id', $user->id)->count() }}
-                                                @else
-                                                    0
-                                                @endif
-                                            </span></a>
+                                        <a href="{{ route('wishlist') }}"><i class="icon-heart"></i><span class="pro-count purple">03</span></a>
                                     </div>
                                     <div class="same-style-2 same-style-2-font-inc header-cart">
                                         <a class="cart-active" href="#">
@@ -173,34 +159,7 @@
                                 <div class="main-categori-wrap main-categori-wrap-modify">
                                     <a class="categori-show" href="#"><i class="lnr lnr-menu"></i> toutes les catégories<i class="icon-arrow-down icon-right"></i></a>
                                     <div class="category-menu categori-hide categori-not-visible">
-                                        <nav>
-                                           <ul>
-                                                {{-- categoories end sub categorie --}}
-                                                @foreach ($categories as $categorie)
-                                                <li class="cr-dropdown"><a href="{{route('shop',['id_category'=>$categorie->id])}}"> {{$categorie->name}} <span class="icon-arrow-right"></span></a>
-                                                    <div class="category-menu-dropdown ct-menu-res-height-2">
-                                                        @foreach ($sub_categorys as $sub_category)
-                                                            @if ($sub_category->categorie_id == $categorie->id)
-                                                                <div class="single-category-menu ct-menu-mrg-bottom">
-                                                                    <h4> {{$sub_category->name}} </h4>
-                                                                    <ul>
-                                                                        @foreach ($products_all as $product)
-                                                                            @if ($product->souscategorie_id == $sub_category->id)
-                                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name}} </a></li>
-                                                                            @endif
-                                                                        @endforeach
-                                                                    </ul>
-                                                                </div>
-                                                            @endif
-                                                        @endforeach        
-                                                    </div>
-                                                </li>
-                                                @endforeach
-                                                <!--fin header categorie-->
-
-                                            </ul>
-                                            
-                                        </nav>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -249,7 +208,7 @@
                                     <a href="login-register.html"><i class="icon-user"></i></a>
                                 </div>
                                 <div class="same-style-2 same-style-2-font-inc">
-                                    <a href="{{ route('wishlist') }}"><i class="icon-heart"></i><span class="pro-count purple">{{ App\Models\Wishlist::count() }}</span></a>
+                                    <a href="{{ route('wishlist') }}"><i class="icon-heart"></i><span class="pro-count purple">03</span></a>
                                 </div>
                                 <div class="same-style-2 same-style-2-font-inc header-cart">
                                     <a class="cart-active" href="#">
@@ -268,46 +227,7 @@
         <!--fin header-->
 
         <!-- mini cart start -->
-        <div class="sidebar-cart-active">
-            <div class="sidebar-cart-all">
-                <a class="cart-close" href="#"><i class="icon_close"></i></a>
-                <div class="cart-content">
-                    <h3>Shopping Cart</h3>
-                    @if (\Cart::getContent()->count() == 0)
-                        <p>Vous n'avez rien ajouté au panier</p>
-                        <div class="cart-total">
-                            <h4>Sous-total: <span>0 FCFA</span></h4>
-                        </div>
-                    @else
-                    <ul>
-                        @foreach (\Cart::getContent() as $product)
-                        
-                            <li class="single-product-cart">
-                                <div class="cart-img">
-                                    <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
-                                </div>
-                                <div class="cart-title">
-                                    <h4><a href="#">{{$product->name}}</a></h4>
-                                    <span> {{$product->quantity}} × {{$product->price}}	</span>
-                                </div>
-                                <div class="cart-delete">
-                                    <a href="{{ route('cart.delete', ['id' => $product->id ]) }}">×</a>
-                                </div>
-                            </li>
-                        @endforeach
-                        </ul>
-                        <div class="cart-total">
-                            <h4>Sous-total: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
-                        </div>
-                    @endif
-                    
-                    <div class="cart-checkout-btn">
-                        <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
-                        <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- mobile header start -->
         <div class="mobile-header-active mobile-header-wrapper-style">
@@ -346,31 +266,7 @@
                             <i class="lnr lnr-menu"></i> toutes les catégories <i class="icon-arrow-down icon-right"></i>
                         </a>
                         <div class="categori-hide-2">
-                            <nav>
-                                <ul class="mobile-menu">
-
-                                    <!--toutes les categories-->
-                                    @foreach ($categories as $categorie)
-                                        <li class="menu-item-has-children "><a href="#">{{$categorie->name}} </a>
-                                            <ul class="dropdown">
-                                                @foreach ($sub_categorys as $sub_category)
-                                                    @if ($sub_category->categorie->name == $categorie->name)
-                                                    <li class="menu-item-has-children"><a href="#">{{$sub_category->name}}</a>
-                                                        <ul class="dropdown">
-                                                            @foreach ($products_all as $product)
-                                                            @if ($product->souscategorie->name == $sub_category->name)
-                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name}}</a></li>
-                                                            @endif
-                                                            @endforeach
-                                                        </ul>
-                                                   </li>
-                                                    @endif
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                     @endforeach
-                                </ul>
-                            </nav>
+                            
                         </div>
                     </div>
                     <div class="mobile-header-info-wrap mobile-header-padding-border-3">
@@ -487,7 +383,7 @@
                                 <div class="footer-info-list">
                                     <ul>
                                         <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="wishlist.html">My Wishlish</a></li>
+                                        <li><a href="{{ route('wishlist') }}">My Wishlish</a></li>
                                         <li><a href="#">Term & Conditions</a></li>
                                         <li><a href="#">Privacy Policy</a></li>
                                         <li><a href="#">Track Order</a></li>
@@ -560,122 +456,7 @@
         </footer>
         <!--fin footer-->
 
-        @foreach ($products_all as $product)
-          <!-- Modal -->
-          <div class="modal fade" id="{{substr($product->name,0,4)}}" tabindex="-1" role="dialog">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-                      </div>
-                      <div class="modal-body">
-                          <div class="row">
-                              <div class="col-lg-5 col-md-6 col-12 col-sm-12">
-                                  <div class="tab-content quickview-big-img">
-                                      <div id="pro-1" class="tab-pane fade show active">
-                                          {{-- les images --}}
-                                          <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
-                                      </div>
-                                      <div id="pro-2" class="tab-pane fade">
-                                          <img src="users/assets/images/product/product-3.jpg" alt="">
-                                      </div>
-                                      <div id="pro-3" class="tab-pane fade">
-                                          <img src="users/assets/images/product/product-6.jpg" alt="">
-                                      </div>
-                                      <div id="pro-4" class="tab-pane fade">
-                                          <img src="users/assets/images/product/product-3.jpg" alt="">
-                                      </div>
-                                  </div>
-
-                              </div>
-                              <div class="col-lg-7 col-md-6 col-12 col-sm-12">
-                                  <div class="product-details-content quickview-content">
-                                      <h2>{{$product->name}}</h2>{{substr($product->name,0,4)}}
-                                      <div class="product-ratting-review-wrap">
-                                          <div class="product-ratting-digit-wrap">
-                                              <div class="product-ratting">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                              </div>
-                                              <div class="product-digit">
-                                                  <span>5.0</span>
-                                              </div>
-                                          </div>
-                                          <div class="product-review-order">
-                                              <span>62 Reviews</span>
-                                              <span>242 orders</span>
-                                          </div>
-                                      </div>
-                                      <p>Seamlessly predominate enterprise metrics without performance based process improvements.</p>
-                                      <div class="pro-details-price">
-                                          <span class="new-price">$75.72</span>
-                                          <span class="old-price">$95.72</span>
-                                      </div>
-                                      <div class="pro-details-color-wrap">
-                                          <span>Color:</span>
-                                          <div class="pro-details-color-content">
-                                              <ul>
-                                                  <li><a class="dolly" href="#">dolly</a></li>
-                                                  <li><a class="white" href="#">white</a></li>
-                                                  <li><a class="azalea" href="#">azalea</a></li>
-                                                  <li><a class="peach-orange" href="#">Orange</a></li>
-                                                  <li><a class="mona-lisa active" href="#">lisa</a></li>
-                                                  <li><a class="cupid" href="#">cupid</a></li>
-                                              </ul>
-                                          </div>
-                                      </div>
-                                      <div class="pro-details-size">
-                                          <span>Size:</span>
-                                          <div class="pro-details-size-content">
-                                              <ul>
-                                                  <li><a href="#">XS</a></li>
-                                                  <li><a href="#">S</a></li>
-                                                  <li><a href="#">M</a></li>
-                                                  <li><a href="#">L</a></li>
-                                                  <li><a href="#">XL</a></li>
-                                              </ul>
-                                          </div>
-                                      </div>
-                                      <div class="pro-details-quality">
-                                          <span>Quantity:</span>
-                                          <div class="cart-plus-minus">
-                                              <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                          </div>
-                                      </div>
-                                      <div class="product-details-meta">
-                                          <ul>
-                                              <li><span>Categories:</span> <a href="#">Woman,</a> <a href="#">Dress,</a> <a href="#">T-Shirt</a></li>
-                                              <li><span>Tag: </span> <a href="#">Fashion,</a> <a href="#">Mentone</a> , <a href="#">Texas</a></li>
-                                          </ul>
-                                      </div>
-                                      <div class="pro-details-action-wrap">
-                                          <div class="pro-details-add-to-cart">
-                                              <a title="Add to Cart" href="#">Add To Cart </a>
-                                          </div>
-                                          <div class="pro-details-action">
-                                              <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                              <a title="Add to Compare" href="#"><i class="icon-refresh"></i></a>
-                                              <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
-                                              <div class="product-dec-social">
-                                                  <a class="facebook" title="Facebook" href="#"><i class="icon-social-facebook"></i></a>
-                                                  <a class="twitter" title="Twitter" href="#"><i class="icon-social-twitter"></i></a>
-                                                  <a class="instagram" title="Instagram" href="#"><i class="icon-social-instagram"></i></a>
-                                                  <a class="pinterest" title="Pinterest" href="#"><i class="icon-social-pinterest"></i></a>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- Modal end -->
-        @endforeach
+        
         <!--fin conten-->
     </div>
   <!--fin corpd de page-->

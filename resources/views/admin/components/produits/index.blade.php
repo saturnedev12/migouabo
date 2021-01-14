@@ -27,7 +27,8 @@
                     <h5 class="card-title">{{ $produit->name }}</h5>
                     <p class="float-right mb-3"> {{ $produit->price }} Franc CFA</p>
                     <p class="card-text">{{ $produit->description }}</p>
-                    <p class="card-text"><small class="text-muted">Ajouté par {{ $produit->user->name }} le {{ $produit->created_at->format('d/m/Y') }}</small></p>
+                    <p class="card-text"><small class="text-muted">Ajouté par  le {{ $produit->created_at->format('d/m/Y') }}</small></p>
+                    {{-- {{ $produit->user->name }} --}}
                 </div>
             </div>
             <button type="button" class="btn btn-danger btn-block mt-3 btn-lg" data-toggle="modal" data-target="#Modal{{ $produit->id }}">

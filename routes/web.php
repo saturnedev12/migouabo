@@ -1,15 +1,18 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\SousCategorieController;
 
 /*
@@ -35,7 +38,7 @@ Route::group(['prefix' => 'blogs'], function () {
   Route::get('article/{article_id}',[BlogController::class,'article'])->name('article');
 });
 
-Route::get('login-register',[HomeController::class,'login'])->name('login-register');
+// Route::get('login-register',[HomeController::class,'login'])->name('login-register');
 
 
 // Admin Routes
@@ -68,3 +71,23 @@ Route::resources([
 //     return Inertia\Inertia::render('Dashboard');
 //     Route::get('/',[HomeController::class,'index']);
 // })->name('dashboard');
+
+/* Cart route */
+Route::get('panier', [CartController::class, 'index'])
+      ->name('cart.index')
+      ->middleware('auth');
+Route::post('/panier/ajouter', [CartController::class, 'store'])
+      ->name('cart.store')
+      ->middleware('auth');
+Route::get('/panier/supprimer/{id}', [CartController::class, 'destroy'])->name('cart.delete');
+Route::get('/panier/supprimer_tout', [CartController::class, 'destroyAll'])->name('cart.delete.all');
+
+/* Wishlist routes */
+
+Route::get('wishlist', [WishlistController::class, 'index'])
+      ->name('wishlist')
+      ->middleware('auth');
+Route::post('/wishlist/ajouter', [WishlistController::class, 'store'])
+      ->name('addToWishlist')
+      ->middleware('auth');
+

@@ -1,4 +1,4 @@
-@extends('users/layouts/master',['title'=>'login'])
+@extends('users/layouts/auth',['title'=>'login'])
 @section('content')
     
         <!-- mini cart start -->
@@ -50,7 +50,7 @@
                       <li>
                           <a href="index.html">Home</a>
                       </li>
-                      <li class="active">login - register </li>
+                      <li class="active">{{ __('Connexion - Inscription') }} </li>
                   </ul>
               </div>
           </div>
@@ -62,26 +62,27 @@
                       <div class="login-register-wrapper">
                           <div class="login-register-tab-list nav">
                               <a class="active" data-toggle="tab" href="#lg1">
-                                  <h4> login </h4>
+                                  <h4> {{ __('Connexion') }} </h4>
                               </a>
                               <a data-toggle="tab" href="#lg2">
-                                  <h4> register </h4>
+                                  <h4> {{ __('Inscription') }} </h4>
                               </a>
                           </div>
                           <div class="tab-content">
                               <div id="lg1" class="tab-pane active">
                                   <div class="login-form-container">
                                       <div class="login-register-form">
-                                          <form action="#" method="post">
-                                              <input type="text" name="user-name" placeholder="Username">
-                                              <input type="password" name="user-password" placeholder="Password">
+                                          <form action="{{ route('login') }}" method="post">
+                                            @csrf
+                                              <input type="email" name="email" value="{{ old('email') }}" placeholder="{{ __('Votre E-mail') }}">
+                                              <input type="password" name="password" placeholder="{{ __('Votre mot de passe') }}">
                                               <div class="button-box">
                                                   <div class="login-toggle-btn">
                                                       <input type="checkbox">
                                                       <label>Remember me</label>
                                                       <a href="#">Forgot Password?</a>
                                                   </div>
-                                                  <button type="submit">Login</button>
+                                                  <button type="submit">Se connecter</button>
                                               </div>
                                           </form>
                                       </div>
@@ -90,12 +91,14 @@
                               <div id="lg2" class="tab-pane">
                                   <div class="login-form-container">
                                       <div class="login-register-form">
-                                          <form action="#" method="post">
-                                              <input type="text" name="user-name" placeholder="Username">
-                                              <input type="password" name="user-password" placeholder="Password">
-                                              <input name="user-email" placeholder="Email" type="email">
+                                          <form action="{{ route('register') }}" method="post">
+                                            @csrf
+                                              <input type="text" name="name" value="{{ old('name') }}" placeholder="{{ __('Nom et prénoms') }}">
+                                              <input type="email" name="email" value="{{ old('email') }}" placeholder="{{ __('E-mail') }}">
+                                              <input type="password" name="password" placeholder="{{ __('Mot de passe') }}">
+                                              <input name="password_confirmation" placeholder="{{ __('Confirmer votre mot de passe') }}" type="password">
                                               <div class="button-box">
-                                                  <button type="submit">Register</button>
+                                                  <button type="submit">{{ __("S'inscrire") }}</button>
                                               </div>
                                           </form>
                                       </div>
