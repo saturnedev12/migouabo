@@ -79,8 +79,8 @@
                                               <div class="button-box">
                                                   <div class="login-toggle-btn">
                                                       <input type="checkbox">
-                                                      <label>Remember me</label>
-                                                      <a href="#">Forgot Password?</a>
+                                                      <label>Se souvenir de moi</label>
+                                                      <a href="#">Mot de passe oublié?</a>
                                                   </div>
                                                   <button type="submit">Se connecter</button>
                                               </div>

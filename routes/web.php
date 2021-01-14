@@ -11,6 +11,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\SousCategorieController;
@@ -91,3 +92,8 @@ Route::post('/wishlist/ajouter', [WishlistController::class, 'store'])
       ->name('addToWishlist')
       ->middleware('auth');
 
+/* CheckOut routes */
+
+Route::get('checkout', [CheckOutController::class, 'index'])
+      ->name('checkout')
+      ->middleware('auth');
