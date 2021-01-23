@@ -74,6 +74,7 @@ class ShopController extends Controller
         // dd($items);
         
         //dd($produit);
+        // dd($request->get('produit_id'));
         return view('users/pages/product-detail',compact(
             'user',
             'categories',

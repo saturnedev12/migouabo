@@ -167,9 +167,9 @@
                                 <span>Quantity:</span>
                                 <div class="cart-plus-minus">
                                     <input class="cart-plus-minus-box" type="text" name="qty" value="1">
-                                    <input type="hidden" name="id" value="{{ $produit->id }}">
                                 </div>
                             </div>
+                            <input type="hidden" name="id" value="{{ $produit->id }}">
                             <div class="product-details-meta">
                                 <ul>
                                     <li><span>Categories:</span> <a href="#">Woman,</a> <a href="#">Dress,</a> <a href="#">T-Shirt</a></li>

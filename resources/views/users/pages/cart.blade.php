@@ -11,7 +11,7 @@
                         @foreach (\Cart::getContent() as $product)
                           <li class="single-product-cart">
                               <div class="cart-img">
-                                  <a href="#"><img src="dusers/assets/images/cart/cart-1.jpg" alt=""></a>
+                                  <a href="#"><img src="users/assets/images/products_images/{{ $product->attributes->image }}" alt=""></a>
                               </div>
                               <div class="cart-title">
                                   <h4><a href="#">{{ $product->name }}</a></h4>
@@ -67,15 +67,20 @@
                                         @foreach (\Cart::getContent() as $product)
                                             <tr>
                                                 <td class="product-thumbnail">
-                                                    <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                                                    <a href="#"><img src="users/assets/images/products_images/{{ $product->attributes->image }}" alt=""></a>
                                                 </td>
                                                 <td class="product-name"><a href="#">{{ $product->name }}</a></td>
                                                 <td class="product-price-cart"><span class="amount">{{ $product->price }} F CFA</span></td>
-                                                <td class="product-quantity pro-details-quality">
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $product->quantity }}">
-                                                    </div>
-                                                </td>
+                                                <form action="{{ route('cart.update', ['id' => $product->id]) }}" method="post" id="cart_update_{{ $product->id }}">
+                                                    @csrf
+                                                    <td class="product-quantity pro-details-quality">
+                                                        <div class="cart-plus-minus">
+                                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $product->quantity }}">
+                                                        </div>
+                                                    </td>
+                                                
+                                                    <input type="hidden" id="id_cart_product" name="cart_id" value="{{ $product->id }}">
+                                                </form>
                                                 <td class="product-subtotal">{{ $product->quantity * $product->price }}</td>
                                                 <td class="product-remove">
                                                     <a href="{{ route('cart.delete', ['id' => $product->id ]) }}"><i class="icon_close"></i></a>
@@ -162,16 +167,26 @@
                                     <div class="title-wrap">
                                         <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                                     </div>
-                                    <h5>Total products <span>$260.00</span></h5>
+                                    <h5>Total des produits <span>{{ \Cart::getTotal()}} F CFA</span></h5>
                                     <div class="total-shipping">
                                         <h5>Total shipping</h5>
-                                        <ul>
-                                            <li><input type="checkbox"> Standard <span>$20.00</span></li>
-                                            <li><input type="checkbox"> Express <span>$30.00</span></li>
-                                        </ul>
+                                        <form action="" method="post">
+                                            <ul>
+                                                <li><input type="radio" name="shipping"> Standard <span>1000 F CFA</span></li>
+                                                <li><input type="radio" name="shipping"> Express <span>2000 F CFA</span></li>
+                                                {{--  <li><input type="radio" name="radio1" id="radio1"><span>Autre express</span> </li>  --}}
+                                            </ul>
+                                        </form>
                                     </div>
-                                    <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
-                                    <a href="#">Proceed to Checkout</a>
+                                    <h4 class="grand-totall-title">Grand Total 
+                                        <span>
+                                            @php
+                                                
+                                            @endphp
+                                            {{ \Cart::getTotal()}}
+                                        </span>
+                                    </h4>
+                                    <a href="{{ route('checkout') }}">Proceed to Checkout</a>
                                 </div>
                             </div>
                         </div>

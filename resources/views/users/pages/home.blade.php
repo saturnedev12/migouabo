@@ -166,22 +166,26 @@
           <div class="product-plr-1">
               <div class="single-product-wrap">
                   <div class="product-img product-img-zoom mb-15">
-                      <a href="{{route('product',['id_product'=>$product->id])}}">
+                      <a href="{{route('product',['produit_id'=>$product->id])}}">
                      <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
                      
                       </a>
                       <span class="pro-badge left bg-red">-40%</span>
                       <div class="product-action-2 tooltip-style-2">
-                          <button title="Wishlist"><i class="icon-heart"></i></button>
+                        <form action="{{ route('addToWishlist') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button title="Liste des souhaits"><i class="icon-heart"></i></button>
+                        </form>
                           <button title="Quick View" data-toggle="modal" data-target="#{{substr($product->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                           <button title="Compare"><i class="icon-refresh"></i></button>
                       </div>
                   </div>
                   <div class="product-content-wrap-3">
-                      <div class="product-content-categories">
+                      {{--  <div class="product-content-categories">
                           <a class="purple" href="shop.html">baby</a>
-                      </div>
-                      <h3><a class="purple" href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name}} </a></h3>
+                      </div>  --}}
+                      <h3><a class="purple" href="{{route('product',['produit_id'=>$product->id])}}"> {{$product->name}} </a></h3>
                       <div class="product-rating-wrap-2">
                           <div class="product-rating-4">
                               <i class="icon_star"></i>
@@ -193,15 +197,15 @@
                           <span>(4)</span>
                       </div>
                       <div class="product-price-4">
-                          <span class="new-price">$38.50 </span>
-                          <span class="old-price">$42.85</span>
+                          <span class="new-price">{{ $product->price }} </span>
+                          <span class="old-price">{{ $product->price * 1.4 }}</span>
                       </div>
                   </div>
                   <div class="product-content-wrap-3 product-content-position-2">
-                      <div class="product-content-categories">
+                      {{--  <div class="product-content-categories">
                           <a class="purple" href="shop.html">baby</a>
-                      </div>
-                      <h3><a class="purple" href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name}} </a></h3>
+                      </div>  --}}
+                      <h3><a class="purple" href="{{route('product',['produit_id'=>$product->id])}}"> {{$product->name}} </a></h3>
                       <div class="product-rating-wrap-2">
                           <div class="product-rating-4">
                               <i class="icon_star"></i>
@@ -213,11 +217,14 @@
                           <span>(4)</span>
                       </div>
                       <div class="product-price-4">
-                          <span class="new-price">$38.50 </span>
-                          <span class="old-price">$42.85</span>
+                        <span class="new-price">{{ $product->price }} </span>
+                        <span class="old-price">{{ $product->price * 1.4 }}</span>
                       </div>
                       <div class="pro-add-to-cart-2">
-                          <button title="Add to Cart">Add To Cart</button>
+                        <button title="Ajouter au panier" onclick="event.preventDefault();
+                            document.getElementById('cart-form').submit();">
+                            Ajouter au panier
+                        </button>
                       </div>
                   </div>
               </div>
@@ -324,35 +331,47 @@
                             <div id="product-{{ $sub_category->id}}" class="tab-pane @if($i == 0) {{"active"}} @endif">
 
                                 <div class="product-slider-active-5">
-                                    @foreach ($products_all as $product)
-                                    @if ($product->souscategorie_id == $sub_category->id)
+                                    @foreach ($products_all as $product2)
+                                    @if ($product2->souscategorie_id == $sub_category->id)
                                         <div class="product-plr-1" {{-- comment  style="background-color: red;"--}}>
                                             <div class="single-product-wrap">
                                                 <div class="product-img product-img-zoom mb-15">
-                                                    <a href="{{route('product',['id_product'=>$product->id])}}">
+                                                    <a href="{{route('product',['produit_id'=>$product2->id])}}">
                                                     {{-- image produit --}}
-                                                    <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
+                                                    <img src="users/assets/images/products_images/{{$product2->images->first()->name}}">
                                                     </a>
                                                 </div>
                                                 <div class="product-content-wrap-2 text-center">
-                                                    <h3><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name}} </a></h3>
+                                                    <h3><a href="{{route('product',['produit_id'=>$product2->id])}}"> {{$product2->name}} </a></h3>
                                                     <div class="product-price-2">
-                                                        <span>$38.50</span>
+                                                        <span>{{ $product2->price }} F CFA</span>
                                                     </div>
                                                 </div>
                                                 <div class="product-content-wrap-2 product-content-wrap-2-modify product-content-position text-center">
-                                                    <h3><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name}}</a></h3>
+                                                    <h3><a href="{{route('product',['produit_id'=>$product2->id])}}">{{$product2->name}}</a></h3>
                                                     <div class="product-price-2">
-                                                        <span>$38.50</span>
+                                                        <span>{{ $product2->price }} F CFA</span>
                                                     </div>
                                                     <div class="pro-add-to-cart">
-                                                        <button title="Add to Cart">Add To Cart</button>
+                                                        <form action="{{ route('cart.store') }}" method="post" id="cart-form2">
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{ $product2->id }}">
+                                                            @php
+                                                                // var_dump($product2->id);
+                                                            @endphp
+                                                            <input type="hidden" name="qty" value="1">
+                                                        </form>
+                                                        <button title="Ajouter au panier"
+                                                            onclick="event.preventDefault();
+                                                            document.getElementById('cart-form2').submit()">
+                                                            Ajouter au panier
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     @endif
-                                    @endforeach
+                                @endforeach
 
                                 </div>
                             </div>
@@ -431,5 +450,9 @@
       </div>
   </div>
 </div>
-
+<form action="{{ route('cart.store') }}" method="post" id="cart-form">
+    @csrf
+    <input type="hidden" name="id" value="{{ $product->id }}">
+    <input type="hidden" name="qty" value="1">
+</form>
 @endsection

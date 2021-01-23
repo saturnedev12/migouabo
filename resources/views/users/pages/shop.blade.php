@@ -11,7 +11,11 @@
                             @foreach (\Cart::getContent() as $product)
                             <li class="single-product-cart">
                                 <div class="cart-img">
-                                    <a href="#"><img src="dusers/assets/images/cart/cart-1.jpg" alt=""></a>
+                                    @php
+                                        // dd($product->attributes->image);
+                                        // {{$product->images->first()->name}}
+                                    @endphp
+                                    <a href="#"><img src="users/assets/images/products_images/{{ $product->attributes->image }}" alt=""></a>
                                 </div>
                                 <div class="cart-title">
                                     <h4><a href="#">{{ $product->name }}</a></h4>

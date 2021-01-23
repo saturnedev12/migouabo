@@ -186,7 +186,7 @@
                                                                     <ul>
                                                                         @foreach ($products_all as $product)
                                                                             @if ($product->souscategorie_id == $sub_category->id)
-                                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}"> {{$product->name}} </a></li>
+                                                                                <li><a href="{{route('product',['produit_id'=>$product->id])}}"> {{$product->name}} </a></li>
                                                                             @endif
                                                                         @endforeach
                                                                     </ul>
@@ -303,7 +303,7 @@
                     
                     <div class="cart-checkout-btn">
                         <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
-                        <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="{{ route('checkout') }}">Commander</a>
                     </div>
                 </div>
             </div>
@@ -359,7 +359,7 @@
                                                         <ul class="dropdown">
                                                             @foreach ($products_all as $product)
                                                             @if ($product->souscategorie->name == $sub_category->name)
-                                                                <li><a href="{{route('product',['id_product'=>$product->id])}}">{{$product->name}}</a></li>
+                                                                <li><a href="{{route('product',['produit_id'=>$product->id])}}">{{$product->name}}</a></li>
                                                             @endif
                                                             @endforeach
                                                         </ul>

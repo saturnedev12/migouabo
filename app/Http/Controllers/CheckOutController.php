@@ -18,6 +18,7 @@ class CheckOutController extends Controller
     public function index()
     {
         $user = Auth::user();
+        // dd($user->name);
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();

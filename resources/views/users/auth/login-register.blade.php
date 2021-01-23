@@ -78,9 +78,13 @@
                                               <input type="password" name="password" placeholder="{{ __('Votre mot de passe') }}">
                                               <div class="button-box">
                                                   <div class="login-toggle-btn">
-                                                      <input type="checkbox">
-                                                      <label>Se souvenir de moi</label>
-                                                      <a href="#">Mot de passe oublié?</a>
+                                                      <input type="checkbox" name="remember">
+                                                      <label>{{ __('Se souvenir de moi') }}</label>
+                                                      @if (Route::has('password.request'))   
+                                                        <a href="{{ route('password.request') }}">
+                                                            {{ __('Mot de passe oublié?') }}
+                                                        </a>
+                                                      @endif
                                                   </div>
                                                   <button type="submit">Se connecter</button>
                                               </div>

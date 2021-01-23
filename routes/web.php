@@ -75,13 +75,12 @@ Route::resources([
 
 /* Cart route */
 Route::get('panier', [CartController::class, 'index'])
-      ->name('cart.index')
-      ->middleware('auth');
+      ->name('cart.index');
 Route::post('/panier/ajouter', [CartController::class, 'store'])
-      ->name('cart.store')
-      ->middleware('auth');
+      ->name('cart.store');
 Route::get('/panier/supprimer/{id}', [CartController::class, 'destroy'])->name('cart.delete');
 Route::get('/panier/supprimer_tout', [CartController::class, 'destroyAll'])->name('cart.delete.all');
+// Route::post('/panier/modifier/{id}', [CartController::class, 'update'])->name('cart.update');
 
 /* Wishlist routes */
 
@@ -94,6 +93,6 @@ Route::post('/wishlist/ajouter', [WishlistController::class, 'store'])
 
 /* CheckOut routes */
 
-Route::get('checkout', [CheckOutController::class, 'index'])
+Route::get('commande', [CheckOutController::class, 'index'])
       ->name('checkout')
       ->middleware('auth');

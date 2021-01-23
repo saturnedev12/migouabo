@@ -23,6 +23,10 @@ class CartController extends Controller
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
+        
+        // foreach(\Cart::getContent() as $prod){
+        //     dd($prod);
+        // }
         return view('users.pages.cart', compact(
             'user',
             'categories',
@@ -53,16 +57,19 @@ class CartController extends Controller
         $userId = Auth::user()->id;
         // dd($userId);
         $id = $request->id;
+        // dd($id);
         $qty = $request->qty;
         $product = Produit::find($id);
+        // dd($product);
+        $img_name = $product->images->first()->name;
         // \Cart::session($userId);
         \Cart::add(array(
             'id' => $id,
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => $qty,
-            'attributes' => array(),
-            'associateModel' => $product
+            'attributes' => array('image' => $img_name),
+            'associateModel' => 'Produit'
         ));
         
         return redirect()->back()->with('success', 'Le produit a été ajouté !');
@@ -99,7 +106,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd('modifer');
     }
 
     /**
