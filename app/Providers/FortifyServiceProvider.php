@@ -39,11 +39,11 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::registerView(function() {
             $user = Auth::user();
-            return view('users.auth.login-register', compact('user'));
+            return view('users.auth.register', compact('user'));
         });
         Fortify::loginView(function() {
             $user = Auth::user();
-            return view('users.auth.login-register', compact('user'));
+            return view('users.auth.login', compact('user'));
         });
         Fortify::requestPasswordResetLinkView(function($request) {
             $user = Auth::user();

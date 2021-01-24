@@ -44,7 +44,7 @@
               <div class="breadcrumb-content text-center">
                   <ul>
                       <li>
-                          <a href="index.html">Home</a>
+                          <a href="{{ route('index') }}">Acceuil</a>
                       </li>
                       <li class="active">{{ __('Connexion - Inscription') }} </li>
                   </ul>
@@ -65,34 +65,28 @@
                               </a>
                           </div>
                           <div class="tab-content">
-                              <div id="lg1" class="tab-pane active">
+                            @if(isset($errors) && $errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach($errors->all() as $error)
+                                        <p>{{ $error }}</p>
+                                    @endforeach
+                                </div>
+                            @endif
+                              <div id="lg1" class="tab-pane active">                                                                                          
                                   <div class="login-form-container">
                                       <div class="login-register-form">
                                           <form action="{{ route('login') }}" method="post">
                                             @csrf
                                             <div>
-
                                                 <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{ __('Votre E-mail') }}" required autocomplete="email">
-                                                
-                                                @error('email')
-                                                    <span class="invalid-feedback text-red" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
                                             </div>
                                             <div>
-
                                                 <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="{{ __('Votre mot de passe') }}" required autocomplete="current-password">
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
                                             </div>
                                               <div class="button-box">
                                                   <div class="login-toggle-btn">
-                                                      <input type="checkbox" name="remember">
-                                                      <label>{{ __('Se souvenir de moi') }}</label>
+                                                      <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                      <label for="remember">{{ __('Se souvenir de moi') }}</label>
                                                       @if (Route::has('password.request'))   
                                                         <a href="{{ route('password.request') }}">
                                                             {{ __('Mot de passe oublié?') }}
@@ -110,10 +104,38 @@
                                       <div class="login-register-form">
                                           <form action="{{ route('register') }}" method="post">
                                             @csrf
-                                              <input type="text" name="name" value="{{ old('name') }}" placeholder="{{ __('Nom et prénoms') }}">
-                                              <input type="email" name="email" value="{{ old('email') }}" placeholder="{{ __('E-mail') }}">
-                                              <input type="password" name="password" placeholder="{{ __('Mot de passe') }}">
-                                              <input name="password_confirmation" placeholder="{{ __('Confirmer votre mot de passe') }}" type="password">
+                                            <div>
+                                                <input type="text" name="name" class="@error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="{{ __('Nom et prénoms') }}">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <input type="email" name="email" class="@error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="{{ __('E-mail') }}">
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <input type="password" name="password" class="@error('password') is-invalid @enderror" placeholder="{{ __('Mot de passe') }}">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <input type="password" name="password_confirmation" class="@error('password_confirmation') is-invalid @enderror" placeholder="{{ __('Confirmer votre mot de passe') }}">
+                                                @error('password_confirmation')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
                                               <div class="button-box">
                                                   <button type="submit">{{ __("S'inscrire") }}</button>
                                               </div>
