@@ -86,25 +86,25 @@
                           <div class="shop-bottom-area">
                               <div class="tab-content jump">
                                 @if (isset($search))
-                                    {{--  <div id="shop-1" class="tab-pane active">
+                                    <div id="shop-1" class="tab-pane active">
                                         <div class="row">
                                         <!--zone d'affichage des produits-->
                                         @if ($id_category==null)
-                                            @foreach ($products_all as $produit)
+                                            @foreach ($products as $produit)
                                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                     <div class="single-product-wrap mb-35">
                                                         <div class="product-img product-img-zoom mb-15">
-                                                            <a href="{{route('product',  ['produit_id' => $produit->id])}}">
+                                                            <a href="{{route('product',  ['produit_id' => $produit->p_id])}}">
                                                                 <!--image du produit-->
-                                                                <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
+                                                                <img src="users/assets/images/products_images/{{$produit->img_name}}">
                                                             </a>
                                                             <div class="product-action-2 tooltip-style-2">
                                                                 <form action="{{ route('addToWishlist') }}" method="post">
                                                                     @csrf
-                                                                    <input type="hidden" name="product_id" value="{{ $produit->id }}">
+                                                                    <input type="hidden" name="product_id" value="{{ $produit->p_id }}">
                                                                     <button title="Liste des souhaits"><i class="icon-heart"></i></button>
                                                                 </form>
-                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->p_name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                 <button title="Compare"><i class="icon-refresh"></i></button>
                                                             </div>
                                                         </div>
@@ -119,9 +119,9 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                        <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{$produit->name}}</a></h3>
+                                                        <h3><a href="{{route('product',['produit_id'=>$produit->p_id])}}">{{$produit->p_name}}</a></h3>
                                                             <div class="product-price-2">
-                                                                <span>{{ $produit->price }} F CFA</span>
+                                                                <span>{{ $produit->p_price }} F CFA</span>
                                                             </div>
                                                         </div>
                                                         <div class="product-content-wrap-2 product-content-position text-center">
@@ -135,14 +135,14 @@
                                                                 </div>
                                                                 <span>(2)</span>
                                                             </div>
-                                                            <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{ $produit->name }}</a></h3>
+                                                            <h3><a href="{{route('product',['produit_id'=>$produit->p_id])}}">{{ $produit->p_name }}</a></h3>
                                                             <div class="product-price-2">
-                                                                <span>{{ $produit->price }} F CFA</span>
+                                                                <span>{{ $produit->p_price }} F CFA</span>
                                                             </div>
                                                             <div class="pro-add-to-cart">
                                                                 <form action="{{ route('cart.store') }}" method="post">
                                                                     @csrf
-                                                                    <input type="hidden" name="id" value="{{ $produit->id }}">
+                                                                    <input type="hidden" name="id" value="{{ $produit->p_id }}">
                                                                     <input type="hidden" name="qty" value="1">
                                                                     <button title="Ajouter au panier">Ajouter au panier</button>
                                                                 </form>
@@ -154,18 +154,18 @@
                                         
                                         @else
                                         
-                                            @foreach ($products_all as $produit)
-                                                @if ($produit->souscategorie->categorie->id == $id_category)
+                                            @foreach ($products as $produit)
+                                                @if ($produit->c_id == $id_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                                         <div class="single-product-wrap mb-35">
                                                             <div class="product-img product-img-zoom mb-15">
-                                                                <a href="{{route('product',['produit_id'=>$produit->id])}}">
+                                                                <a href="{{route('product',['produit_id'=>$produit->p_id])}}">
                                                                         <!--image du produit-->
-                                                                        <img src="users/assets/images/products_images/{{$produit->images->first()->name}}">
+                                                                        <img src="users/assets/images/products_images/{{$produit->img_name}}">
                                                                 </a>
                                                                 <div class="product-action-2 tooltip-style-2">
                                                                     <button title="Wishlist"><i class="icon-heart"></i></button>
-                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
+                                                                    <button title="Quick View" data-toggle="modal" data-target="#{{substr($produit->p_name,0,4)}}"><i class="icon-size-fullscreen icons"></i></button>
                                                                     <button title="Compare"><i class="icon-refresh"></i></button>
                                                                 </div>
                                                             </div>
@@ -180,9 +180,9 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                            <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{$produit->name}}</a></h3>
+                                                            <h3><a href="{{route('product',['produit_id'=>$produit->p_id])}}">{{$produit->p_name}}</a></h3>
                                                                 <div class="product-price-2">
-                                                                    <span>{{ $produit->price }} F CFA</span>
+                                                                    <span>{{ $produit->p_price }} F CFA</span>
                                                                 </div>
                                                             </div>
                                                             <div class="product-content-wrap-2 product-content-position text-center">
@@ -196,14 +196,14 @@
                                                                     </div>
                                                                     <span>(2)</span>
                                                                 </div>
-                                                                <h3><a href="{{route('product',['produit_id'=>$produit->id])}}">{{ $produit->name }}</a></h3>
+                                                                <h3><a href="{{route('product',['produit_id'=>$produit->p_id])}}">{{ $produit->p_name }}</a></h3>
                                                                 <div class="product-price-2">
-                                                                    <span>{{ $produit->price }} F CFA</span>
+                                                                    <span>{{ $produit->p_price }} F CFA</span>
                                                                 </div>
                                                                 <div class="pro-add-to-cart">
                                                                     <form action="{{ route('cart.store') }}" method="post">
                                                                         @csrf
-                                                                        <input type="hidden" name="id" value="{{ $produit->id }}">
+                                                                        <input type="hidden" name="id" value="{{ $produit->p_id }}">
                                                                         <input type="hidden" name="qty" value="1">
                                                                         <button title="Ajouter au panier">Ajouter au panier</button>
                                                                     </form>
@@ -215,10 +215,7 @@
                                             @endforeach
                                         @endif
                                         </div>
-                                    </div>  --}}
-                                    champikiloooooooooooooooooooo
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Libero repellat totam culpa consectetur dolores cupiditate beatae perspiciatis! Illo minima reiciendis quis, voluptatum distinctio officia id odio praesentium facilis eum magnam.</p>
-
+                                    </div>                                    
                                 @else
                                     <div id="shop-1" class="tab-pane active">
                                         <div class="row">

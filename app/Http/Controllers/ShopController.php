@@ -39,12 +39,13 @@ class ShopController extends Controller
             if ($s_cat_id == 'all') {
                 // $products = Product::where('name','like', "%$search%")->get();
                 $products = DB::table('categories')
-                            ->select('categories.name as c_name', 'produits.id as p_id', 'produits.name as p_name', 'produits.price as p_price', 'produits.description as p_desc', 'images.name as img_name')
+                            ->select('categories.name as c_name', 'categories.id as c_id' , 'produits.id as p_id', 'produits.name as p_name', 'produits.price as p_price', 'produits.description as p_desc', 'images.name as img_name')
                             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
                             ->join('produits', 'sous_categories.id', '=', 'produits.souscategorie_id')
                             ->join('images', 'images.produit_id', '=', 'produits.id')
                             ->where('produits.name', 'like', "%$search%")
                             ->get();
+                // dd($products);
             }
             else {
                 // $category = Categories::where('name', $category_name)->get();
