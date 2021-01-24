@@ -29,6 +29,7 @@ use App\Http\Controllers\SousCategorieController;
 //pages principales
 Route::get('/',[HomeController::class,'index'])->name('index');//->middleware('auth');
 Route::get('shop',[ShopController::class,'index'])->name('shop');
+// Route::get('shop',[ShopController::class,'searchProduct'])->name('searchProduct');
 Route::get('shop_sub',[ShopController::class,'shop_sub'])->name('shop_sub');
 Route::get('contact',[ContactController::class,'index'])->name('contact');
 //sous pages
@@ -96,3 +97,6 @@ Route::post('/wishlist/ajouter', [WishlistController::class, 'store'])
 Route::get('commande', [CheckOutController::class, 'index'])
       ->name('checkout')
       ->middleware('auth');
+
+/* Search Route */
+// Route::post('shop', [SearchProductController::class, 'searchProduct')->name('searchProduct');

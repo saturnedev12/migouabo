@@ -151,7 +151,8 @@
                                                 @else
                                                     0
                                                 @endif
-                                            </span></a>
+                                            </span>
+                                        </a>
                                     </div>
                                     <div class="same-style-2 same-style-2-font-inc header-cart">
                                         <a class="cart-active" href="#">
@@ -205,23 +206,22 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="categori-search-wrap categori-search-wrap-modify">
-                                    <div class="categori-style-1">
-                                        <select class="nice-select nice-select-style-1">
-                                            <option>toutes les catégories</option>
-                                            <option>Clothing </option>
-                                            <option>T-Shirt</option>
-                                            <option>Shoes</option>
-                                            <option>Jeans</option>
-                                        </select>
-                                    </div>
+                                <div class="categori-search-wrap categori-search-wrap-modify">                      
                                     <div class="search-wrap-3">
-                                        <form action="#">
-                                            <input placeholder="chercher un produit..." type="text">
-                                            <button class='btn'><i class="lnr lnr-magnifier"></i></button>
+                                        <form action="{{ route('shop') }}" method="GET">
+                                            <div class="categori-style-1">
+                                                <select name="cat_s" class="nice-select nice-select-style-1">
+                                                    <option value="all">Toutes les catégories</option>
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }} </option>                                               
+                                                    @endforeach                                           
+                                                </select>
+                                            </div>
+                                            <input name="s" value="{{ request()->input('s') }}" placeholder="chercher un produit..." type="text">
+                                            <button type="submit" class='btn'><i class="lnr lnr-magnifier"></i></button>
                                         </form>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="header-offer-wrap-5">

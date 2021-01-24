@@ -21,22 +21,70 @@ class ShopController extends Controller
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
-        // $wishlist_count = Wishlist::where('user_id', $user->id)->count();
-        // dd($wishlist_count);
-
-        //capture des parametre GET[] de des routes    
         $id_category = $request->get('id_category');
-        //dd($products);
-        return view('users/pages/shop',compact(
+        // dd($request->input('s'));
+        // Récupération du mot saisi par l'utilisateur
+        // $search = $request->input('s');
+        // if(isset($_GET['cat_s']) && $request->input('s') != null)
+        // {
+        //     $search = $request->input('s');
+        //     $s_cat_id = $_GET['cat_s'];
+        // }
+        // dd($search, $s_cat_id);
+
+        if (isset($_GET['cat_s']) && $request->input('s') != null)
+        {
+            $search = $request->input('s');
+            $s_cat_id = $_GET['cat_s'];
+            if ($s_cat_id == 'all') {
+                // $products = Product::where('name','like', "%$search%")->get();
+                $products = DB::table('categories')
+                            ->select('categories.name as c_name', 'produits.id as p_id', 'produits.name as p_name', 'produits.price as p_price', 'produits.description as p_desc', 'images.name as img_name')
+                            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+                            ->join('produits', 'sous_categories.id', '=', 'produits.souscategorie_id')
+                            ->join('images', 'images.produit_id', '=', 'produits.id')
+                            ->where('produits.name', 'like', "%$search%")
+                            ->get();
+            }
+            else {
+                // $category = Categories::where('name', $category_name)->get();
+                
+                $products = DB::table('categories')
+                ->select('categories.name as c_name', 'produits.id as p_id', 'produits.name as p_name', 'produits.price as p_price', 'produits.description as p_desc', 'images.name as img_name')
+                ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+                ->join('produits', 'sous_categories.id', '=', 'produits.souscategorie_id')
+                ->join('images', 'images.produit_id', '=', 'produits.id')
+                ->where('categories.id', $s_cat_id)
+                ->where('produits.name', 'like', "%$search%")
+                ->get();
+                // dd($products);
+            }
+            
+            // dd($search);
+            return view('users/pages/shop', compact(
+                'user',
+                'products',
+                'categories',
+                'products_all',
+                'sub_categorys',
+                'id_category',
+                'search'
+            ));
+        }
+        // else
+        // {
+        //     return back();
+        // }
+        // dd('Il nexiste pas');
+        return view('users/pages/shop', compact(
             'user',
             'categories',
-            'id_category',
-            'sub_categorys',
             'products_all',
-            
-
+            'sub_categorys',
+            'id_category',
         ));
     }
+    
     public function shop_sub(Request $request)
     {
                    //capture de l'auth 
@@ -81,6 +129,67 @@ class ShopController extends Controller
             'sub_categorys',
             'products_all',
             'produit',
+        ));
+    }
+    /**
+     * 
+     */
+    public function searchProduct(Request $request)
+    {
+        $user = Auth::user();
+        $categories = Categorie::all();;
+        $products_all= Produit::all();
+        $sub_categorys = SousCategorie::all();
+        $id_category = $request->get('id_category');
+
+        // Récupération du mot saisi par l'utilisateur
+        $search = $request->input('s');
+        // dd('$search');
+        if(isset($_GET['cat'])){
+
+            $s_cat_id = $_GET['cat'];
+        }
+
+        if (isset($s_cat_id) and !empty($search) )
+        {
+            if ($s_cat_id == 'all') {
+                // $products = Product::where('name','like', "%$search%")->get();
+                $products = DB::table('categories')
+                            ->select('categories.name as c_name', 'produits.id as p_id', 'produits.name as p_name', 'produits.price as p_price', 'produits.description as p_desc', 'images.name as img_name')
+                            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+                            ->join('produits', 'sous_categories.id', '=', 'produits.souscategorie_id')
+                            ->join('images', 'images.produit_id', '=', 'produits.id')
+                            ->where('produits.name', 'like', "%$search%")
+                            ->get();
+            }
+            else {
+                // $category = Categories::where('name', $category_name)->get();
+                
+                $products = DB::table('categories')
+                ->select('categories.name as c_name', 'produits.id as p_id', 'produits.name as p_name', 'produits.price as p_price', 'produits.description as p_desc', 'images.name as img_name')
+                ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+                ->join('produits', 'sous_categories.id', '=', 'produits.souscategorie_id')
+                ->join('images', 'images.produit_id', '=', 'produits.id')
+                ->where('categories.id', $s_cat_id)
+                ->where('produits.name', 'like', "%$search%")
+                ->get();
+                // dd($products);
+            }
+            
+            // dd($category_id);
+        }
+        else
+        {
+            return back();
+        }
+        return view('shop', compact(
+            'user',
+            'products',
+            'categories',
+            'products_all',
+            'sub_categorys',
+            'id_category',
+            'search'
         ));
     }
 }
