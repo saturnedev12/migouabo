@@ -35,7 +35,7 @@
                       </div>
                       <div class="cart-checkout-btn">
                           <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre panier</a>
-                          <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">Commander</a>
+                          <a class="no-mrg btn-hover cart-btn-style" href="{{ route('checkout') }}">Commander</a>
                       </div>
                   </div>
               </div>

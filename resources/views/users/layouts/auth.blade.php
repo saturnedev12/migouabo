@@ -137,10 +137,18 @@
 
                                     </div>
                                     <div class="same-style-2 same-style-2-font-inc">
-                                        <a href="{{ route('wishlist') }}"><i class="icon-heart"></i><span class="pro-count purple">03</span></a>
+                                        <a href="{{ route('wishlist') }}"><i class="icon-heart"></i>
+                                            <span class="pro-count purple">
+                                                @if ($user)
+                                                    {{ App\Models\Wishlist::where('user_id', $user->id)->count() }}
+                                                @else
+                                                    0
+                                                @endif
+                                            </span>
+                                        </a>
                                     </div>
                                     <div class="same-style-2 same-style-2-font-inc header-cart">
-                                        <a class="cart-active" href="#">
+                                        <a class="cart-active" href="{{ route('cart.index') }}">
                                             <i class="icon-basket-loaded"></i><span class="pro-count purple">{{ Cart::getContent()->count() }}</span>
                                             <span class="cart-amount">{{ Cart::getSubTotal() }} F CFA</span>
                                         </a>

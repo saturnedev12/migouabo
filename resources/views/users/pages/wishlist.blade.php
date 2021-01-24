@@ -80,7 +80,7 @@
                                         @foreach ($products as $product)
                                         <tr>
                                             <td class="product-thumbnail">
-                                                <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                                                <a href="#"><img src="users/assets/images/products_images/{{ $product->img_name }}" alt=""></a>
                                             </td>
                                             <td class="product-name"><a href="#">{{ $product->name }}</a></td>
                                             <td class="product-price-cart"><span class="amount">{{ $product->price }}</span></td>

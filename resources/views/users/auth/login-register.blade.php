@@ -1,48 +1,44 @@
-@extends('users/layouts/auth',['title'=>'login'])
+@extends('users/layouts/auth',['title'=>'Inscription - connexion'])
 @section('content')
     
         <!-- mini cart start -->
         <div class="sidebar-cart-active">
-          <div class="sidebar-cart-all">
-              <a class="cart-close" href="#"><i class="icon_close"></i></a>
-              <div class="cart-content">
-                  <h3>Shopping Cart</h3>
-                  <ul>
-                      <li class="single-product-cart">
-                          <div class="cart-img">
-                              <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
-                          </div>
-                          <div class="cart-title">
-                              <h4><a href="#">Simple Black T-Shirt</a></h4>
-                              <span> 1 × $49.00	</span>
-                          </div>
-                          <div class="cart-delete">
-                              <a href="#">×</a>
-                          </div>
-                      </li>
-                      <li class="single-product-cart">
-                          <div class="cart-img">
-                              <a href="#"><img src="users/assets/images/cart/cart-2.jpg" alt=""></a>
-                          </div>
-                          <div class="cart-title">
-                              <h4><a href="#">Norda Backpack</a></h4>
-                              <span> 1 × $49.00	</span>
-                          </div>
-                          <div class="cart-delete">
-                              <a href="#">×</a>
-                          </div>
-                      </li>
-                  </ul>
-                  <div class="cart-total">
-                      <h4>Subtotal: <span>$170.00</span></h4>
-                  </div>
-                  <div class="cart-checkout-btn">
-                      <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
-                      <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
-                  </div>
-              </div>
-          </div>
-      </div>
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="icon_close"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                    @if (\Cart::getContent()->count() == 0)
+                        <p>Vous n'avez pas encore ajouter de produit dans votre panier</p>
+                    @else
+                        @foreach (\Cart::getContent() as $product)
+                      
+                          <li class="single-product-cart">
+                              <div class="cart-img">
+                                  <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
+                              </div>
+                              <div class="cart-title">
+                                  <h4><a href="#">{{$product->name}}</a></h4>
+                                  <span> {{$product->quantity}} × {{$product->price}}	</span>
+                              </div>
+                              <div class="cart-delete">
+                                  <a href="{{ route('cart.delete', ['id' => $product->id ]) }}">×</a>
+                              </div>
+                          </li>
+                      @endforeach
+                    @endif
+                      
+                    </ul>
+                    <div class="cart-total">
+                        <h4>SOUS-TOTAL: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre Panier</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="{{ route('checkout') }}">Commander</a>
+                    </div>
+                </div>
+            </div>
+        </div>
       <div class="breadcrumb-area bg-gray">
           <div class="container">
               <div class="breadcrumb-content text-center">
@@ -74,8 +70,25 @@
                                       <div class="login-register-form">
                                           <form action="{{ route('login') }}" method="post">
                                             @csrf
-                                              <input type="email" name="email" value="{{ old('email') }}" placeholder="{{ __('Votre E-mail') }}">
-                                              <input type="password" name="password" placeholder="{{ __('Votre mot de passe') }}">
+                                            <div>
+
+                                                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{ __('Votre E-mail') }}" required autocomplete="email">
+                                                
+                                                @error('email')
+                                                    <span class="invalid-feedback text-red" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div>
+
+                                                <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="{{ __('Votre mot de passe') }}" required autocomplete="current-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
                                               <div class="button-box">
                                                   <div class="login-toggle-btn">
                                                       <input type="checkbox" name="remember">

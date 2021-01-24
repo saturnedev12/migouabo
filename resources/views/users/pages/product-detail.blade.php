@@ -3,42 +3,44 @@
 @section('content')
         <!-- mini cart start -->
         <div class="sidebar-cart-active">
-          <div class="sidebar-cart-all">
-              <a class="cart-close" href="#"><i class="icon_close"></i></a>
-              <div class="cart-content">
-                  <h3>Shopping Cart</h3>
-                  <ul>
-                  @if (\Cart::getContent()->count() == 0)
-                      <p>Vous n'avez pas encore ajouter de produit dans votre panier</p>
-                  @else
-                      @foreach (\Cart::getContent() as $product)
-                    
-                        <li class="single-product-cart">
-                            <div class="cart-img">
-                                <a href="#"><img src="users/assets/images/cart/cart-1.jpg" alt=""></a>
-                            </div>
-                            <div class="cart-title">
-                                <h4><a href="#">{{$product->name}}</a></h4>
-                                <span> {{$product->quantity}} × {{$product->price}}	</span>
-                            </div>
-                            <div class="cart-delete">
-                                <a href="{{ route('cart.delete', ['id' => $product->id ]) }}">×</a>
-                            </div>
-                        </li>
-                    @endforeach
-                  @endif
-                    
-                  </ul>
-                  <div class="cart-total">
-                      <h4>SOUS-TOTAL: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
-                  </div>
-                  <div class="cart-checkout-btn">
-                      <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre Panier</a>
-                      <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">Commander</a>
-                  </div>
-              </div>
-          </div>
-      </div>
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="icon_close"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        @if (\Cart::getContent()->count() != 0)
+                          @foreach (\Cart::getContent() as $product)
+                          <li class="single-product-cart">
+                              <div class="cart-img">
+                                  @php
+                                      // dd($product->attributes->image);
+                                      // {{$product->images->first()->name}}
+                                  @endphp
+                                  <a href="#"><img src="users/assets/images/products_images/{{ $product->attributes->image }}" alt=""></a>
+                              </div>
+                              <div class="cart-title">
+                                  <h4><a href="#">{{ $product->name }}</a></h4>
+                                  <span> {{$product->quantity}} × {{$product->price}}	</span>
+                              </div>
+                              <div class="cart-delete">
+                                  <a href="{{ route('cart.delete', ['id' => $product->id ]) }}">×</a>
+                              </div>
+                          </li>
+                          @endforeach
+                        @else
+                            <p>Vous n'avez rien ajouté au panier</p>
+                        @endif
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Sous-total: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre panier</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="{{ route('checkout') }}">Commander</a>
+                    </div>
+                </div>
+            </div>
+        </div>
       <div class="breadcrumb-area bg-gray">
           <div class="container">
               <div class="breadcrumb-content text-center">

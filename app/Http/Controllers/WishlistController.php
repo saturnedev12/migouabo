@@ -26,9 +26,14 @@ class WishlistController extends Controller
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
         $products = DB::table('wishlists')
-                        ->leftJoin('produits', 'wishlists.product_id', '=', 'produits.id')
-                        ->where('wishlists.user_id', $userId)
-                        ->get();
+            ->leftJoin('produits', 'wishlists.product_id', '=', 'produits.id')
+            ->join('images', 'wishlists.product_id', '=', 'images.produit_id')
+            ->where('wishlists.user_id', $userId)
+            ->select('produits.*', 'images.name as img_name')
+            ->get();
+        // foreach($products as $prod){
+        //     dd($prod);
+        // }               
         return view('users.pages.wishlist', compact(
             'user',
             'categories',

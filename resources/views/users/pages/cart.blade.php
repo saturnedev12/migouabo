@@ -27,8 +27,8 @@
                         <h4>Sous-total: <span>{{ Cart::getSubTotal() }} F CFA</span></h4>
                     </div>
                     <div class="cart-checkout-btn">
-                        <a class="btn-hover cart-btn-style" href="cart.html">Votre panier</a>
-                        <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">Commander</a>
+                        <a class="btn-hover cart-btn-style" href="{{ route('cart.index') }}">Votre panier</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="{{ route('checkout') }}">Commander</a>
                     </div>
                 </div>
             </div>
@@ -71,16 +71,16 @@
                                                 </td>
                                                 <td class="product-name"><a href="#">{{ $product->name }}</a></td>
                                                 <td class="product-price-cart"><span class="amount">{{ $product->price }} F CFA</span></td>
-                                                <form action="{{ route('cart.update', ['id' => $product->id]) }}" method="post" id="cart_update_{{ $product->id }}">
-                                                    @csrf
+                                                {{--  <form action="{{ route('cart.update', ['id' => $product->id]) }}" method="post" id="cart_update_{{ $product->id }}">  --}}
+                                                    {{--  @csrf  --}}
                                                     <td class="product-quantity pro-details-quality">
                                                         <div class="cart-plus-minus">
                                                             <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $product->quantity }}">
                                                         </div>
                                                     </td>
                                                 
-                                                    <input type="hidden" id="id_cart_product" name="cart_id" value="{{ $product->id }}">
-                                                </form>
+                                                    {{--  <input type="hidden" id="id_cart_product" name="cart_id" value="{{ $product->id }}">  --}}
+                                                {{--  </form>  --}}
                                                 <td class="product-subtotal">{{ $product->quantity * $product->price }}</td>
                                                 <td class="product-remove">
                                                     <a href="{{ route('cart.delete', ['id' => $product->id ]) }}"><i class="icon_close"></i></a>
