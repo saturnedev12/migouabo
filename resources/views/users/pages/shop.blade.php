@@ -284,7 +284,6 @@
                                             @endforeach
                                         
                                         @else
-                                        loulou
                                             @foreach ($products_all as $produit)
                                                 @if ($produit->souscategorie->categorie->id == $id_category)
                                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">

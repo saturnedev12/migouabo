@@ -34,14 +34,14 @@ class HomeController extends Controller
 
         //dd($products_all);
         //dd($user);
+        // dd($products_all);
         return view('users/pages/home',compact(
             'user',
             'categories',
             'sub_categorys',
-            'products_all',
-            
-            
+            'products_all',          
         ));
+
     }
     public function login()
     {

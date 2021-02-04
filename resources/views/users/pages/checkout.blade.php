@@ -55,11 +55,11 @@
         </div>
         <div class="checkout-main-area pt-120 pb-120">
             <div class="container">
-                <div class="customer-zone mb-20">
+                {{--  <div class="customer-zone mb-20">
                     <p class="cart-page-title">Returning customer? <a class="checkout-click1" href="#">Click here to login</a></p>
                     
-                </div>
-                <div class="customer-zone mb-20">
+                </div>  --}}
+                {{--  <div class="customer-zone mb-20">
                     <p class="cart-page-title">Have a coupon? <a class="checkout-click3" href="#">Click here to enter your code</a></p>
                     <div class="checkout-login-info3">
                         <form action="#">
@@ -67,127 +67,95 @@
                             <input type="submit" value="Apply Coupon">
                         </form>
                     </div>
-                </div>
-                <div class="checkout-wrap pt-30">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="billing-info-wrap mr-50">
-                                <h3>Billing Details</h3>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-20">
-                                            <label>First Name <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" value="{{ $user->name }}" disabled>
+                </div>  --}}
+                <form action="{{ route('checkout.store') }}" method="post">
+                    @csrf
+                    <div class="checkout-wrap pt-30">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="billing-info-wrap mr-50">
+                                    <h3>Billing Details</h3>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="billing-info mb-20">
+                                                <label>Nom & Prénom(s) <abbr class="required" title="required">*</abbr></label>
+                                                <input type="text" name="nom_exp" value="{{ $user->name }}" disabled>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-12">
+                                            <div class="billing-info mb-20">
+                                                <label>Adresse <abbr class="required" title="required">*</abbr></label>
+                                                <input class="billing-address" name="adresse_exp" value="{{ old('adresse_exp') }}" placeholder="Ex.: Abidjan, Cocody Danga" type="text">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="billing-info mb-20">
+                                                <label>Numéro de téléphone <abbr class="required" title="required">*</abbr></label>
+                                                <input type="text" name="numero_exp" value="{{ old('numero_exp') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="billing-info mb-20">
+                                                <label>Adresse E-mail <abbr class="required" title="required">*</abbr></label>
+                                                <input type="text" name="email_exp" value="{{ $user->email }}" disabled>
+                                            </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-lg-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Street Address <abbr class="required" title="required">*</abbr></label>
-                                            <input class="billing-address" placeholder="House number and street name" type="text">
-                                            <input placeholder="Apartment, suite, unit etc." type="text">
-                                        </div>
+                                    <div class="additional-info-wrap">
+                                        <label>Order notes</label>
+                                        <textarea name="notes" placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Ville <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Numéro de téléphone <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Adresse E-mail <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" value="{{ $user->email }}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="additional-info-wrap">
-                                    <label>Order notes</label>
-                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="your-order-area">
-                                <h3>Your order</h3>
-                                <div class="your-order-wrap gray-bg-4">
-                                    <div class="your-order-info-wrap">
-                                        <div class="your-order-info">
-                                            <ul>
-                                                <li>Produits <span>Total</span></li>
-                                            </ul>
+                            <div class="col-lg-5">
+                                <div class="your-order-area">
+                                    <h3>Votre commande</h3>
+                                    <div class="your-order-wrap gray-bg-4">
+                                        <div class="your-order-info-wrap">
+                                            <div class="your-order-info">
+                                                <ul>
+                                                    <li>Produits <span>Total</span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="your-order-middle">
+                                                <ul>
+                                                    @foreach (\Cart::getContent() as $product)    
+                                                        <li>{{ $product->name }} X {{ $product->quantity }} <span>{{ $product->quantity * $product->price }} </span></li>
+                                                        {{--  <input type="hidden" name="product_id_{{ $product->id }}" value="{{ $product->id }}">  --}}
+                                                    @endforeach
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="your-order-info order-subtotal">
+                                                <ul>
+                                                    <li>Sous-total <span>{{ \Cart::getSubTotal() }} </span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="your-order-info order-shipping">
+                                                <ul>
+                                                    <li>Shipping <p>{{ $user->email }} </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="your-order-info order-total">
+                                                <ul>
+                                                    <li>Total <span> {{ \Cart::getTotal() }} </span></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class="your-order-middle">
-                                            <ul>
-                                                @foreach (\Cart::getContent() as $product)    
-                                                    <li>{{ $product->name }} X {{ $product->quantity }} <span>{{ $product->quantity * $product->price }} </span></li>
-                                                @endforeach
-                                                
-                                            </ul>
-                                        </div>
-                                        <div class="your-order-info order-subtotal">
-                                            <ul>
-                                                <li>Sous-total <span>{{ \Cart::getSubTotal() }} </span></li>
-                                            </ul>
-                                        </div>
-                                        <div class="your-order-info order-shipping">
-                                            <ul>
-                                                <li>Shipping <p>Enter your full address </p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="your-order-info order-total">
-                                            <ul>
-                                                <li>Total <span>$273.00 </span></li>
-                                            </ul>
-                                        </div>
+                                        
                                     </div>
-                                    <div class="payment-method">
-                                        <div class="pay-top sin-payment">
-                                            <input id="payment_method_1" class="input-radio" type="radio" value="cheque" checked="checked" name="payment_method">
-                                            <label for="payment_method_1"> Direct Bank Transfer </label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
-                                        <div class="pay-top sin-payment">
-                                            <input id="payment-method-2" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                            <label for="payment-method-2">Check payments</label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
-                                        <div class="pay-top sin-payment">
-                                            <input id="payment-method-3" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                            <label for="payment-method-3">Cash on delivery </label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
-                                        <div class="pay-top sin-payment sin-payment-3">
-                                            <input id="payment-method-4" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                            <label for="payment-method-4">PayPal <img alt="" src="assets/images/icon-img/payment.png"><a href="#">What is PayPal?</a></label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
+                                    <div class="Place-order">
+                                        {{--  <a href="#">Place Order</a>  --}}
+                                        <button type="submit">Place Order</button>
                                     </div>
-                                </div>
-                                <div class="Place-order">
-                                    <a href="#">Place Order</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="subscribe-area bg-gray pt-115 pb-115">

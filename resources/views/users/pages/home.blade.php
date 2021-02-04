@@ -170,7 +170,7 @@
                      <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
                      
                       </a>
-                      <span class="pro-badge left bg-red">-40%</span>
+                      <span class="pro-badge left bg-red">-40% {{ $product->id }} </span>
                       <div class="product-action-2 tooltip-style-2">
                         <form action="{{ route('addToWishlist') }}" method="post">
                             @csrf
@@ -221,10 +221,15 @@
                         <span class="old-price">{{ $product->price * 1.4 }}</span>
                       </div>
                       <div class="pro-add-to-cart-2">
-                        <button title="Ajouter au panier" onclick="event.preventDefault();
-                            document.getElementById('cart-form').submit();">
-                            Ajouter au panier
+                        <form action="{{ route('cart.store') }}" method="post" id="cart-f">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="qty" value="1">
+                            <button title="Ajouter au panier" type="submit">
+                            Ajouter au panier {{ $product->id }}
                         </button>
+                        </form>
+                        
                       </div>
                   </div>
               </div>
@@ -360,12 +365,11 @@
                                                                 // var_dump($product2->id);
                                                             @endphp
                                                             <input type="hidden" name="qty" value="1">
+                                                            <button title="Ajouter au panier">
+                                                                Ajouter au panier
+                                                            </button>
                                                         </form>
-                                                        <button title="Ajouter au panier"
-                                                            onclick="event.preventDefault();
-                                                            document.getElementById('cart-form2').submit()">
-                                                            Ajouter au panier
-                                                        </button>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -450,9 +454,5 @@
       </div>
   </div>
 </div>
-<form action="{{ route('cart.store') }}" method="post" id="cart-form">
-    @csrf
-    <input type="hidden" name="id" value="{{ $product->id }}">
-    <input type="hidden" name="qty" value="1">
-</form>
+
 @endsection

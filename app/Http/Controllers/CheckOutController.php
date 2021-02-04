@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Produit;
 use App\Models\Categorie;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Models\SousCategorie;
 use Illuminate\Support\Facades\Auth;
@@ -48,7 +50,29 @@ class CheckOutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $order = Order::create([
+            'number' => $request->numero_exp,
+            'status' => 0,
+            'user_id' => Auth::user()->id,
+            'shipping_address' => $request->adresse_exp,
+            'notes' => $request->notes,
+        ]);
+
+        // $orderId = Order::last();
+        
+        foreach(\Cart::getContent() as $produit)
+        {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'produit_id' => $produit->id,
+                'name' => $produit->name,
+                'quantity' => $produit->quantity,
+                'price' => $produit->price,
+            ]);
+        }
+
+        return redirect()->back();
     }
 
     /**

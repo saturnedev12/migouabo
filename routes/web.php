@@ -97,6 +97,9 @@ Route::post('/wishlist/ajouter', [WishlistController::class, 'store'])
 Route::get('commande', [CheckOutController::class, 'index'])
       ->name('checkout')
       ->middleware('auth');
+Route::post('commande/ajouter', [CheckOutController::class, 'store'])
+      ->name('checkout.store')
+      ->middleware('auth');
 
 /* Search Route */
 // Route::post('shop', [SearchProductController::class, 'searchProduct')->name('searchProduct');

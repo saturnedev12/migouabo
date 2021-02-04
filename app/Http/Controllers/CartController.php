@@ -54,7 +54,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         // dd($request->id, $request->name, $request->price, $request->qtybutton);
-        $userId = Auth::user()->id;
+        //$userId = Auth::user()->id;
         // dd($userId);
         $id = $request->id;
         // dd($id);
@@ -72,6 +72,7 @@ class CartController extends Controller
             'associateModel' => 'Produit'
         ));
         
+        // dd($request);
         return redirect()->back()->with('success', 'Le produit a été ajouté !');
     }
 
