@@ -53,7 +53,7 @@ class CheckOutController extends Controller
 
         $this->validate($request, [
             'adresse_exp' => 'required|max:255',
-            'numero_exp' => 'required|integer|max:10',
+            'numero_exp' => 'required|integer',
         ]);
         $order = Order::create([
             'number' => $request->numero_exp,
@@ -68,7 +68,7 @@ class CheckOutController extends Controller
         foreach(\Cart::getContent() as $produit)
         {
             OrderItem::create([
-                'order_id' => $order->id,
+                'order_id' => $order->id, // j'ajoute le dernier id de la table order
                 'produit_id' => $produit->id,
                 'name' => $produit->name,
                 'quantity' => $produit->quantity,

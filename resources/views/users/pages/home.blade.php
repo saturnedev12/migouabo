@@ -170,7 +170,7 @@
                      <img src="users/assets/images/products_images/{{$product->images->first()->name}}">
                      
                       </a>
-                      <span class="pro-badge left bg-red">-40% {{ $product->id }} </span>
+                      <span class="pro-badge left bg-red">-40%</span>
                       <div class="product-action-2 tooltip-style-2">
                         <form action="{{ route('addToWishlist') }}" method="post">
                             @csrf
@@ -226,7 +226,7 @@
                             <input type="hidden" name="id" value="{{ $product->id }}">
                             <input type="hidden" name="qty" value="1">
                             <button title="Ajouter au panier" type="submit">
-                            Ajouter au panier {{ $product->id }}
+                            Ajouter au panier
                         </button>
                         </form>
                         

@@ -106,7 +106,7 @@
                         </form>
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
-                                <div class="cart-tax">
+                                {{-- <div class="cart-tax">
                                     <div class="title-wrap">
                                         <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
                                     </div>
@@ -146,10 +146,10 @@
                                             <button class="cart-btn-2" type="submit">Get A Quote</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-lg-4 col-md-6">
-                                <div class="discount-code-wrapper">
+                                {{-- <div class="discount-code-wrapper">
                                     <div class="title-wrap">
                                         <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
                                     </div>
@@ -160,7 +160,7 @@
                                             <button class="cart-btn-2" type="submit">Apply Coupon</button>
                                         </form>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-lg-4 col-md-12">
                                 <div class="grand-totall">
@@ -168,16 +168,16 @@
                                         <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                                     </div>
                                     <h5>Total des produits <span>{{ \Cart::getTotal()}} F CFA</span></h5>
-                                    <div class="total-shipping">
+                                    {{-- <div class="total-shipping">
                                         <h5>Total shipping</h5>
                                         <form action="" method="post">
                                             <ul>
                                                 <li><input type="radio" name="shipping"> Standard <span>1000 F CFA</span></li>
-                                                <li><input type="radio" name="shipping"> Express <span>2000 F CFA</span></li>
+                                                <li><input type="radio" name="shipping"> Express <span>2000 F CFA</span></li> --}}
                                                 {{--  <li><input type="radio" name="radio1" id="radio1"><span>Autre express</span> </li>  --}}
-                                            </ul>
+                                            {{-- </ul>
                                         </form>
-                                    </div>
+                                    </div> --}}
                                     <h4 class="grand-totall-title">Grand Total 
                                         <span>
                                             @php

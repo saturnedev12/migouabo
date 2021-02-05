@@ -58,6 +58,7 @@ return [
     'image'                => 'Le champ :attribute doit être une image.',
     'in'                   => 'Le champ :attribute est invalide.',
     'in_array'             => "Le champ :attribute n'existe pas dans :other.",
+    // 'integer'              => 'Le champ :attribute doit être un entier.',
     'integer'              => 'Le champ :attribute doit être un entier.',
     'ip'                   => 'Le champ :attribute doit être une adresse IP valide.',
     'ipv4'                 => 'Le champ :attribute doit être une adresse IPv4 valide.',
@@ -108,7 +109,8 @@ return [
     'size'                 => [
         'numeric' => 'La valeur de :attribute doit être :size.',
         'file'    => 'La taille du fichier de :attribute doit être de :size kilo-octets.',
-        'string'  => 'Le texte de :attribute doit contenir :size caractères.',
+        // 'string'  => 'Le texte de :attribute doit contenir :size caractères.',
+        'string'  => 'Votre numéro doit contenir exactement :size chiffres.',
         'array'   => 'Le tableau :attribute doit contenir :size éléments.',
     ],
     'starts_with'          => 'Le champ :attribute doit commencer avec une des valeurs suivantes : :values',
