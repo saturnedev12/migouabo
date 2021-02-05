@@ -86,14 +86,24 @@
                                         <div class="col-lg-12">
                                             <div class="billing-info mb-20">
                                                 <label>Adresse <abbr class="required" title="required">*</abbr></label>
-                                                <input class="billing-address" name="adresse_exp" value="{{ old('adresse_exp') }}" placeholder="Ex.: Abidjan, Cocody Danga" type="text">
+                                                <input class="billing-address @error('adresse_exp') is-invalid @enderror" name="adresse_exp" value="{{ old('adresse_exp') }}" placeholder="Ex.: Abidjan, Cocody Danga" type="text">
+                                                @error('adresse_exp')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         
                                         <div class="col-lg-12 col-md-12">
                                             <div class="billing-info mb-20">
                                                 <label>Numéro de téléphone <abbr class="required" title="required">*</abbr></label>
-                                                <input type="text" name="numero_exp" value="{{ old('numero_exp') }}">
+                                                <input type="text" name="numero_exp" class="@error('numero_exp') is-invalid @enderror" value="{{ old('numero_exp') }}">
+                                                @error('numero_exp')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">

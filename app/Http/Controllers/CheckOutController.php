@@ -51,6 +51,10 @@ class CheckOutController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request, [
+            'adresse_exp' => 'required|max:255',
+            'numero_exp' => 'required|integer|max:10',
+        ]);
         $order = Order::create([
             'number' => $request->numero_exp,
             'status' => 0,
@@ -71,7 +75,11 @@ class CheckOutController extends Controller
                 'price' => $produit->price,
             ]);
         }
+        $items = \Cart::getContent();
+        foreach($items as $item){
 
+            \Cart::remove($item->id);
+        }
         return redirect()->back();
     }
 
