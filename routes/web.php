@@ -14,6 +14,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\SousCategorieController;
 
 /*
@@ -103,3 +104,5 @@ Route::post('commande/ajouter', [CheckOutController::class, 'store'])
 
 /* Search Route */
 // Route::post('shop', [SearchProductController::class, 'searchProduct')->name('searchProduct');
+Route::get('mon-compte', [MyAccountController::class, 'index'])
+      ->name('myAccount.index');
