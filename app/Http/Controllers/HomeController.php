@@ -14,7 +14,6 @@ use App\Models\Produit;
 class HomeController extends Controller
 {
     public function index(){
-       
         /*
             User::all(); recuperer tout les utilisateur
             Auth::user(); recuperer l'auth courant
@@ -31,7 +30,6 @@ class HomeController extends Controller
         $categories = Categorie::all();;
         $products_all= Produit::all();
         $sub_categorys = SousCategorie::all();
-
         //dd($products_all);
         //dd($user);
         // dd($products_all);
